@@ -1,0 +1,32 @@
+# Reading D:/modelsim_win64/tcl/vsim/pref.tcl
+# error: Layout::Clairvoyance can't read "map(')": no such element in array
+# can't read "map(')": no such element in array
+#     while executing
+# "Layout::Clairvoyance"
+# error stack: INNER
+# invokeStk1 Layout::Clairvoyance
+# CALL
+# GUIMAIN
+# //  ModelSim SE-64 2019.2 Apr 17 2019
+# //
+# //  Copyright 1991-2019 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -gui E:\å¤§ä¸ä¸_è¯¾ç¨æå³\ç³»ç»ç¡¬ä»¶ç»¼åè®¾è®¡\CPU_WH\CPU_WH.mpf 
+# Start time: 09:11:59 on Sep 07,2020
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit E:\Ã¥Â¤Â§Ã¤Â¸ÂÃ¤Â¸Â_Ã¨Â¯Â¾Ã§Â¨ÂÃ¦ÂÂÃ¥ÂÂ³\Ã§Â³Â»Ã§Â»ÂÃ§Â¡Â¬Ã¤Â»Â¶Ã§Â»Â¼Ã¥ÂÂÃ¨Â®Â¾Ã¨Â®Â¡\CPU_WH\CPU_WH.mpf.
+#         Searched libraries:
+#             work
+# Optimization failed
+# Error loading design
+# End time: 09:12:01 on Sep 07,2020, Elapsed time: 0:00:02
+# Errors: 2, Warnings: 0

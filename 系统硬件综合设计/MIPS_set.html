@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="kyle"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>常用MIPS指令</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <meta name="description"
+          content="常用MIPS指令, Linux, Dev,硬件,             指令      功能      应用实例                  LB      从存储器中读取一个字节的数据到寄存器中      LB R1, 0(R2)              LH      从存储器中读取半个字的数据到寄存器中      LH R1, 0(R2)    ..."/>
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="/favicon.ico"/>
+
+    <link rel="canonical" href="/2017-09-07-mips_instruction"/>
+    <link rel="alternate" type="application/rss+xml" title="kyle's blog" href="/rss.xml"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/octicons/octicons.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/highlight.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/post.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/category.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/themes/cardish/css/style.css">
+
+    <!-- Script -->
+    <script type="text/javascript" src="/assets/themes/cardish/js/jquery.js"></script>
+    <script type="text/javascript" src="/assets/themes/cardish/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/cardish/js/script.js"></script>
+    <script type="text/javascript" src="/assets/themes/cardish/js/post.js"></script>
+    <script type="text/javascript" src="/assets/themes/cardish/js/toc.js"></script>
+    <script type="text/javascript" src="/assets/themes/cardish/js/category.js"></script>
+
+    <!-- Analytics -->
+    
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-63026661-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+</head>
+
+<body>   
+<div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+            <header>
+                
+                <h2>常用MIPS指令</h2>
+            </header>
+            <hr class="boundary">
+            <div class="content-navigation-list toc"></div>
+            
+            <article>
+			    <table border=1px>
+  <thead>
+    <tr>
+      <th>指令</th>
+      <th>功能</th>
+      <th>应用实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LB</td>
+      <td>从存储器中读取一个字节的数据到寄存器中</td>
+      <td>LB R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LH</td>
+      <td>从存储器中读取半个字的数据到寄存器中</td>
+      <td>LH R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LW</td>
+      <td>从存储器中读取一个字的数据到寄存器中</td>
+      <td>LW R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LD</td>
+      <td>从存储器中读取双字的数据到寄存器中</td>
+      <td>LD R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>L.S</td>
+      <td>从存储器中读取单精度浮点数到寄存器中</td>
+      <td>L.S R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>L.D</td>
+      <td>从存储器中读取双精度浮点数到寄存器中</td>
+      <td>L.D R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LBU</td>
+      <td>功能与LB指令相同，但读出的是不带符号的数据</td>
+      <td>LBU R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LHU</td>
+      <td>功能与LH指令相同，但读出的是不带符号的数据</td>
+      <td>LHU R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>LWU</td>
+      <td>功能与LW指令相同，但读出的是不带符号的数据</td>
+      <td>LWU R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>SB</td>
+      <td>把一个字节的数据从寄存器存储到存储器中</td>
+      <td>SB R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>SH</td>
+      <td>把半个字节的数据从寄存器存储到存储器中</td>
+      <td>SH R1，0(R2)</td>
+    </tr>
+    <tr>
+      <td>SW</td>
+      <td>把一个字的数据从寄存器存储到存储器中</td>
+      <td>SW R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>SD</td>
+      <td>把两个字节的数据从寄存器存储到存储器中</td>
+      <td>SD R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>S.S</td>
+      <td>把单精度浮点数从寄存器存储到存储器中</td>
+      <td>S.S R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>S.D</td>
+      <td>把双精度数据从存储器存储到存储器中</td>
+      <td>S.D R1, 0(R2)</td>
+    </tr>
+    <tr>
+      <td>DADD</td>
+      <td>把两个定点寄存器的内容相加，也就是定点加</td>
+      <td>DADD R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>DADDI</td>
+      <td>把一个寄存器的内容加上一个立即数</td>
+      <td>DADDI R1,R2,#3</td>
+    </tr>
+    <tr>
+      <td>DADDU</td>
+      <td>不带符号的加</td>
+      <td>DADDU R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>DADDIU</td>
+      <td>把一个寄存器的内容加上一个无符号的立即数</td>
+      <td>DADDIU R1,R2,#3</td>
+    </tr>
+    <tr>
+      <td>ADD.S</td>
+      <td>把一个单精度浮点数加上一个双精度浮点数，结果是单精度浮点数</td>
+      <td>ADD.S F0,F1,F2</td>
+    </tr>
+    <tr>
+      <td>ADD.D</td>
+      <td>把一个双精度浮点数加上一个单精度浮点数，结果是双精度浮点数</td>
+      <td>ADD.D F0,F1,F2</td>
+    </tr>
+    <tr>
+      <td>ADD.PS</td>
+      <td>两个单精度浮点数相加，结果是单精度浮点数</td>
+      <td>ADD.PS F0,F1,F2</td>
+    </tr>
+    <tr>
+      <td>DSUB</td>
+      <td>两个寄存器的内容相减，也就是定点数的减</td>
+      <td>DSUB R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>DSUBU</td>
+      <td>不带符号的减</td>
+      <td>DSUBU R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>SUB.S</td>
+      <td>一个双精度浮点数减去一个单精度浮点数，结果为单精度</td>
+      <td>SUB.S F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>SUB.D</td>
+      <td>一个双精度浮点数减去一个单精度浮点数，结果为双精度浮点数</td>
+      <td>SUB.D F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>SUB.PS</td>
+      <td>两个单精度浮点数相减</td>
+      <td>SUB.SP F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>DDIV</td>
+      <td>两个定点寄存器的内容相除，也就是定点除</td>
+      <td>DDIV Ｒ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>DDIVU</td>
+      <td>不带符号的除法运算</td>
+      <td>DDIVU Ｒ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>DIV.S</td>
+      <td>一个双精度浮点数除以一个单精度浮点数，结果为单精度浮点数</td>
+      <td>DIV.S F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>DIV.D</td>
+      <td>一个双精度浮点数除以一个单精度浮点数，结果为双精度浮点数</td>
+      <td>DIV.D F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>DIV.PS</td>
+      <td>两个单精度浮点数相除，结果为单精度</td>
+      <td>DIV.PS F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>DMUL</td>
+      <td>两个定点寄存器的内容相乘，也就是定点乘</td>
+      <td>DMUL Ｒ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>DMULU</td>
+      <td>不带符号的乘法运算</td>
+      <td>DMULU R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>MUL.S</td>
+      <td>一个双精度浮点数乘以一个单精度浮点数，结果为单精度浮点数</td>
+      <td>DMUL.S F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>MUL.D</td>
+      <td>一个双精度浮点数乘以一个单精度浮点数，结果为双精度浮点数</td>
+      <td>DMUL.D F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>MUL.PS</td>
+      <td>两个单精度浮点数相乘，结果为单精度浮点数</td>
+      <td>DMUL.PS F1,F2,F3</td>
+    </tr>
+    <tr>
+      <td>AND</td>
+      <td>与运算，两个寄存器中的内容相与</td>
+      <td>ANDＲ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>ANDI</td>
+      <td>一个寄存器中的内容与一个立即数相与</td>
+      <td>ANDIＲ1,Ｒ2,#3</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>或运算，两个寄存器中的内容相或</td>
+      <td>ORＲ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>ORI</td>
+      <td>一个寄存器中的内容与一个立即数相或</td>
+      <td>ORIＲ1,Ｒ2,#3</td>
+    </tr>
+    <tr>
+      <td>XOR</td>
+      <td>异或运算，两个寄存器中的内容相异或</td>
+      <td>XORＲ1,Ｒ2,Ｒ3</td>
+    </tr>
+    <tr>
+      <td>XORI</td>
+      <td>一个寄存器中的内容与一个立即数异或</td>
+      <td>XORIＲ1,Ｒ2,#3</td>
+    </tr>
+    <tr>
+      <td>BEQZ</td>
+      <td>条件转移指令，当寄存器中内容为0时转移发生</td>
+      <td>BEQZ R1,0</td>
+    </tr>
+    <tr>
+      <td>BENZ</td>
+      <td>条件转移指令，当寄存器中内容不为0时转移发生</td>
+      <td>BNEZ R1,0</td>
+    </tr>
+    <tr>
+      <td>BEQ</td>
+      <td>条件转移指令，当两个寄存器内容相等时转移发生</td>
+      <td>BEQ R1,R2</td>
+    </tr>
+    <tr>
+      <td>BNE</td>
+      <td>条件转移指令，当两个寄存器中内容不等时转移发生</td>
+      <td>BNE R1,R2</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>直接跳转指令，跳转的地址在指令中</td>
+      <td>J name</td>
+    </tr>
+    <tr>
+      <td>JR</td>
+      <td>使用寄存器的跳转指令，跳转地址在寄存器中</td>
+      <td>JR R1</td>
+    </tr>
+    <tr>
+      <td>JAL</td>
+      <td>直接跳转指令，并带有链接功能，指令的跳转地址在指令中，跳转发生时要把返回地址存放到R31这个寄存器中</td>
+      <td>JAL R1 name</td>
+    </tr>
+    <tr>
+      <td>JALR</td>
+      <td>使用寄存器的跳转指令，并且带有链接功能，指令的跳转地址在寄存器中，跳转发生时指令的放回地址放在R31这个寄存器中</td>
+      <td>JALR R1</td>
+    </tr>
+    <tr>
+      <td>MOV.S</td>
+      <td>把一个单精度浮点数从一个浮点寄存器复制到另一个浮点寄存器</td>
+      <td>MOV.S F0,F1</td>
+    </tr>
+    <tr>
+      <td>MOV.D</td>
+      <td>把一个双精度浮点数从一个浮点寄存器复制到另一个浮点寄存器</td>
+      <td>MOV.D F0,F1</td>
+    </tr>
+    <tr>
+      <td>MFC0</td>
+      <td>把一个数据从通用寄存器复制到特殊寄存器</td>
+      <td>MFC0 R1,R2</td>
+    </tr>
+    <tr>
+      <td>MTC0</td>
+      <td>把一个数据从特殊寄存器复制到通用寄存器</td>
+      <td>MTC0 R1,R2</td>
+    </tr>
+    <tr>
+      <td>MFC1</td>
+      <td>把一个数据从定点寄存器复制到浮点寄存器</td>
+      <td>MFC1 R1,F1</td>
+    </tr>
+    <tr>
+      <td>MTC1</td>
+      <td>把一个数据从浮点寄存器复制到定点寄存器</td>
+      <td>MTC1 R1,F1</td>
+    </tr>
+    <tr>
+      <td>LUI</td>
+      <td>把一个16位的立即数填入到寄存器的高16位，低16位补零</td>
+      <td>LUI R1,#42</td>
+    </tr>
+    <tr>
+      <td>DSLL</td>
+      <td>双字逻辑左移</td>
+      <td>DSLL R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>DSRL</td>
+      <td>双字逻辑右移</td>
+      <td>DSRL R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>DSRA</td>
+      <td>双字算术右移</td>
+      <td>DSRA R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>DSLLV</td>
+      <td>可变的双字逻辑左移</td>
+      <td>DSLLV R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>DSRLV</td>
+      <td>可变的双字逻辑右移</td>
+      <td>DSRLV R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>DSRAV</td>
+      <td>可变的双字算术右移</td>
+      <td>DSRAV R1,R2,#2</td>
+    </tr>
+    <tr>
+      <td>SLT</td>
+      <td>如果R2的值小于R3，那么设置R1的值为1，否则设置R1的值为0</td>
+      <td>SLT R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>SLTI</td>
+      <td>如果寄存器R2的值小于立即数，那么设置R1的值为1，否则设置寄存器R1的值为0</td>
+      <td>SLTI R1,R2,#23</td>
+    </tr>
+    <tr>
+      <td>SLTU</td>
+      <td>功能与SLT一致，但是带符号的</td>
+      <td>SLTU R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>SLTUI</td>
+      <td>功能与SLT一致，但不带符号</td>
+      <td>SLTUI R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>MOVN</td>
+      <td>如果第三个寄存器的内容为负，那么复制一个寄存器的内容到另外一个寄存器</td>
+      <td>MOVN R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>MOVZ</td>
+      <td>如果第三个寄存器的内容为0，那么复制一个寄存器的内容到另外一个寄存器</td>
+      <td>MOVZ R1,R2,R3</td>
+    </tr>
+    <tr>
+      <td>TRAP</td>
+      <td>根据地址向量转入管态</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ERET</td>
+      <td>从异常中返回到用户态</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>MADD.S</td>
+      <td>一个双精度浮点数与单精度浮点数相乘加，结果为单精度</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>MADD.D</td>
+      <td>一个双精度浮点数与单精度浮点数相乘加，结果为双精度</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>MADD.PS</td>
+      <td>两个单精度浮点数相乘加，结果为单精度</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<hr />
+
+<table border=1px>
+  <thead>
+    <tr>
+      <th>指令</th>
+      <th>功能</th>
+      <th>应用实例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lb/lh/lw</td>
+      <td>从存储器中读取一个byte/half word/word的数据到寄存器中</td>
+      <td>如 lb 1,0(2)</td>
+    </tr>
+    <tr>
+      <td>sb/sh/sw</td>
+      <td>把一个byte/half word/word的数据从寄存器存储到存储器中</td>
+      <td>如 sb 1,0(2)</td>
+    </tr>
+    <tr>
+      <td>add/addu</td>
+      <td>把两个定点寄存器的内容相加add 1,2,3(1=2+3);u为不带符号加。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addi/addiu</td>
+      <td>把一个寄存器的内容加上一个立即数add 1,2,#3(1=2+3);u为不带符号加。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sub/subu</td>
+      <td>把两个定点寄存器的内容相减。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>div/divu</td>
+      <td>两个定点寄存器的内容相除。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>mul/mulu</td>
+      <td>两个定点寄存器的内容相乘。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>and/andi</td>
+      <td>与运算，两个寄存器中的内容相与and 1,2,3(1=2 &amp;3);i为立即数。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>or/ori</td>
+      <td>或运算。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>xor/xori</td>
+      <td>异或运算。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>beq/beqz/benz/bne</td>
+      <td>条件转移eq相等，z零，ne不等。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>j/jr/jal/jalr</td>
+      <td>j直接跳转；jr使用寄存器跳转；</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lui</td>
+      <td>把一个16位的立即数填入到寄存器的高16位，低16位补零。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sll/srl</td>
+      <td>逻辑左移/右移sll 1,2,#2。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>slt/slti/sltui</td>
+      <td>如果2的值小于3，那么设置1的值为1，否则设置1的值为0。slt 1,2,$3。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>mov/movz/movn</td>
+      <td>复制，n为负，z为零。mov 1,2; movz 1,2,3(3为零则复制2到1)。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>trap</td>
+      <td>根据地址向量转入管态。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>eret</td>
+      <td>从异常中返回到用户态。</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+            </article>
+            
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            
+
+
+  <div id="ds-thread" class="ds-thread" data-url="/2017-09-07-mips_instruction" data-title="常用MIPS指令" data-thread-key="常用MIPS指令"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name: 'kyle'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="content-navigation col-lg-3">
+        <div class="shadow-bottom-center">
+           
+            <div class="content-navigation-tag">
+                <div class="content-navigation-header">
+                    <span class="octicon octicon-list-unordered"></span>&nbsp;文章标签
+                </div>
+                <div class="content-navigation-list">
+                    <ul>
+                        
+                        <li>
+                            <a>
+                                <span  class="octicon octicon-tag"></span>&nbsp;Dev
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a>
+                                <span  class="octicon octicon-tag"></span>&nbsp;硬件
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer class="footnote footnote-tiffany">
+    <div class="container">
+        <a class="foot-item" href="mailto:lwang998@gmail.com" target="_blank">
+            <span class="octicon octicon-mail"></span>
+        </a>
+        <a class="foot-item" href="https://github.com/e-mailky" target="_blank">
+            <span class="octicon octicon-mark-github"></span>
+        </a>
+        <a class="foot-item" href="/rss.xml"  target="_blank">
+            <span class="octicon octicon-rss"></span>
+        </a>
+        <a href="https://e-mailky.github.io/">
+            <span class="word-keep">&nbsp;&copy; kyle</span>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

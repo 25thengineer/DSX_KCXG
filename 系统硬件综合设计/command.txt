@@ -1,0 +1,9 @@
+mips-sde-elf-as –mips32 test3.s –o test3.o
+
+mips-sde-elf-ld –T ram.ld test3.o –o test3.om
+
+mips-sde-elf-readelf –l test3.om
+
+mips-sde-elf-objcopy –O binary test3.om test3.bin
+
+./Bin2Mem.exe –f test3.bin –o test3.data
