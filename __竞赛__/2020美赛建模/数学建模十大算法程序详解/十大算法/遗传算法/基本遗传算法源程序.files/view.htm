@@ -1,0 +1,1298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://bbs.matwav.com/post/view?bid=7&id=22932&sty=1&tpg=1&age=0 -->
+<HTML><HEAD><TITLE>研学论坛 - 基本遗传算法源程序</TITLE>
+<META http-equiv=Expires content=0>
+<META http-equiv=Content-Type content=text/html;charset=GBK>
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+P {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+TD {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; COLOR: #000000; WORD-BREAK: break-all; FONT-FAMILY: Tahoma,Georgia
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+A {
+	TEXT-DECORATION: underline
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #000080; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.head {
+	BACKGROUND-COLOR: #5d7790
+}
+.neck {
+	BACKGROUND-COLOR: #d1d9e2
+}
+.odd {
+	BACKGROUND-COLOR: #e3e3e3
+}
+.even {
+	BACKGROUND-COLOR: #f7f7f7
+}
+.nav {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:visited {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.nav:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic {
+	TEXT-DECORATION: none
+}
+.topic:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.topic:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.topic:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:link {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:visited {
+	COLOR: #004080; TEXT-DECORATION: underline
+}
+.ilink:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.mod {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.mod:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.mod:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd {
+	COLOR: #808080; TEXT-DECORATION: none
+}
+.thd:link {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:visited {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.curpage {
+	FONT-SIZE: 9px; COLOR: #ffffff; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:link {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:visited {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:active {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:hover {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.subject {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.codeStyle {
+	PADDING-RIGHT: 0.5em; MARGIN-TOP: 1em; PADDING-LEFT: 0.5em; FONT-SIZE: 9pt; MARGIN-BOTTOM: 1em; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0pt; COLOR: #ffffff; PADDING-TOP: 0.5em; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #000000
+}
+.smalltext {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.verysmalltext {
+	FONT-SIZE: 4px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.member {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma,Georgia
+}
+.btnStyle {
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #e9e9e9; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #e9e9e9; CURSOR: hand; COLOR: #ffffff; BORDER-TOP-COLOR: #e9e9e9; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #5d7790; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #e9e9e9
+}
+.selStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+.inpStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+</STYLE>
+
+<SCRIPT>
+if(parent==this) {
+	url = 'http://bbs.matwav.com/index.jsp?url='+escape(window.location.href);
+	window.location=url;
+}
+function jumpTo(b)
+{
+	javascript:window.location.hash=b;
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#000080 aLink=#ff0000 link=#000000 bgColor=#ffffff><A 
+name=top></A>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><A href="http://bbs.matwav.com/" target=_top><IMG alt=研学论坛 hspace=0 
+      src="view.files/title.gif" align=left border=0></A> </TD>
+    <CENTER>
+    <TD vAlign=top align=middle width=102 height=48 rowSpan=5>
+      <OBJECT 
+      codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 
+      height=70 width=480 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="http://www.matwav.com/gifswf/logo.swf"><PARAM NAME="quality" VALUE="high">
+      <embed src="http://www.matwav.com/gifswf/logo.swf" quality=high 
+      pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" 
+      type="application/x-shockwave-flash" width="102" height="70"></embed> 
+      </OBJECT></TD></TR>
+  <TR>
+    <TD colSpan=2 height=3></TD></TR></TBODY></TABLE>
+<TABLE 
+style="BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; WIDTH: 95%; BORDER-BOTTOM: #666666 1px solid" 
+height=21 cellSpacing=0 cellPadding=0 width="95%" bgColor=#e3e3e3 border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><SPAN title=帮助及常见问题><A 
+      href="http://bbs.matwav.com/html/help.html" target=_blank>帮助</A></SPAN> | 
+      <SPAN title=全文检索><A href="http://bbs.matwav.com/post/search">搜索</A></SPAN> 
+      | <SPAN title=定制个人属性><A 
+      href="http://bbs.matwav.com/user/edit">个人属性</A></SPAN> | <SPAN 
+      title=退出论坛><A href="http://bbs.matwav.com/user/logout" 
+      target=_parent>注销</A></SPAN> | <SPAN title=标记所有新帖为已读><A 
+      href="http://bbs.matwav.com/user/markread" target=_parent>标记已读</A></SPAN> 
+      | <SPAN title=我最新参与的文章><A 
+      href="http://bbs.matwav.com/user/myforum">我的论坛</A></SPAN> | <SPAN 
+      title=发帖最多的用户，回复最多的话题，人气最旺的话题><A 
+      href="http://bbs.matwav.com/stat/top">排行榜</A></SPAN> | <SPAN 
+      title=按每月、日、周以及小时的帖子数统计><A 
+      href="http://bbs.matwav.com/stat/analysis">发帖统计</A></SPAN> 
+  <BR></TD></TR></TBODY></TABLE><BR clear=all>
+<SCRIPT language=javascript>
+function copyText(obj) {
+var rng = document.body.createTextRange();
+rng.moveToElementText(obj);
+rng.scrollIntoView();
+rng.select();
+rng.execCommand("Copy");
+rng.collapse(false);
+}
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><B><FONT face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/index.html"><B>研学论坛</B></A>&nbsp; <FONT 
+      face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/post/page?bid=7&amp;sty=1&amp;age=0&amp;tpg=1"><B>遗传算法</B></A> 
+      &nbsp;<BR><BR><IMG alt=按打印兼容模式打印这个话题 src="view.files/icon_print.gif" 
+      align=absMiddle border=0>&nbsp;<A class=mod title=按打印兼容模式打印这个话题 
+      href="http://bbs.matwav.com/post/print?bid=7&amp;id=22932"><B>打印话题</B></A> 
+      &nbsp;&nbsp; <IMG alt=把这个话题寄给朋友 src="view.files/icon_friend.gif" 
+      align=absMiddle border=0> <A class=mod title=把这个话题寄给朋友 
+      href="http://bbs.matwav.com/post/forward?bid=7&amp;id=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><B>寄给朋友</B></A> 
+      &nbsp;&nbsp; <IMG alt=该主题的所有更新都将Email到你的邮箱 src="view.files/icon_watch.gif" 
+      align=absMiddle border=0> <B><FONT color=#c0c0c0>订阅主题</FONT></B> 
+  </B></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=3&amp;age=0#22932"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE><A name=22932></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>基本遗传算法源程序 </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>iamqsar</B> <BR><IMG 
+      src="view.files/user3114.gif" border=0> <BR><BR><BR>超级版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 599 
+      <BR><B>技术分:</B> 122 <BR><B>积分:</B>926 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-13 22:26 <A 
+      href="http://bbs.matwav.com/user/info?uid=3114"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=iamqsar&amp;subject=Re%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=iamqsar&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22932);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22932" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript 
+      id=text22932>/******************************************************************/ 
+      <BR>/* 基于基本遗传算法的函数最优化 SGA.C */ <BR>/* A Function Optimizer using Simple 
+      Genetic Algorithm */ <BR>/* developed from the Pascal SGA code presented 
+      by David E.Goldberg */ 
+      <BR>//******************************************************************/ 
+      <BR>#include <STDIO.H><BR>#include<GRAPHICS.H> <BR>#include 
+      <MATH.H><BR>#include "graph.c" <BR>/* 全局变量 */ <BR>struct individual /* 
+      个体*/ <BR>{ <BR>unsigned *chrom; /* 染色体 */ <BR>double fitness; /* 个体适应度*/ 
+      <BR>double varible; /* 个体对应的变量值*/ <BR>int xsite; /* 交叉位置 */ <BR>int 
+      parent[2]; /* 父个体 */ <BR>int *utility; /* 特定数据指针变量 */ <BR>}; <BR>struct 
+      bestever /* 最佳个体*/ <BR>{ <BR>unsigned *chrom; /* 最佳个体染色体*/ <BR>double 
+      fitness; /* 最佳个体适应度 */ <BR>double varible; /* 最佳个体对应的变量值 */ <BR>int 
+      generation; /* 最佳个体生成代 */ <BR>}; <BR>struct individual *oldpop; /* 当前代种群 
+      */ <BR>struct individual *newpop; /* 新一代种群 */ <BR>struct bestever bestfit; 
+      /* 最佳个体 */ <BR>double sumfitness; /* 种群中个体适应度累计 */ <BR>double max; /* 
+      种群中个体最大适应度 */ <BR>double avg; /* 种群中个体平均适应度 */ <BR>double min; /* 
+      种群中个体最小适应度 */ <BR>float pcross; /* 交叉概率 */ <BR>float pmutation; /* 变异概率 */ 
+      <BR>int popsize; /* 种群大小 */ <BR>int lchrom; /* 染色体长度*/ <BR>int chromsize; 
+      /* 存储一染色体所需字节数 */ <BR>int gen; /* 当前世代数 */ <BR>int maxgen; /* 最大世代数 */ 
+      <BR>int run; /* 当前运行次数 */ <BR>int maxruns; /* 总运行次数 */ <BR>int 
+      printstrings; /* 输出染色体编码的判断，0 -- 不输出, 1 -- 输出 */ <BR>int nmutation; /* 
+      当前代变异发生次数 */ <BR>int ncross; /* 当前代交叉发生次数 */ <BR><BR>/* 随机数发生器使用的静态变量 */ 
+      <BR>static double oldrand[55]; <BR>static int jrand; <BR>static double 
+      rndx2; <BR>static int rndcalcflag; <BR>/* 输出文件指针 */ <BR>FILE *outfp ; 
+      <BR>/* 函数定义 */ <BR>void advance_random(); <BR>int flip(float);rnd(int, 
+      int); <BR>void randomize(); <BR>double randomnormaldeviate(); <BR>float 
+      randomperc(),rndreal(float,float); <BR>void warmup_random(float); <BR>void 
+      initialize(),initdata(),initpop(); <BR>void 
+      initreport(),generation(),initmalloc(); <BR>void freeall(),nomemory(char 
+      *),report(); <BR>void writepop(),writechrom(unsigned *); <BR>void 
+      preselect(); <BR>void statistics(struct individual *); <BR>void 
+      title(),repchar (FILE *,char *,int); <BR>void skip(FILE *,int); <BR>int 
+      select(); <BR>void objfunc(struct individual *); <BR>int crossover 
+      (unsigned *, unsigned *, unsigned *, unsigned *); <BR>void 
+      mutation(unsigned *); <BR><BR><BR>void initialize() /* 遗传算法初始化 */ <BR>{ 
+      <BR>/* 键盘输入遗传算法参数 */ <BR>initdata(); <BR>/* 确定染色体的字节长度 */ <BR>chromsize = 
+      (lchrom/(8*sizeof(unsigned))); <BR>if(lchrom%(8*sizeof(unsigned))) 
+      chromsize++; <BR>/*分配给全局数据结构空间 */ <BR>initmalloc(); <BR>/* 初始化随机数发生器 */ 
+      <BR>randomize(); <BR>/* 初始化全局计数变量和一些数值*/ <BR>nmutation = 0; <BR>ncross = 
+      0; <BR>bestfit.fitness = 0.0; <BR>bestfit.generation = 0; <BR>/* 
+      初始化种群，并统计计算结果 */ <BR>initpop(); <BR>statistics(oldpop); <BR>initreport(); 
+      <BR>} <BR><BR>void initdata() /* 遗传算法参数输入 */ <BR>{ <BR>char answer[2]; 
+      <BR>setcolor(9); <BR>disp_hz16("种群大小(20-100)：",100,150,20); 
+      <BR>gscanf(320,150,9,15,4,"%d", &amp;popsize); <BR>if((popsize%2) != 0) 
+      <BR>{ <BR>fprintf(outfp, "种群大小已设置为偶数\n"); <BR>popsize++; <BR>}; 
+      <BR>setcolor(9); <BR>disp_hz16("染色体长度(8-40)：",100,180,20); 
+      <BR>gscanf(320,180,9,15,4,"%d", &amp;lchrom); <BR>setcolor(9); 
+      <BR>disp_hz16("是否输出染色体编码(y/n)：",100,210,20); <BR>printstrings=1; 
+      <BR>gscanf(320,210,9,15,4,"%s", answer); <BR>if(strncmp(answer,"n",1) == 
+      0) printstrings = 0; <BR>setcolor(9); 
+      <BR>disp_hz16("最大世代数(100-300)：",100,240,20); 
+      <BR>gscanf(320,240,9,15,4,"%d", &amp;maxgen); <BR>setcolor(9); 
+      <BR>disp_hz16("交叉率(0.2-0.9)：",100,270,20); <BR>gscanf(320,270,9,15,5,"%f", 
+      &amp;pcross); <BR>setcolor(9); <BR>disp_hz16("变异率(0.01-0.1)：",100,300,20); 
+      <BR>gscanf(320,300,9,15,5,"%f", &amp;pmutation); <BR>} <BR><BR>void 
+      initpop() /* 随机初始化种群 */ <BR>{ <BR>int j, j1, k, stop; <BR>unsigned mask = 
+      1; <BR>for(j = 0; j &lt; popsize; j++) <BR>{ <BR>for(k = 0; k &lt; 
+      chromsize; k++) <BR>{ <BR>oldpop[j].chrom[k] = 0; <BR>if(k == 
+      (chromsize-1)) <BR>stop = lchrom - (k*(8*sizeof(unsigned))); <BR>else 
+      <BR>stop =8*sizeof(unsigned); <BR>for(j1 = 1; j1 &lt;= stop; j1++) <BR>{ 
+      <BR>oldpop[j].chrom[k] = oldpop[j].chrom[k]&lt;&lt;1; <BR>if(flip(0.5)) 
+      <BR>oldpop[j].chrom[k] = oldpop[j].chrom[k]|mask; <BR>} <BR>} 
+      <BR>oldpop[j].parent[0] = 0; /* 初始父个体信息 */ <BR>oldpop[j].parent[1] = 0; 
+      <BR>oldpop[j].xsite = 0; <BR>objfunc(&amp;(oldpop[j])); /* 计算初始适应度*/ <BR>} 
+      <BR>} <BR><BR>void initreport() /* 初始参数输出 */ <BR>{ <BR>void skip(); 
+      <BR>skip(outfp,1); <BR>fprintf(outfp," 基本遗传算法参数\n"); <BR>fprintf(outfp," 
+      -------------------------------------------------\n"); <BR>fprintf(outfp," 
+      种群大小(popsize) = %d\n",popsize); <BR>fprintf(outfp," 染色体长度(lchrom) = 
+      %d\n",lchrom); <BR>fprintf(outfp," 最大进化代数(maxgen) = %d\n",maxgen); 
+      <BR>fprintf(outfp," 交叉概率(pcross) = %f\n", pcross); <BR>fprintf(outfp," 
+      变异概率(pmutation) = %f\n", pmutation); <BR>fprintf(outfp," 
+      -------------------------------------------------\n"); <BR>skip(outfp,1); 
+      <BR>fflush(outfp); <BR>} <BR><BR>void generation() <BR>{ <BR>int mate1, 
+      mate2, jcross, j = 0; <BR>/* 每代运算前进行预选 */ <BR>preselect(); <BR>/* 选择, 交叉, 
+      变异 */ <BR>do <BR>{ <BR>/* 挑选交叉配对 */ <BR>mate1 = select(); <BR>mate2 = 
+      select(); <BR>/* 交叉和变异 */ <BR>jcross = crossover(oldpop[mate1].chrom, 
+      oldpop[mate2].chrom, newpop[j].chrom, newpop[j+1].chrom); 
+      <BR>mutation(newpop[j].chrom); <BR>mutation(newpop[j+1].chrom); <BR>/* 解码, 
+      计算适应度 */ <BR>objfunc(&amp;(newpop[j])); <BR>/*记录亲子关系和交叉位置 */ 
+      <BR>newpop[j].parent[0] = mate1+1; <BR>newpop[j].xsite = jcross; 
+      <BR>newpop[j].parent[1] = mate2+1; <BR>objfunc(&amp;(newpop[j+1])); 
+      <BR>newpop[j+1].parent[0] = mate1+1; <BR>newpop[j+1].xsite = jcross; 
+      <BR>newpop[j+1].parent[1] = mate2+1; <BR>j = j + 2; <BR>} <BR>while(j &lt; 
+      (popsize-1)); <BR><BR>} <BR><BR>void initmalloc() /*为全局数据变量分配空间 */ <BR>{ 
+      <BR>unsigned nbytes; <BR>char *malloc(); <BR>int j; <BR>/* 
+      分配给当前代和新一代种群内存空间 */ <BR>nbytes = popsize*sizeof(struct individual); 
+      <BR>if((oldpop = (struct individual *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("oldpop"); <BR>if((newpop = (struct individual *) 
+      malloc(nbytes)) == NULL) <BR>nomemory("newpop"); <BR>/* 分配给染色体内存空间 */ 
+      <BR>nbytes = chromsize*sizeof(unsigned); <BR>for(j = 0; j &lt; popsize; 
+      j++) <BR>{ <BR>if((oldpop[j].chrom = (unsigned *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("oldpop chromosomes"); <BR>if((newpop[j].chrom = (unsigned *) 
+      malloc(nbytes)) == NULL) <BR>nomemory("newpop chromosomes"); <BR>} 
+      <BR>if((bestfit.chrom = (unsigned *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("bestfit chromosome"); <BR><BR>} <BR><BR>void freeall() /* 
+      释放内存空间 */ <BR>{ <BR>int i; <BR>for(i = 0; i &lt; popsize; i++) <BR>{ 
+      <BR>free(oldpop[i].chrom); <BR>free(newpop[i].chrom); <BR>} 
+      <BR>free(oldpop); <BR>free(newpop); <BR>free(bestfit.chrom); <BR>} 
+      <BR><BR>void nomemory(string) /* 内存不足，退出*/ <BR>char *string; <BR>{ 
+      <BR>fprintf(outfp,"malloc: out of memory making %s!!\n",string); 
+      <BR>exit(-1); <BR>} <BR><BR>void report() /* 输出种群统计结果 */ <BR>{ <BR>void 
+      repchar(), skip(); <BR>void writepop(), writestats(); 
+      <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); <BR>if(printstrings == 1) 
+      <BR>{ <BR>repchar(outfp," ",((80-17)/2)); <BR>fprintf(outfp,"模拟计算统计报告 
+      \n"); <BR>fprintf(outfp, "世代数 %3d", gen); <BR>repchar(outfp," ",(80-28)); 
+      <BR>fprintf(outfp, "世代数 %3d\n", (gen+1)); <BR>fprintf(outfp,"个体 染色体编码"); 
+      <BR>repchar(outfp," ",lchrom-5); <BR>fprintf(outfp,"适应度 父个体 交叉位置 "); 
+      <BR>fprintf(outfp,"染色体编码 "); <BR>repchar(outfp," ",lchrom-5); 
+      <BR>fprintf(outfp,"适应度\n"); <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); 
+      <BR>writepop(outfp); <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); <BR>} 
+      <BR>fprintf(outfp,"第 %d 代统计: \n",gen); <BR>fprintf(outfp,"总交叉操作次数 = %d, 
+      总变异操作数 = %d\n",ncross,nmutation); <BR>fprintf(outfp," 最小适应度：%f 最大适应度：%f 
+      平均适应度 %f\n", min,max,avg); <BR>fprintf(outfp," 迄今发现最佳个体 =&gt; 所在代数： %d ", 
+      bestfit.generation); <BR>fprintf(outfp," 适应度：%f 染色体：", bestfit.fitness); 
+      <BR>writechrom((&amp;bestfit)-&gt;chrom); <BR>fprintf(outfp," 对应的变量值: %f", 
+      bestfit.varible); <BR>skip(outfp,1); <BR>repchar(outfp,"-",80); 
+      <BR>skip(outfp,1); <BR>} <BR><BR>void writepop() <BR>{ <BR>struct 
+      individual *pind; <BR>int j; <BR>for(j=0; j<POPSIZE; <BR j++)> { 
+      <BR>fprintf(outfp,"%3d) ",j+1); <BR>/* 当前代个体 */ <BR>pind = 
+      &amp;(oldpop[j]); <BR>writechrom(pind-&gt;chrom); <BR>fprintf(outfp," %8f 
+      | ", pind-&gt;fitness); <BR>/* 新一代个体 */ <BR>pind = &amp;(newpop[j]); 
+      <BR>fprintf(outfp,"(%2d,%2d) %2d ", <BR>pind-&gt;parent[0], 
+      pind-&gt;parent[1], pind-&gt;xsite); <BR>writechrom(pind-&gt;chrom); 
+      <BR>fprintf(outfp," %8f\n", pind-&gt;fitness); <BR>} <BR>} <BR><BR>void 
+      writechrom(chrom) /* 输出染色体编码 */ <BR>unsigned *chrom; <BR>{ <BR>int j, k, 
+      stop; <BR>unsigned mask = 1, tmp; <BR>for(k = 0; k &lt; chromsize; k++) 
+      <BR>{ <BR>tmp = chrom[k]; <BR>if(k == (chromsize-1)) <BR>stop = lchrom - 
+      (k*(8*sizeof(unsigned))); <BR>else <BR>stop =8*sizeof(unsigned); <BR>for(j 
+      = 0; j &lt; stop; j++) <BR>{ <BR>if(tmp&amp;mask) <BR>fprintf(outfp,"1"); 
+      <BR>else <BR>fprintf(outfp,"0"); <BR>tmp = tmp&gt;&gt;1; <BR>} <BR>} <BR>} 
+      <BR><BR>void preselect() <BR>{ <BR>int j; <BR>sumfitness = 0; <BR>for(j = 
+      0; j &lt; popsize; j++) sumfitness += oldpop[j].fitness; <BR>} <BR><BR>int 
+      select() /* 轮盘赌选择*/ <BR>{ <BR>extern float randomperc(); <BR>float sum, 
+      pick; <BR>int i; <BR>pick = randomperc(); <BR>sum = 0; <BR>if(sumfitness 
+      != 0) <BR>{ <BR>for(i = 0; (sum &lt; pick) &amp;&amp; (i &lt; popsize); 
+      i++) <BR>sum += oldpop[i].fitness/sumfitness; <BR>} <BR>else <BR>i = 
+      rnd(1,popsize); <BR>return(i-1); <BR>} <BR><BR>void statistics(pop) /* 
+      计算种群统计数据 */ <BR>struct individual *pop; <BR>{ <BR>int i, j; <BR>sumfitness 
+      = 0.0; <BR>min = pop[0].fitness; <BR>max = pop[0].fitness; <BR>/* 
+      计算最大、最小和累计适应度 */ <BR>for(j = 0; j &lt; popsize; j++) <BR>{ <BR>sumfitness 
+      = sumfitness + pop[j].fitness; <BR>if(pop[j].fitness &gt; max) max = 
+      pop[j].fitness; <BR>if(pop[j].fitness &lt; min) min = pop[j].fitness; 
+      <BR>/* new global best-fit individual */ <BR>if(pop[j].fitness &gt; 
+      bestfit.fitness) <BR>{ <BR>for(i = 0; i &lt; chromsize; i++) 
+      <BR>bestfit.chrom[i] = pop[j].chrom[i]; <BR>bestfit.fitness = 
+      pop[j].fitness; <BR>bestfit.varible = pop[j].varible; 
+      <BR>bestfit.generation = gen; <BR>} <BR>} <BR>/* 计算平均适应度 */ <BR>avg = 
+      sumfitness/popsize; <BR>} <BR><BR>void title() <BR>{ 
+      <BR>settextstyle(0,0,4); <BR>gprintf(110,15,4,0,"SGA Optimizer"); 
+      <BR>setcolor(9); <BR>disp_hz24("基本遗传算法",220,60,25); <BR>} <BR><BR>void 
+      repchar (outfp,ch,repcount) <BR>FILE *outfp; <BR>char *ch; <BR>int 
+      repcount; <BR>{ <BR>int j; <BR>for (j = 1; j &lt;= repcount; j++) 
+      fprintf(outfp,"%s", ch); <BR>} <BR><BR>void skip(outfp,skipcount) <BR>FILE 
+      *outfp; <BR>int skipcount; <BR>{ <BR>int j; <BR>for (j = 1; j &lt;= 
+      skipcount; j++) fprintf(outfp,"\n"); <BR>} <BR><BR>void objfunc(critter) 
+      /* 计算适应度函数值 */ <BR>struct individual *critter; <BR>{ <BR>unsigned mask=1; 
+      <BR>unsigned bitpos; <BR>unsigned tp; <BR>double pow(), bitpow ; <BR>int 
+      j, k, stop; <BR>critter-&gt;varible = 0.0; <BR>for(k = 0; k &lt; 
+      chromsize; k++) <BR>{ <BR>if(k == (chromsize-1)) <BR>stop = 
+      lchrom-(k*(8*sizeof(unsigned))); <BR>else <BR>stop =8*sizeof(unsigned); 
+      <BR>tp = critter-&gt;chrom[k]; <BR>for(j = 0; j &lt; stop; j++) <BR>{ 
+      <BR>bitpos = j + (8*sizeof(unsigned))*k; <BR>if((tp&amp;mask) == 1) <BR>{ 
+      <BR>bitpow = pow(2.0,(double) bitpos); <BR>critter-&gt;varible = 
+      critter-&gt;varible + bitpow; <BR>} <BR>tp = tp&gt;&gt;1; <BR>} <BR>} 
+      <BR>critter-&gt;varible 
+      =-1+critter-&gt;varible*3/(pow(2.0,(double)lchrom)-1); 
+      <BR>critter-&gt;fitness 
+      =critter-&gt;varible*sin(critter-&gt;varible*10*atan(1)*4)+2.0; <BR>} 
+      <BR><BR>void mutation(unsigned *child) /*变异操作*/ <BR>{ <BR>int j, k, stop; 
+      <BR>unsigned mask, temp = 1; <BR>for(k = 0; k &lt; chromsize; k++) <BR>{ 
+      <BR>mask = 0; <BR>if(k == (chromsize-1)) <BR>stop = lchrom - 
+      (k*(8*sizeof(unsigned))); <BR>else <BR>stop = 8*sizeof(unsigned); 
+      <BR>for(j = 0; j &lt; stop; j++) <BR>{ <BR>if(flip(pmutation)) <BR>{ 
+      <BR>mask = mask|(temp&lt;<J); <BR> nmutation++; <BR>} <BR>} <BR>child[k] = 
+      child[k]^mask; <BR>} <BR>} <BR><BR>int crossover (unsigned *parent1, 
+      unsigned *parent2, unsigned *child1, unsigned *child2) <BR>/* 
+      由两个父个体交叉产生两个子个体 */ <BR>{ <BR>int j, jcross, k; <BR>unsigned mask, temp; 
+      <BR>if(flip(pcross)) <BR>{ <BR>jcross = rnd(1 ,(lchrom - 1));/* Cross 
+      between 1 and l-1 */ <BR>ncross++; <BR>for(k = 1; k &lt;= chromsize; k++) 
+      <BR>{ <BR>if(jcross &gt;= (k*(8*sizeof(unsigned)))) <BR>{ <BR>child1[k-1] 
+      = parent1[k-1]; <BR>child2[k-1] = parent2[k-1]; <BR>} <BR>else if((jcross 
+      &lt; (k*(8*sizeof(unsigned)))) &amp;&amp; (jcross &gt; 
+      ((k-1)*(8*sizeof(unsigned))))) <BR>{ <BR>mask = 1; <BR>for(j = 1; j &lt;= 
+      (jcross-1-((k-1)*(8*sizeof(unsigned)))); j++) <BR>{ <BR>temp = 1; <BR>mask 
+      = mask&lt;&lt;1; <BR>mask = mask|temp; <BR>} <BR>child1[k-1] = 
+      (parent1[k-1]&amp;mask)|(parent2[k-1]&amp;(~mask)); <BR>child2[k-1] = 
+      (parent1[k-1]&amp;(~mask))|(parent2[k-1]&amp;mask); <BR>} <BR>else <BR>{ 
+      <BR>child1[k-1] = parent2[k-1]; <BR>child2[k-1] = parent1[k-1]; <BR>} 
+      <BR>} <BR>} <BR>else <BR>{ <BR>for(k = 0; k &lt; chromsize; k++) <BR>{ 
+      <BR>child1[k] = parent1[k]; <BR>child2[k] = parent2[k]; <BR>} <BR>jcross = 
+      0; <BR>} <BR>return(jcross); <BR>} <BR><BR>void advance_random() /* 
+      产生55个随机数 */ <BR>{ <BR>int j1; <BR>double new_random; <BR>for(j1 = 0; j1 
+      &lt; 24; j1++) <BR>{ <BR>new_random = oldrand[j1] - oldrand[j1+31]; 
+      <BR>if(new_random &lt; 0.0) new_random = new_random + 1.0; <BR>oldrand[j1] 
+      = new_random; <BR>} <BR>for(j1 = 24; j1 &lt; 55; j1++) <BR>{ 
+      <BR>new_random = oldrand [j1] - oldrand [j1-24]; <BR>if(new_random &lt; 
+      0.0) new_random = new_random + 1.0; <BR>oldrand[j1] = new_random; <BR>} 
+      <BR>} <BR><BR>int flip(float prob) /* 以一定概率产生0或1 */ <BR>{ <BR>float 
+      randomperc(); <BR>if(randomperc() &lt;= prob) <BR>return(1); <BR>else 
+      <BR>return(0); <BR>} <BR><BR>void randomize() /* 设定随机数种子并初始化随机数发生器 */ 
+      <BR>{ <BR>float randomseed; <BR>int j1; <BR>for(j1=0; j1&lt;=54; j1++) 
+      <BR>oldrand[j1] = 0.0; <BR>jrand=0; <BR>do <BR>{ <BR>setcolor(9); 
+      <BR>disp_hz16("随机数种子[0-1]:",100,330,20); <BR>gscanf(320,330,9,15,4,"%f", 
+      &amp;randomseed); <BR>} <BR>while((randomseed &lt; 0.0) || (randomseed 
+      &gt; 1.0)); <BR>warmup_random(randomseed); <BR>} <BR><BR>double 
+      randomnormaldeviate() /* 产生随机标准差 */ <BR>{ <BR>double sqrt(), log(), sin(), 
+      cos(); <BR>float randomperc(); <BR>double t, rndx1; <BR>if(rndcalcflag) 
+      <BR>{ rndx1 = sqrt(- 2.0*log((double) randomperc())); <BR>t = 6.2831853072 
+      * (double) randomperc(); <BR>rndx2 = rndx1 * sin(t); <BR>rndcalcflag = 0; 
+      <BR>return(rndx1 * cos(t)); <BR>} <BR>else <BR>{ <BR>rndcalcflag = 1; 
+      <BR>return(rndx2); <BR>} <BR>} <BR><BR>float randomperc() 
+      /*与库函数random()作用相同, 产生[0,1]之间一个随机数 */ <BR>{ <BR>jrand++; <BR>if(jrand 
+      &gt;= 55) <BR>{ <BR>jrand = 1; <BR>advance_random(); <BR>} 
+      <BR>return((float) oldrand[jrand]); <BR>} <BR><BR>int rnd(low, high) 
+      /*在整数low和high之间产生一个随机整数*/ <BR>int low,high; <BR>{ <BR>int i; <BR>float 
+      randomperc(); <BR>if(low &gt;= high) <BR>i = low; <BR>else <BR>{ <BR>i = 
+      (randomperc() * (high - low + 1)) + low; <BR>if(i &gt; high) i = high; 
+      <BR>} <BR>return(i); <BR>} <BR><BR><BR>void warmup_random(float 
+      random_seed) /* 初始化随机数发生器*/ <BR>{ <BR>int j1, ii; <BR>double new_random, 
+      prev_random; <BR><BR>oldrand[54] = random_seed; <BR>new_random = 
+      0.000000001; <BR>prev_random = random_seed; <BR>for(j1 = 1 ; j1 &lt;= 54; 
+      j1++) <BR>{ <BR>ii = (21*j1)%54; <BR>oldrand[ii] = new_random; 
+      <BR>new_random = prev_random-new_random; <BR>if(new_random&lt;0.0) 
+      new_random = new_random + 1.0; <BR>prev_random = oldrand[ii]; <BR>} 
+      <BR>advance_random(); <BR>advance_random(); <BR>advance_random(); 
+      <BR>jrand = 0; <BR>} <BR><BR><BR>main(argc,argv) /* 主程序 */ <BR>int argc; 
+      <BR>char *argv[]; <BR>{ <BR>struct individual *temp; <BR>FILE *fopen(); 
+      <BR>void title(); <BR>char *malloc(); <BR>if((outfp = fopen(argv[1],"w")) 
+      == NULL) <BR>{ <BR>fprintf(stderr,"Cannot open output file %s\n",argv[1]); 
+      <BR>exit(-1); <BR>} <BR>g_init(); <BR>setcolor(9); <BR>title(); 
+      <BR>disp_hz16("输入遗传算法执行次数(1-5):",100,120,20); 
+      <BR>gscanf(320,120,9,15,4,"%d",&amp;maxruns); <BR>for(run=1; 
+      run&lt;=maxruns; run++) <BR>{ <BR>initialize(); <BR>for(gen=0; gen<MAXGEN; 
+      <BR gen++)> { <BR>fprintf(outfp,"\n第 %d / %d 次运行: 当前代为 %d, 共 %d 代\n", 
+      run,maxruns,gen,maxgen); <BR>/* 产生新一代 */ <BR>generation(); <BR>/* 
+      计算新一代种群的适应度统计数据 */ <BR>statistics(newpop); <BR>/* 输出新一代统计数据 */ 
+      <BR>report(); <BR>temp = oldpop; <BR>oldpop = newpop; <BR>newpop = temp; 
+      <BR>} <BR>freeall(); <BR>} <BR>} 
+      <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR> 
+      <BR><BR><BR>[align=right]<FONT color=#000066>[此贴子已经被作者于2003-9-13 
+      22:29:13编辑过]</FONT>[/align] </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22936></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>see_moonlight</B> <BR><IMG 
+      src="view.files/face_p15.gif" border=0> <BR><BR><BR>版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 191 
+      <BR><B>技术分:</B> 16 <BR><B>积分:</B>523 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-15 12:03 <A 
+      href="http://bbs.matwav.com/user/info?uid=1152"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=see_moonlight&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="mailto:see_moonlight@126.com"><IMG alt="send email to see_moonlight" 
+      src="view.files/icon_email.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22936&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=see_moonlight&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22936);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22936" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22936>go on ! <BR><BR>you'd better give us a 
+      example </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      临江仙<BR><BR>陈夕往事益归去,<BR>古道西风依旧.<BR>人生长河水长东,<BR>春去遇秋来,<BR>天际寻鹄鸿.<BR><BR>日月星移话沧桑,<BR>是非功过何在?<BR>一路风雨兼程行,<BR>唯清风明月,<BR>独在情怀中. 
+      <BR></TD></TR></TBODY></TABLE><A name=22935></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>wgao</B> <BR><IMG src="view.files/none.gif" 
+      border=0> <BR><BR><BR>超级版主<IMG src="view.files/37270895.gif" border=0> 
+      <BR><BR><B>发贴:</B> 508 <BR><B>技术分:</B> 33 <BR><B>积分:</B>792 <BR><IMG 
+      height=1 src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-16 11:47 <A 
+      href="http://bbs.matwav.com/user/info?uid=3340"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=wgao&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22935&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=wgao&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22935);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22935" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22935>此种程序网上有很多, 有必要自己来吗 </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22934></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>nudtwpf</B> <BR><IMG src="view.files/none.gif" 
+      border=0> <BR><BR><BR>论坛游民<IMG src="view.files/advu.gif" border=0> 
+      <BR><BR><B>发贴:</B> 7 <BR><B>技术分:</B> 0 <BR><B>积分:</B>53 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-17 17:53 <A 
+      href="http://bbs.matwav.com/user/info?uid=4822"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=nudtwpf&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22934&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=nudtwpf&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22934);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22934" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22934>thanks </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22933></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>Oraclegirl</B> <BR><IMG 
+      src="view.files/none.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 15 <BR><B>技术分:</B> 
+      0 <BR><B>积分:</B>88 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-19 13:09 <A 
+      href="http://bbs.matwav.com/user/info?uid=3932"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=Oraclegirl&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22933&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=Oraclegirl&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22933);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22933" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22933>这是一个求f(x)=xsin(10pix)+2的ga程序源代码 
+      <BR>其中x＝[-1,2] <BR>如果求其它函数，只需要改适应度函数和编码位数 </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=82368></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>joyseaman</B> <BR><IMG 
+      src="view.files/face_byhtsai_amuro.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 4 <BR><B>技术分:</B> 0 
+      <BR><B>积分:</B>4 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post_n.gif" 
+      align=absMiddle border=0>于 2004-08-27 10:35 <A 
+      href="http://bbs.matwav.com/user/info?uid=21984"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=joyseaman&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=82368&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=joyseaman&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text82368);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=82368" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text82368>请问楼上的这位大侠：编码位数 在哪个地方改啊？ 
+</SPAN><BR><BR>
+      <DIV align=right></DIV><BR></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=3&amp;age=0#22932"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>
+function popUp(url) {
+ var newwindow = window.open(url, "_blank","width=300,height=500,resizable=no,scrollBars=yes,menuBar=no, directories=no,toolBar=no,location=No,status=No");
+}
+</SCRIPT>
+
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR>
+    <TD class=head colSpan=2><FONT color=#ffffff><B>快速回复</B></FONT></TD></TR>
+  <TR class=odd>
+    <TD width="15%">
+      <FORM name=form1 action=post/reply method=post><B>标题</B></TD>
+    <TD><INPUT class=subject maxLength=60 size=55 value=Re:基本遗传算法源程序 
+      name=subject></TD></TR>
+  <TR class=odd>
+    <TD vAlign=top><B>内容</B> <BR><BR><BR><IMG src="view.files/off.gif" 
+      align=absMiddle border=0>&nbsp;&nbsp;HTML标记 <BR><IMG 
+      src="view.files/on.gif" align=absMiddle border=0>&nbsp;&nbsp;<A 
+      href="javascript:popUp('http://bbs.matwav.com/user/help/smileys.html')">笑脸标记</A> 
+      <BR><IMG src="view.files/on.gif" align=absMiddle border=0>&nbsp;&nbsp;<A 
+      href="javascript:popUp('http://bbs.matwav.com/html/tags.html')">Jute标记</A> 
+      <BR><IMG src="view.files/on.gif" align=absMiddle border=0>&nbsp;&nbsp;图片标记 
+      <BR><BR><BR>
+    <TD>
+      <TABLE cellSpacing=1 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD><TEXTAREA name=body rows=13 wrap=VIRTUAL cols=83></TEXTAREA> 
+        </TD></TR></TBODY></TABLE></TD></TR>
+  <TR class=odd>
+    <TD vAlign=top><B>选项</B></TD>
+    <TD><INPUT type=checkbox value=1 name=notify>Email通知：如果有回复就通知您<BR><INPUT 
+      type=checkbox value=1 name=disable_markup>禁止在这个帖子中使用 Jute 标记<BR><INPUT 
+      type=checkbox value=1 name=disable_smiley>禁止在这个帖子中使用笑脸标记<BR><INPUT 
+      type=checkbox value=1 name=enable_signature>显示个人签名 <BR><INPUT 
+      type=checkbox name=semi_hidden>加密此帖，只对部分用户可见，用户技术分需大于 <SELECT 
+      class=selStyle name=value> <OPTION value=0 selected>0</OPTION><OPTION 
+        value=1>1</OPTION><OPTION value=2>2</OPTION><OPTION 
+        value=3>3</OPTION><OPTION value=4>4</OPTION><OPTION 
+        value=5>5</OPTION><OPTION value=6>6</OPTION><OPTION 
+        value=7>7</OPTION><OPTION value=8>8</OPTION><OPTION 
+        value=9>9</OPTION><OPTION value=10>10</OPTION><OPTION 
+        value=11>11</OPTION><OPTION value=12>12</OPTION><OPTION 
+        value=13>13</OPTION><OPTION value=14>14</OPTION><OPTION 
+        value=15>15</OPTION><OPTION value=16>16</OPTION><OPTION 
+        value=17>17</OPTION><OPTION value=18>18</OPTION><OPTION 
+        value=19>19</OPTION><OPTION value=20>20</OPTION><OPTION 
+        value=21>21</OPTION><OPTION value=22>22</OPTION><OPTION 
+        value=23>23</OPTION><OPTION value=24>24</OPTION><OPTION 
+        value=25>25</OPTION><OPTION value=26>26</OPTION><OPTION 
+        value=27>27</OPTION><OPTION value=28>28</OPTION><OPTION 
+        value=29>29</OPTION><OPTION value=30>30</OPTION><OPTION 
+        value=31>31</OPTION><OPTION value=32>32</OPTION><OPTION 
+        value=33>33</OPTION><OPTION value=34>34</OPTION><OPTION 
+        value=35>35</OPTION><OPTION value=36>36</OPTION><OPTION 
+        value=37>37</OPTION><OPTION value=38>38</OPTION><OPTION 
+        value=39>39</OPTION><OPTION value=40>40</OPTION><OPTION 
+        value=41>41</OPTION><OPTION value=42>42</OPTION><OPTION 
+        value=43>43</OPTION><OPTION value=44>44</OPTION><OPTION 
+        value=45>45</OPTION><OPTION value=46>46</OPTION><OPTION 
+        value=47>47</OPTION><OPTION value=48>48</OPTION><OPTION 
+        value=49>49</OPTION><OPTION value=50>50</OPTION><OPTION 
+        value=51>51</OPTION><OPTION value=52>52</OPTION><OPTION 
+        value=53>53</OPTION><OPTION value=54>54</OPTION><OPTION 
+        value=55>55</OPTION><OPTION value=56>56</OPTION><OPTION 
+        value=57>57</OPTION><OPTION value=58>58</OPTION><OPTION 
+        value=59>59</OPTION><OPTION value=60>60</OPTION><OPTION 
+        value=61>61</OPTION><OPTION value=62>62</OPTION><OPTION 
+        value=63>63</OPTION><OPTION value=64>64</OPTION><OPTION 
+        value=65>65</OPTION><OPTION value=66>66</OPTION><OPTION 
+        value=67>67</OPTION><OPTION value=68>68</OPTION><OPTION 
+        value=69>69</OPTION><OPTION value=70>70</OPTION><OPTION 
+        value=71>71</OPTION><OPTION value=72>72</OPTION><OPTION 
+        value=73>73</OPTION><OPTION value=74>74</OPTION><OPTION 
+        value=75>75</OPTION><OPTION value=76>76</OPTION><OPTION 
+        value=77>77</OPTION><OPTION value=78>78</OPTION><OPTION 
+        value=79>79</OPTION><OPTION value=80>80</OPTION><OPTION 
+        value=81>81</OPTION><OPTION value=82>82</OPTION><OPTION 
+        value=83>83</OPTION><OPTION value=84>84</OPTION><OPTION 
+        value=85>85</OPTION><OPTION value=86>86</OPTION><OPTION 
+        value=87>87</OPTION><OPTION value=88>88</OPTION><OPTION 
+        value=89>89</OPTION><OPTION value=90>90</OPTION><OPTION 
+        value=91>91</OPTION><OPTION value=92>92</OPTION><OPTION 
+        value=93>93</OPTION><OPTION value=94>94</OPTION><OPTION 
+        value=95>95</OPTION><OPTION value=96>96</OPTION><OPTION 
+        value=97>97</OPTION><OPTION value=98>98</OPTION><OPTION 
+        value=99>99</OPTION><OPTION value=100>100</OPTION><OPTION 
+        value=101>101</OPTION><OPTION value=102>102</OPTION><OPTION 
+        value=103>103</OPTION><OPTION value=104>104</OPTION><OPTION 
+        value=105>105</OPTION><OPTION value=106>106</OPTION><OPTION 
+        value=107>107</OPTION><OPTION value=108>108</OPTION><OPTION 
+        value=109>109</OPTION><OPTION value=110>110</OPTION><OPTION 
+        value=111>111</OPTION><OPTION value=112>112</OPTION><OPTION 
+        value=113>113</OPTION><OPTION value=114>114</OPTION><OPTION 
+        value=115>115</OPTION><OPTION value=116>116</OPTION><OPTION 
+        value=117>117</OPTION><OPTION value=118>118</OPTION><OPTION 
+        value=119>119</OPTION><OPTION value=120>120</OPTION><OPTION 
+        value=121>121</OPTION><OPTION value=122>122</OPTION><OPTION 
+        value=123>123</OPTION><OPTION value=124>124</OPTION><OPTION 
+        value=125>125</OPTION><OPTION value=126>126</OPTION><OPTION 
+        value=127>127</OPTION><OPTION value=128>128</OPTION><OPTION 
+        value=129>129</OPTION><OPTION value=130>130</OPTION><OPTION 
+        value=131>131</OPTION><OPTION value=132>132</OPTION><OPTION 
+        value=133>133</OPTION><OPTION value=134>134</OPTION><OPTION 
+        value=135>135</OPTION><OPTION value=136>136</OPTION><OPTION 
+        value=137>137</OPTION><OPTION value=138>138</OPTION><OPTION 
+        value=139>139</OPTION><OPTION value=140>140</OPTION><OPTION 
+        value=141>141</OPTION><OPTION value=142>142</OPTION><OPTION 
+        value=143>143</OPTION><OPTION value=144>144</OPTION><OPTION 
+        value=145>145</OPTION><OPTION value=146>146</OPTION><OPTION 
+        value=147>147</OPTION><OPTION value=148>148</OPTION><OPTION 
+        value=149>149</OPTION><OPTION value=150>150</OPTION><OPTION 
+        value=151>151</OPTION><OPTION value=152>152</OPTION><OPTION 
+        value=153>153</OPTION><OPTION value=154>154</OPTION><OPTION 
+        value=155>155</OPTION><OPTION value=156>156</OPTION><OPTION 
+        value=157>157</OPTION><OPTION value=158>158</OPTION><OPTION 
+        value=159>159</OPTION><OPTION value=160>160</OPTION><OPTION 
+        value=161>161</OPTION><OPTION value=162>162</OPTION><OPTION 
+        value=163>163</OPTION><OPTION value=164>164</OPTION><OPTION 
+        value=165>165</OPTION><OPTION value=166>166</OPTION><OPTION 
+        value=167>167</OPTION><OPTION value=168>168</OPTION><OPTION 
+        value=169>169</OPTION><OPTION value=170>170</OPTION><OPTION 
+        value=171>171</OPTION><OPTION value=172>172</OPTION><OPTION 
+        value=173>173</OPTION><OPTION value=174>174</OPTION><OPTION 
+        value=175>175</OPTION><OPTION value=176>176</OPTION><OPTION 
+        value=177>177</OPTION><OPTION value=178>178</OPTION><OPTION 
+        value=179>179</OPTION><OPTION value=180>180</OPTION><OPTION 
+        value=181>181</OPTION><OPTION value=182>182</OPTION><OPTION 
+        value=183>183</OPTION><OPTION value=184>184</OPTION><OPTION 
+        value=185>185</OPTION><OPTION value=186>186</OPTION><OPTION 
+        value=187>187</OPTION><OPTION value=188>188</OPTION><OPTION 
+        value=189>189</OPTION><OPTION value=190>190</OPTION><OPTION 
+        value=191>191</OPTION><OPTION value=192>192</OPTION><OPTION 
+        value=193>193</OPTION><OPTION value=194>194</OPTION><OPTION 
+        value=195>195</OPTION><OPTION value=196>196</OPTION><OPTION 
+        value=197>197</OPTION><OPTION value=198>198</OPTION><OPTION 
+        value=199>199</OPTION><OPTION value=200>200</OPTION><OPTION 
+        value=201>201</OPTION><OPTION value=202>202</OPTION><OPTION 
+        value=203>203</OPTION><OPTION value=204>204</OPTION><OPTION 
+        value=205>205</OPTION><OPTION value=206>206</OPTION><OPTION 
+        value=207>207</OPTION><OPTION value=208>208</OPTION><OPTION 
+        value=209>209</OPTION><OPTION value=210>210</OPTION><OPTION 
+        value=211>211</OPTION><OPTION value=212>212</OPTION><OPTION 
+        value=213>213</OPTION><OPTION value=214>214</OPTION><OPTION 
+        value=215>215</OPTION><OPTION value=216>216</OPTION><OPTION 
+        value=217>217</OPTION><OPTION value=218>218</OPTION><OPTION 
+        value=219>219</OPTION><OPTION value=220>220</OPTION><OPTION 
+        value=221>221</OPTION><OPTION value=222>222</OPTION><OPTION 
+        value=223>223</OPTION><OPTION value=224>224</OPTION><OPTION 
+        value=225>225</OPTION><OPTION value=226>226</OPTION><OPTION 
+        value=227>227</OPTION><OPTION value=228>228</OPTION><OPTION 
+        value=229>229</OPTION><OPTION value=230>230</OPTION><OPTION 
+        value=231>231</OPTION><OPTION value=232>232</OPTION><OPTION 
+        value=233>233</OPTION><OPTION value=234>234</OPTION><OPTION 
+        value=235>235</OPTION><OPTION value=236>236</OPTION><OPTION 
+        value=237>237</OPTION><OPTION value=238>238</OPTION><OPTION 
+        value=239>239</OPTION><OPTION value=240>240</OPTION><OPTION 
+        value=241>241</OPTION><OPTION value=242>242</OPTION><OPTION 
+        value=243>243</OPTION><OPTION value=244>244</OPTION><OPTION 
+        value=245>245</OPTION><OPTION value=246>246</OPTION><OPTION 
+        value=247>247</OPTION><OPTION value=248>248</OPTION><OPTION 
+        value=249>249</OPTION><OPTION value=250>250</OPTION><OPTION 
+        value=251>251</OPTION><OPTION value=252>252</OPTION><OPTION 
+        value=253>253</OPTION><OPTION value=254>254</OPTION><OPTION 
+        value=255>255</OPTION><OPTION value=256>256</OPTION><OPTION 
+        value=257>257</OPTION><OPTION value=258>258</OPTION><OPTION 
+        value=259>259</OPTION><OPTION value=260>260</OPTION><OPTION 
+        value=261>261</OPTION><OPTION value=262>262</OPTION><OPTION 
+        value=263>263</OPTION><OPTION value=264>264</OPTION><OPTION 
+        value=265>265</OPTION><OPTION value=266>266</OPTION><OPTION 
+        value=267>267</OPTION><OPTION value=268>268</OPTION><OPTION 
+        value=269>269</OPTION><OPTION value=270>270</OPTION><OPTION 
+        value=271>271</OPTION><OPTION value=272>272</OPTION><OPTION 
+        value=273>273</OPTION><OPTION value=274>274</OPTION><OPTION 
+        value=275>275</OPTION><OPTION value=276>276</OPTION><OPTION 
+        value=277>277</OPTION><OPTION value=278>278</OPTION><OPTION 
+        value=279>279</OPTION><OPTION value=280>280</OPTION><OPTION 
+        value=281>281</OPTION><OPTION value=282>282</OPTION><OPTION 
+        value=283>283</OPTION><OPTION value=284>284</OPTION><OPTION 
+        value=285>285</OPTION><OPTION value=286>286</OPTION><OPTION 
+        value=287>287</OPTION><OPTION value=288>288</OPTION><OPTION 
+        value=289>289</OPTION><OPTION value=290>290</OPTION><OPTION 
+        value=291>291</OPTION><OPTION value=292>292</OPTION><OPTION 
+        value=293>293</OPTION><OPTION value=294>294</OPTION><OPTION 
+        value=295>295</OPTION><OPTION value=296>296</OPTION><OPTION 
+        value=297>297</OPTION><OPTION value=298>298</OPTION><OPTION 
+        value=299>299</OPTION><OPTION value=300>300</OPTION><OPTION 
+        value=301>301</OPTION><OPTION value=302>302</OPTION><OPTION 
+        value=303>303</OPTION><OPTION value=304>304</OPTION><OPTION 
+        value=305>305</OPTION><OPTION value=306>306</OPTION><OPTION 
+        value=307>307</OPTION><OPTION value=308>308</OPTION><OPTION 
+        value=309>309</OPTION><OPTION value=310>310</OPTION><OPTION 
+        value=311>311</OPTION><OPTION value=312>312</OPTION><OPTION 
+        value=313>313</OPTION><OPTION value=314>314</OPTION><OPTION 
+        value=315>315</OPTION><OPTION value=316>316</OPTION><OPTION 
+        value=317>317</OPTION><OPTION value=318>318</OPTION><OPTION 
+        value=319>319</OPTION><OPTION value=320>320</OPTION><OPTION 
+        value=321>321</OPTION><OPTION value=322>322</OPTION><OPTION 
+        value=323>323</OPTION><OPTION value=324>324</OPTION><OPTION 
+        value=325>325</OPTION><OPTION value=326>326</OPTION><OPTION 
+        value=327>327</OPTION><OPTION value=328>328</OPTION><OPTION 
+        value=329>329</OPTION><OPTION value=330>330</OPTION><OPTION 
+        value=331>331</OPTION><OPTION value=332>332</OPTION><OPTION 
+        value=333>333</OPTION><OPTION value=334>334</OPTION><OPTION 
+        value=335>335</OPTION><OPTION value=336>336</OPTION><OPTION 
+        value=337>337</OPTION><OPTION value=338>338</OPTION><OPTION 
+        value=339>339</OPTION><OPTION value=340>340</OPTION><OPTION 
+        value=341>341</OPTION><OPTION value=342>342</OPTION><OPTION 
+        value=343>343</OPTION><OPTION value=344>344</OPTION><OPTION 
+        value=345>345</OPTION><OPTION value=346>346</OPTION><OPTION 
+        value=347>347</OPTION><OPTION value=348>348</OPTION><OPTION 
+        value=349>349</OPTION><OPTION value=350>350</OPTION><OPTION 
+        value=351>351</OPTION><OPTION value=352>352</OPTION><OPTION 
+        value=353>353</OPTION><OPTION value=354>354</OPTION><OPTION 
+        value=355>355</OPTION><OPTION value=356>356</OPTION><OPTION 
+        value=357>357</OPTION><OPTION value=358>358</OPTION><OPTION 
+        value=359>359</OPTION><OPTION value=360>360</OPTION><OPTION 
+        value=361>361</OPTION><OPTION value=362>362</OPTION><OPTION 
+        value=363>363</OPTION><OPTION value=364>364</OPTION><OPTION 
+        value=365>365</OPTION><OPTION value=366>366</OPTION><OPTION 
+        value=367>367</OPTION><OPTION value=368>368</OPTION><OPTION 
+        value=369>369</OPTION><OPTION value=370>370</OPTION><OPTION 
+        value=371>371</OPTION><OPTION value=372>372</OPTION><OPTION 
+        value=373>373</OPTION><OPTION value=374>374</OPTION><OPTION 
+        value=375>375</OPTION><OPTION value=376>376</OPTION><OPTION 
+        value=377>377</OPTION><OPTION value=378>378</OPTION><OPTION 
+        value=379>379</OPTION><OPTION value=380>380</OPTION><OPTION 
+        value=381>381</OPTION><OPTION value=382>382</OPTION><OPTION 
+        value=383>383</OPTION><OPTION value=384>384</OPTION><OPTION 
+        value=385>385</OPTION><OPTION value=386>386</OPTION><OPTION 
+        value=387>387</OPTION><OPTION value=388>388</OPTION><OPTION 
+        value=389>389</OPTION><OPTION value=390>390</OPTION><OPTION 
+        value=391>391</OPTION><OPTION value=392>392</OPTION><OPTION 
+        value=393>393</OPTION><OPTION value=394>394</OPTION><OPTION 
+        value=395>395</OPTION><OPTION value=396>396</OPTION><OPTION 
+        value=397>397</OPTION><OPTION value=398>398</OPTION><OPTION 
+        value=399>399</OPTION><OPTION value=400>400</OPTION><OPTION 
+        value=401>401</OPTION><OPTION value=402>402</OPTION><OPTION 
+        value=403>403</OPTION><OPTION value=404>404</OPTION><OPTION 
+        value=405>405</OPTION><OPTION value=406>406</OPTION><OPTION 
+        value=407>407</OPTION><OPTION value=408>408</OPTION><OPTION 
+        value=409>409</OPTION><OPTION value=410>410</OPTION><OPTION 
+        value=411>411</OPTION><OPTION value=412>412</OPTION><OPTION 
+        value=413>413</OPTION><OPTION value=414>414</OPTION><OPTION 
+        value=415>415</OPTION><OPTION value=416>416</OPTION><OPTION 
+        value=417>417</OPTION><OPTION value=418>418</OPTION><OPTION 
+        value=419>419</OPTION><OPTION value=420>420</OPTION><OPTION 
+        value=421>421</OPTION><OPTION value=422>422</OPTION><OPTION 
+        value=423>423</OPTION><OPTION value=424>424</OPTION><OPTION 
+        value=425>425</OPTION><OPTION value=426>426</OPTION><OPTION 
+        value=427>427</OPTION><OPTION value=428>428</OPTION><OPTION 
+        value=429>429</OPTION><OPTION value=430>430</OPTION><OPTION 
+        value=431>431</OPTION><OPTION value=432>432</OPTION><OPTION 
+        value=433>433</OPTION><OPTION value=434>434</OPTION><OPTION 
+        value=435>435</OPTION><OPTION value=436>436</OPTION><OPTION 
+        value=437>437</OPTION><OPTION value=438>438</OPTION><OPTION 
+        value=439>439</OPTION><OPTION value=440>440</OPTION><OPTION 
+        value=441>441</OPTION><OPTION value=442>442</OPTION><OPTION 
+        value=443>443</OPTION><OPTION value=444>444</OPTION><OPTION 
+        value=445>445</OPTION><OPTION value=446>446</OPTION><OPTION 
+        value=447>447</OPTION><OPTION value=448>448</OPTION><OPTION 
+        value=449>449</OPTION><OPTION value=450>450</OPTION><OPTION 
+        value=451>451</OPTION><OPTION value=452>452</OPTION><OPTION 
+        value=453>453</OPTION><OPTION value=454>454</OPTION><OPTION 
+        value=455>455</OPTION><OPTION value=456>456</OPTION><OPTION 
+        value=457>457</OPTION><OPTION value=458>458</OPTION><OPTION 
+        value=459>459</OPTION><OPTION value=460>460</OPTION><OPTION 
+        value=461>461</OPTION><OPTION value=462>462</OPTION><OPTION 
+        value=463>463</OPTION><OPTION value=464>464</OPTION><OPTION 
+        value=465>465</OPTION><OPTION value=466>466</OPTION><OPTION 
+        value=467>467</OPTION><OPTION value=468>468</OPTION><OPTION 
+        value=469>469</OPTION><OPTION value=470>470</OPTION><OPTION 
+        value=471>471</OPTION><OPTION value=472>472</OPTION><OPTION 
+        value=473>473</OPTION><OPTION value=474>474</OPTION><OPTION 
+        value=475>475</OPTION><OPTION value=476>476</OPTION><OPTION 
+        value=477>477</OPTION><OPTION value=478>478</OPTION><OPTION 
+        value=479>479</OPTION><OPTION value=480>480</OPTION><OPTION 
+        value=481>481</OPTION><OPTION value=482>482</OPTION><OPTION 
+        value=483>483</OPTION><OPTION value=484>484</OPTION><OPTION 
+        value=485>485</OPTION><OPTION value=486>486</OPTION><OPTION 
+        value=487>487</OPTION><OPTION value=488>488</OPTION><OPTION 
+        value=489>489</OPTION><OPTION value=490>490</OPTION><OPTION 
+        value=491>491</OPTION><OPTION value=492>492</OPTION><OPTION 
+        value=493>493</OPTION><OPTION value=494>494</OPTION><OPTION 
+        value=495>495</OPTION><OPTION value=496>496</OPTION><OPTION 
+        value=497>497</OPTION><OPTION value=498>498</OPTION><OPTION 
+        value=499>499</OPTION><OPTION value=500>500</OPTION><OPTION 
+        value=501>501</OPTION><OPTION value=502>502</OPTION><OPTION 
+        value=503>503</OPTION><OPTION value=504>504</OPTION><OPTION 
+        value=505>505</OPTION><OPTION value=506>506</OPTION><OPTION 
+        value=507>507</OPTION><OPTION value=508>508</OPTION><OPTION 
+        value=509>509</OPTION><OPTION value=510>510</OPTION><OPTION 
+        value=511>511</OPTION><OPTION value=512>512</OPTION><OPTION 
+        value=513>513</OPTION><OPTION value=514>514</OPTION><OPTION 
+        value=515>515</OPTION><OPTION value=516>516</OPTION><OPTION 
+        value=517>517</OPTION><OPTION value=518>518</OPTION><OPTION 
+        value=519>519</OPTION><OPTION value=520>520</OPTION><OPTION 
+        value=521>521</OPTION><OPTION value=522>522</OPTION><OPTION 
+        value=523>523</OPTION><OPTION value=524>524</OPTION><OPTION 
+        value=525>525</OPTION><OPTION value=526>526</OPTION><OPTION 
+        value=527>527</OPTION><OPTION value=528>528</OPTION><OPTION 
+        value=529>529</OPTION><OPTION value=530>530</OPTION><OPTION 
+        value=531>531</OPTION><OPTION value=532>532</OPTION><OPTION 
+        value=533>533</OPTION><OPTION value=534>534</OPTION><OPTION 
+        value=535>535</OPTION><OPTION value=536>536</OPTION><OPTION 
+        value=537>537</OPTION><OPTION value=538>538</OPTION><OPTION 
+        value=539>539</OPTION><OPTION value=540>540</OPTION><OPTION 
+        value=541>541</OPTION><OPTION value=542>542</OPTION><OPTION 
+        value=543>543</OPTION><OPTION value=544>544</OPTION><OPTION 
+        value=545>545</OPTION><OPTION value=546>546</OPTION><OPTION 
+        value=547>547</OPTION><OPTION value=548>548</OPTION><OPTION 
+        value=549>549</OPTION><OPTION value=550>550</OPTION><OPTION 
+        value=551>551</OPTION><OPTION value=552>552</OPTION><OPTION 
+        value=553>553</OPTION><OPTION value=554>554</OPTION><OPTION 
+        value=555>555</OPTION><OPTION value=556>556</OPTION><OPTION 
+        value=557>557</OPTION><OPTION value=558>558</OPTION><OPTION 
+        value=559>559</OPTION><OPTION value=560>560</OPTION><OPTION 
+        value=561>561</OPTION><OPTION value=562>562</OPTION><OPTION 
+        value=563>563</OPTION><OPTION value=564>564</OPTION><OPTION 
+        value=565>565</OPTION><OPTION value=566>566</OPTION><OPTION 
+        value=567>567</OPTION><OPTION value=568>568</OPTION><OPTION 
+        value=569>569</OPTION><OPTION value=570>570</OPTION><OPTION 
+        value=571>571</OPTION><OPTION value=572>572</OPTION><OPTION 
+        value=573>573</OPTION><OPTION value=574>574</OPTION><OPTION 
+        value=575>575</OPTION><OPTION value=576>576</OPTION><OPTION 
+        value=577>577</OPTION><OPTION value=578>578</OPTION><OPTION 
+        value=579>579</OPTION><OPTION value=580>580</OPTION><OPTION 
+        value=581>581</OPTION><OPTION value=582>582</OPTION><OPTION 
+        value=583>583</OPTION><OPTION value=584>584</OPTION><OPTION 
+        value=585>585</OPTION><OPTION value=586>586</OPTION><OPTION 
+        value=587>587</OPTION><OPTION value=588>588</OPTION><OPTION 
+        value=589>589</OPTION><OPTION value=590>590</OPTION><OPTION 
+        value=591>591</OPTION><OPTION value=592>592</OPTION><OPTION 
+        value=593>593</OPTION><OPTION value=594>594</OPTION><OPTION 
+        value=595>595</OPTION><OPTION value=596>596</OPTION><OPTION 
+        value=597>597</OPTION><OPTION value=598>598</OPTION><OPTION 
+        value=599>599</OPTION><OPTION value=600>600</OPTION><OPTION 
+        value=601>601</OPTION><OPTION value=602>602</OPTION><OPTION 
+        value=603>603</OPTION><OPTION value=604>604</OPTION><OPTION 
+        value=605>605</OPTION><OPTION value=606>606</OPTION><OPTION 
+        value=607>607</OPTION><OPTION value=608>608</OPTION><OPTION 
+        value=609>609</OPTION><OPTION value=610>610</OPTION><OPTION 
+        value=611>611</OPTION><OPTION value=612>612</OPTION><OPTION 
+        value=613>613</OPTION><OPTION value=614>614</OPTION><OPTION 
+        value=615>615</OPTION><OPTION value=616>616</OPTION><OPTION 
+        value=617>617</OPTION><OPTION value=618>618</OPTION><OPTION 
+        value=619>619</OPTION><OPTION value=620>620</OPTION><OPTION 
+        value=621>621</OPTION><OPTION value=622>622</OPTION><OPTION 
+        value=623>623</OPTION><OPTION value=624>624</OPTION><OPTION 
+        value=625>625</OPTION><OPTION value=626>626</OPTION><OPTION 
+        value=627>627</OPTION><OPTION value=628>628</OPTION><OPTION 
+        value=629>629</OPTION><OPTION value=630>630</OPTION><OPTION 
+        value=631>631</OPTION><OPTION value=632>632</OPTION><OPTION 
+        value=633>633</OPTION><OPTION value=634>634</OPTION><OPTION 
+        value=635>635</OPTION><OPTION value=636>636</OPTION><OPTION 
+        value=637>637</OPTION><OPTION value=638>638</OPTION><OPTION 
+        value=639>639</OPTION><OPTION value=640>640</OPTION><OPTION 
+        value=641>641</OPTION><OPTION value=642>642</OPTION><OPTION 
+        value=643>643</OPTION><OPTION value=644>644</OPTION><OPTION 
+        value=645>645</OPTION><OPTION value=646>646</OPTION><OPTION 
+        value=647>647</OPTION><OPTION value=648>648</OPTION><OPTION 
+        value=649>649</OPTION><OPTION value=650>650</OPTION><OPTION 
+        value=651>651</OPTION><OPTION value=652>652</OPTION><OPTION 
+        value=653>653</OPTION><OPTION value=654>654</OPTION><OPTION 
+        value=655>655</OPTION><OPTION value=656>656</OPTION><OPTION 
+        value=657>657</OPTION><OPTION value=658>658</OPTION><OPTION 
+        value=659>659</OPTION><OPTION value=660>660</OPTION><OPTION 
+        value=661>661</OPTION><OPTION value=662>662</OPTION><OPTION 
+        value=663>663</OPTION><OPTION value=664>664</OPTION><OPTION 
+        value=665>665</OPTION><OPTION value=666>666</OPTION><OPTION 
+        value=667>667</OPTION><OPTION value=668>668</OPTION><OPTION 
+        value=669>669</OPTION><OPTION value=670>670</OPTION><OPTION 
+        value=671>671</OPTION><OPTION value=672>672</OPTION><OPTION 
+        value=673>673</OPTION><OPTION value=674>674</OPTION><OPTION 
+        value=675>675</OPTION><OPTION value=676>676</OPTION><OPTION 
+        value=677>677</OPTION><OPTION value=678>678</OPTION><OPTION 
+        value=679>679</OPTION><OPTION value=680>680</OPTION><OPTION 
+        value=681>681</OPTION><OPTION value=682>682</OPTION><OPTION 
+        value=683>683</OPTION><OPTION value=684>684</OPTION><OPTION 
+        value=685>685</OPTION><OPTION value=686>686</OPTION><OPTION 
+        value=687>687</OPTION><OPTION value=688>688</OPTION><OPTION 
+        value=689>689</OPTION><OPTION value=690>690</OPTION><OPTION 
+        value=691>691</OPTION><OPTION value=692>692</OPTION><OPTION 
+        value=693>693</OPTION><OPTION value=694>694</OPTION><OPTION 
+        value=695>695</OPTION><OPTION value=696>696</OPTION><OPTION 
+        value=697>697</OPTION><OPTION value=698>698</OPTION><OPTION 
+        value=699>699</OPTION><OPTION value=700>700</OPTION><OPTION 
+        value=701>701</OPTION><OPTION value=702>702</OPTION><OPTION 
+        value=703>703</OPTION><OPTION value=704>704</OPTION><OPTION 
+        value=705>705</OPTION><OPTION value=706>706</OPTION><OPTION 
+        value=707>707</OPTION><OPTION value=708>708</OPTION><OPTION 
+        value=709>709</OPTION><OPTION value=710>710</OPTION><OPTION 
+        value=711>711</OPTION><OPTION value=712>712</OPTION><OPTION 
+        value=713>713</OPTION><OPTION value=714>714</OPTION><OPTION 
+        value=715>715</OPTION><OPTION value=716>716</OPTION><OPTION 
+        value=717>717</OPTION><OPTION value=718>718</OPTION><OPTION 
+        value=719>719</OPTION><OPTION value=720>720</OPTION><OPTION 
+        value=721>721</OPTION><OPTION value=722>722</OPTION><OPTION 
+        value=723>723</OPTION><OPTION value=724>724</OPTION><OPTION 
+        value=725>725</OPTION><OPTION value=726>726</OPTION><OPTION 
+        value=727>727</OPTION><OPTION value=728>728</OPTION><OPTION 
+        value=729>729</OPTION><OPTION value=730>730</OPTION><OPTION 
+        value=731>731</OPTION><OPTION value=732>732</OPTION><OPTION 
+        value=733>733</OPTION><OPTION value=734>734</OPTION><OPTION 
+        value=735>735</OPTION><OPTION value=736>736</OPTION><OPTION 
+        value=737>737</OPTION><OPTION value=738>738</OPTION><OPTION 
+        value=739>739</OPTION><OPTION value=740>740</OPTION><OPTION 
+        value=741>741</OPTION><OPTION value=742>742</OPTION><OPTION 
+        value=743>743</OPTION><OPTION value=744>744</OPTION><OPTION 
+        value=745>745</OPTION><OPTION value=746>746</OPTION><OPTION 
+        value=747>747</OPTION><OPTION value=748>748</OPTION><OPTION 
+        value=749>749</OPTION><OPTION value=750>750</OPTION><OPTION 
+        value=751>751</OPTION><OPTION value=752>752</OPTION><OPTION 
+        value=753>753</OPTION><OPTION value=754>754</OPTION><OPTION 
+        value=755>755</OPTION><OPTION value=756>756</OPTION><OPTION 
+        value=757>757</OPTION><OPTION value=758>758</OPTION><OPTION 
+        value=759>759</OPTION><OPTION value=760>760</OPTION><OPTION 
+        value=761>761</OPTION><OPTION value=762>762</OPTION><OPTION 
+        value=763>763</OPTION><OPTION value=764>764</OPTION><OPTION 
+        value=765>765</OPTION><OPTION value=766>766</OPTION><OPTION 
+        value=767>767</OPTION><OPTION value=768>768</OPTION><OPTION 
+        value=769>769</OPTION><OPTION value=770>770</OPTION><OPTION 
+        value=771>771</OPTION><OPTION value=772>772</OPTION><OPTION 
+        value=773>773</OPTION><OPTION value=774>774</OPTION><OPTION 
+        value=775>775</OPTION><OPTION value=776>776</OPTION><OPTION 
+        value=777>777</OPTION><OPTION value=778>778</OPTION><OPTION 
+        value=779>779</OPTION><OPTION value=780>780</OPTION><OPTION 
+        value=781>781</OPTION><OPTION value=782>782</OPTION><OPTION 
+        value=783>783</OPTION><OPTION value=784>784</OPTION><OPTION 
+        value=785>785</OPTION><OPTION value=786>786</OPTION><OPTION 
+        value=787>787</OPTION><OPTION value=788>788</OPTION><OPTION 
+        value=789>789</OPTION><OPTION value=790>790</OPTION><OPTION 
+        value=791>791</OPTION><OPTION value=792>792</OPTION><OPTION 
+        value=793>793</OPTION><OPTION value=794>794</OPTION><OPTION 
+        value=795>795</OPTION><OPTION value=796>796</OPTION><OPTION 
+        value=797>797</OPTION><OPTION value=798>798</OPTION><OPTION 
+        value=799>799</OPTION><OPTION value=800>800</OPTION><OPTION 
+        value=801>801</OPTION><OPTION value=802>802</OPTION><OPTION 
+        value=803>803</OPTION><OPTION value=804>804</OPTION><OPTION 
+        value=805>805</OPTION><OPTION value=806>806</OPTION><OPTION 
+        value=807>807</OPTION><OPTION value=808>808</OPTION><OPTION 
+        value=809>809</OPTION><OPTION value=810>810</OPTION><OPTION 
+        value=811>811</OPTION><OPTION value=812>812</OPTION><OPTION 
+        value=813>813</OPTION><OPTION value=814>814</OPTION><OPTION 
+        value=815>815</OPTION><OPTION value=816>816</OPTION><OPTION 
+        value=817>817</OPTION><OPTION value=818>818</OPTION><OPTION 
+        value=819>819</OPTION><OPTION value=820>820</OPTION><OPTION 
+        value=821>821</OPTION><OPTION value=822>822</OPTION><OPTION 
+        value=823>823</OPTION><OPTION value=824>824</OPTION><OPTION 
+        value=825>825</OPTION><OPTION value=826>826</OPTION><OPTION 
+        value=827>827</OPTION><OPTION value=828>828</OPTION><OPTION 
+        value=829>829</OPTION><OPTION value=830>830</OPTION><OPTION 
+        value=831>831</OPTION><OPTION value=832>832</OPTION><OPTION 
+        value=833>833</OPTION><OPTION value=834>834</OPTION><OPTION 
+        value=835>835</OPTION><OPTION value=836>836</OPTION><OPTION 
+        value=837>837</OPTION><OPTION value=838>838</OPTION><OPTION 
+        value=839>839</OPTION><OPTION value=840>840</OPTION><OPTION 
+        value=841>841</OPTION><OPTION value=842>842</OPTION><OPTION 
+        value=843>843</OPTION><OPTION value=844>844</OPTION><OPTION 
+        value=845>845</OPTION><OPTION value=846>846</OPTION><OPTION 
+        value=847>847</OPTION><OPTION value=848>848</OPTION><OPTION 
+        value=849>849</OPTION><OPTION value=850>850</OPTION><OPTION 
+        value=851>851</OPTION><OPTION value=852>852</OPTION><OPTION 
+        value=853>853</OPTION><OPTION value=854>854</OPTION><OPTION 
+        value=855>855</OPTION><OPTION value=856>856</OPTION><OPTION 
+        value=857>857</OPTION><OPTION value=858>858</OPTION><OPTION 
+        value=859>859</OPTION><OPTION value=860>860</OPTION><OPTION 
+        value=861>861</OPTION><OPTION value=862>862</OPTION><OPTION 
+        value=863>863</OPTION><OPTION value=864>864</OPTION><OPTION 
+        value=865>865</OPTION><OPTION value=866>866</OPTION><OPTION 
+        value=867>867</OPTION><OPTION value=868>868</OPTION><OPTION 
+        value=869>869</OPTION><OPTION value=870>870</OPTION><OPTION 
+        value=871>871</OPTION><OPTION value=872>872</OPTION><OPTION 
+        value=873>873</OPTION><OPTION value=874>874</OPTION><OPTION 
+        value=875>875</OPTION><OPTION value=876>876</OPTION><OPTION 
+        value=877>877</OPTION><OPTION value=878>878</OPTION><OPTION 
+        value=879>879</OPTION><OPTION value=880>880</OPTION><OPTION 
+        value=881>881</OPTION><OPTION value=882>882</OPTION><OPTION 
+        value=883>883</OPTION><OPTION value=884>884</OPTION><OPTION 
+        value=885>885</OPTION><OPTION value=886>886</OPTION><OPTION 
+        value=887>887</OPTION><OPTION value=888>888</OPTION><OPTION 
+        value=889>889</OPTION><OPTION value=890>890</OPTION><OPTION 
+        value=891>891</OPTION><OPTION value=892>892</OPTION><OPTION 
+        value=893>893</OPTION><OPTION value=894>894</OPTION><OPTION 
+        value=895>895</OPTION><OPTION value=896>896</OPTION><OPTION 
+        value=897>897</OPTION><OPTION value=898>898</OPTION><OPTION 
+        value=899>899</OPTION><OPTION value=900>900</OPTION><OPTION 
+        value=901>901</OPTION><OPTION value=902>902</OPTION><OPTION 
+        value=903>903</OPTION><OPTION value=904>904</OPTION><OPTION 
+        value=905>905</OPTION><OPTION value=906>906</OPTION><OPTION 
+        value=907>907</OPTION><OPTION value=908>908</OPTION><OPTION 
+        value=909>909</OPTION><OPTION value=910>910</OPTION><OPTION 
+        value=911>911</OPTION><OPTION value=912>912</OPTION><OPTION 
+        value=913>913</OPTION><OPTION value=914>914</OPTION><OPTION 
+        value=915>915</OPTION><OPTION value=916>916</OPTION><OPTION 
+        value=917>917</OPTION><OPTION value=918>918</OPTION><OPTION 
+        value=919>919</OPTION><OPTION value=920>920</OPTION><OPTION 
+        value=921>921</OPTION><OPTION value=922>922</OPTION><OPTION 
+        value=923>923</OPTION><OPTION value=924>924</OPTION><OPTION 
+        value=925>925</OPTION><OPTION value=926>926</OPTION><OPTION 
+        value=927>927</OPTION><OPTION value=928>928</OPTION><OPTION 
+        value=929>929</OPTION><OPTION value=930>930</OPTION><OPTION 
+        value=931>931</OPTION><OPTION value=932>932</OPTION><OPTION 
+        value=933>933</OPTION><OPTION value=934>934</OPTION><OPTION 
+        value=935>935</OPTION><OPTION value=936>936</OPTION><OPTION 
+        value=937>937</OPTION><OPTION value=938>938</OPTION><OPTION 
+        value=939>939</OPTION><OPTION value=940>940</OPTION><OPTION 
+        value=941>941</OPTION><OPTION value=942>942</OPTION><OPTION 
+        value=943>943</OPTION><OPTION value=944>944</OPTION><OPTION 
+        value=945>945</OPTION><OPTION value=946>946</OPTION><OPTION 
+        value=947>947</OPTION><OPTION value=948>948</OPTION><OPTION 
+        value=949>949</OPTION><OPTION value=950>950</OPTION><OPTION 
+        value=951>951</OPTION><OPTION value=952>952</OPTION><OPTION 
+        value=953>953</OPTION><OPTION value=954>954</OPTION><OPTION 
+        value=955>955</OPTION><OPTION value=956>956</OPTION><OPTION 
+        value=957>957</OPTION><OPTION value=958>958</OPTION><OPTION 
+        value=959>959</OPTION><OPTION value=960>960</OPTION><OPTION 
+        value=961>961</OPTION><OPTION value=962>962</OPTION><OPTION 
+        value=963>963</OPTION><OPTION value=964>964</OPTION><OPTION 
+        value=965>965</OPTION><OPTION value=966>966</OPTION><OPTION 
+        value=967>967</OPTION><OPTION value=968>968</OPTION><OPTION 
+        value=969>969</OPTION><OPTION value=970>970</OPTION><OPTION 
+        value=971>971</OPTION><OPTION value=972>972</OPTION><OPTION 
+        value=973>973</OPTION><OPTION value=974>974</OPTION><OPTION 
+        value=975>975</OPTION><OPTION value=976>976</OPTION><OPTION 
+        value=977>977</OPTION><OPTION value=978>978</OPTION><OPTION 
+        value=979>979</OPTION><OPTION value=980>980</OPTION><OPTION 
+        value=981>981</OPTION><OPTION value=982>982</OPTION><OPTION 
+        value=983>983</OPTION><OPTION value=984>984</OPTION><OPTION 
+        value=985>985</OPTION><OPTION value=986>986</OPTION><OPTION 
+        value=987>987</OPTION><OPTION value=988>988</OPTION><OPTION 
+        value=989>989</OPTION><OPTION value=990>990</OPTION><OPTION 
+        value=991>991</OPTION><OPTION value=992>992</OPTION><OPTION 
+        value=993>993</OPTION><OPTION value=994>994</OPTION><OPTION 
+        value=995>995</OPTION><OPTION value=996>996</OPTION><OPTION 
+        value=997>997</OPTION><OPTION value=998>998</OPTION><OPTION 
+        value=999>999</OPTION><OPTION value=1000>1000</OPTION></SELECT>&nbsp;<A 
+      href="http://bbs.matwav.com/stat/analysis?action=ShowScoreStatistics" 
+      target=_blank>论坛技术分统计</A> </TD></TR></TBODY></TABLE>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD><INPUT class=btnStyle type=submit value="确 定" name=action_post> 
+  </TD></TR></TBODY></TABLE><INPUT type=hidden value=7 name=bid> <INPUT 
+type=hidden value=22932 name=parent> <INPUT type=hidden 
+value=/post/view?bid=7&amp;id=22932&amp;sty=1&amp;tpg=1&amp;age=0 name=done> 
+</FORM>
+<TABLE width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD><IMG src="view.files/post.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 已读帖子</FONT><BR><IMG src="view.files/post_n.gif" 
+      align=absMiddle border=0><FONT class=text>&nbsp; 新的帖子</FONT><BR><IMG 
+      src="view.files/post_d.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 被删除的帖子</FONT></TD></TR></TBODY></TABLE>
+<TABLE width="95%">
+  <TBODY>
+  <TR>
+    <TD align=right><A name=bottom></A><A href="javascript:jumpTo('top')"><IMG 
+      alt="Jump to the top of page" src="view.files/up.gif" border=0></A> 
+  </TD></TR></TBODY></TABLE><BR>
+<CENTER><A 
+href="http://bbs.matwav.com/index.html">返回研学论坛首页</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://www.matwav.com/">返回网站首页</A><BR><BR><A 
+href="http://bbs.matwav.com/ad.html" target=_blank>广告服务</A> | <A 
+href="http://bbs.matwav.com/private.html" target=_blank>隐私政策</A> | <A 
+href="mailto:%20xiaohnglv@163.com" target=_blank>联系我们</A> | <A 
+onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.192.122.151:8080/bbs/');" 
+href="http://bbs.matwav.com/#">设为首页</A><BR><BR><FONT class=text><FONT 
+color=#808080>Powered by <A href="http://www.cjsdn.com/" target=_blank>Powerful 
+JuteForum</A>&reg; Version Jute 1.5.1 Ent <BR>Copyright&copy; 2002-2003 研学论坛 All Rights 
+Reserved.</FONT></FONT> </CENTER></CENTER></CENTER></BODY></HTML>

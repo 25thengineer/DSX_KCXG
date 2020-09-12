@@ -1,0 +1,71 @@
+# -*- Mode: makefile -*-
+# Copyright (c) 1999 Matthew Wall, all rights reserved
+# makefile variables for compiling on unix environments
+# -----------------------------------------------------------------------------
+
+LIB= libga.a
+
+### Set these directories to whatever is appropriate for your system.  These 
+### used only if you do a 'make install'.  They specify where the library and
+### header files should be installed.
+DESTDIR=/usr/local
+HDR_DEST_DIR=$(DESTDIR)/include
+LIB_DEST_DIR=$(DESTDIR)/lib
+
+
+### Make sure that these are ok for your flavor of unix.  They are used to
+### create the library and to create an archive from the object files.
+MKDEPEND    = makedepend
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+
+
+### Uncomment a block from the list below appropriate for the compiler and 
+### operating system on which you are compiling.  If you compile GAlib on a
+### platform/compiler that is not included here, please email the configuration
+### to galib-request@mit.edu so that we can incorporate it into this listing.
+
+# GNU compiler flags (works with g++ and egcs)
+CXX         = g++
+PRELINK     =
+CXXFLAGS    = -g -Wall -O -fexceptions -O0
+CXX_INC_DIR = /usr/include/CC
+LD          = g++ -w
+AR          = ar rv
+INSTALL     = install -c
+
+
+# IRIX 6.x with new 32-bit libraries
+#CXX         = CC
+#PRELINK     =
+#CXXFLAGS    = -g -fullwarn -n32
+#CXX_INC_DIR = /usr/include/CC
+#LD          = ld
+#AR          = ar rv
+#INSTALL     = bsdinst -c
+
+
+# IRIX 6.x with old 32-bit libraries
+#CXX         = CC
+#PRELINK     =
+#CXXFLAGS    = -g -fullwarn
+#CXX_INC_DIR = /usr/include/CC
+#LD          = ld
+#AR          = ar rv
+#INSTALL     = bsdinst -c
+
+
+# IRIX 5.x with the DCC compiler
+#CXX         = DCC
+#PRELINK     = /usr/lib/DCC/edg_prelink $(OBJS)
+#CXXFLAGS    = -g +w +pp -O
+#CXX_INC_DIR = /usr/include/CC
+#LD          = ld
+#AR          = ar rv
+#INSTALL     = bsdinst -c
+
+
+.SUFFIXES: .C
+.C.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<

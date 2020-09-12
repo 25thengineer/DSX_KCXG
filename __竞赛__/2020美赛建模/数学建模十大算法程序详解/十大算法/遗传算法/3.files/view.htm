@@ -1,0 +1,815 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0070)http://bbs.matwav.com/post/view?id=47285&sty=1&bid=7&tpg=2&age=0&ppg=1 -->
+<HTML><HEAD><TITLE>研学论坛 - [推荐]GAlib: MIT的GA库！</TITLE>
+<META http-equiv=Expires content=0>
+<META http-equiv=Content-Type content=text/html;charset=GBK>
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+P {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+TD {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; COLOR: #000000; WORD-BREAK: break-all; FONT-FAMILY: Tahoma,Georgia
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+A {
+	TEXT-DECORATION: underline
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #000080; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.head {
+	BACKGROUND-COLOR: #5d7790
+}
+.neck {
+	BACKGROUND-COLOR: #d1d9e2
+}
+.odd {
+	BACKGROUND-COLOR: #e3e3e3
+}
+.even {
+	BACKGROUND-COLOR: #f7f7f7
+}
+.nav {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:visited {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.nav:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic {
+	TEXT-DECORATION: none
+}
+.topic:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.topic:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.topic:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:link {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:visited {
+	COLOR: #004080; TEXT-DECORATION: underline
+}
+.ilink:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.mod {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.mod:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.mod:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd {
+	COLOR: #808080; TEXT-DECORATION: none
+}
+.thd:link {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:visited {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.curpage {
+	FONT-SIZE: 9px; COLOR: #ffffff; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:link {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:visited {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:active {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:hover {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.subject {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.codeStyle {
+	PADDING-RIGHT: 0.5em; MARGIN-TOP: 1em; PADDING-LEFT: 0.5em; FONT-SIZE: 9pt; MARGIN-BOTTOM: 1em; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0pt; COLOR: #ffffff; PADDING-TOP: 0.5em; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #000000
+}
+.smalltext {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.verysmalltext {
+	FONT-SIZE: 4px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.member {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma,Georgia
+}
+.btnStyle {
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #e9e9e9; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #e9e9e9; CURSOR: hand; COLOR: #ffffff; BORDER-TOP-COLOR: #e9e9e9; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #5d7790; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #e9e9e9
+}
+.selStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+.inpStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+</STYLE>
+
+<SCRIPT>
+if(parent==this) {
+	url = 'http://bbs.matwav.com/index.jsp?url='+escape(window.location.href);
+	window.location=url;
+}
+function jumpTo(b)
+{
+	javascript:window.location.hash=b;
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#000080 aLink=#ff0000 link=#000000 bgColor=#ffffff><A 
+name=top></A>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><A href="http://bbs.matwav.com/" target=_top><IMG alt=研学论坛 hspace=0 
+      src="view.files/title.gif" align=left border=0></A> </TD>
+    <CENTER>
+    <TD vAlign=top align=middle width=102 height=48 rowSpan=5>
+      <OBJECT 
+      codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 
+      height=70 width=480 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="http://www.matwav.com/gifswf/logo.swf"><PARAM NAME="quality" VALUE="high">
+      <embed src="http://www.matwav.com/gifswf/logo.swf" quality=high 
+      pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" 
+      type="application/x-shockwave-flash" width="102" height="70"></embed> 
+      </OBJECT></TD></TR>
+  <TR>
+    <TD colSpan=2 height=3></TD></TR></TBODY></TABLE>
+<TABLE 
+style="BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; WIDTH: 95%; BORDER-BOTTOM: #666666 1px solid" 
+height=21 cellSpacing=0 cellPadding=0 width="95%" bgColor=#e3e3e3 border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><SPAN title=帮助及常见问题><A 
+      href="http://bbs.matwav.com/html/help.html" target=_blank>帮助</A></SPAN> | 
+      <SPAN title=全文检索><A href="http://bbs.matwav.com/post/search">搜索</A></SPAN> 
+      | <SPAN title=注册新账号><A 
+      href="http://bbs.matwav.com/user/register">注册</A></SPAN> | <SPAN 
+      title=会员登录论坛><A href="http://bbs.matwav.com/user/login">登录</A></SPAN> | 
+      <SPAN title=发帖最多的用户，回复最多的话题，人气最旺的话题><A 
+      href="http://bbs.matwav.com/stat/top">排行榜</A></SPAN> | <SPAN 
+      title=按每月、日、周以及小时的帖子数统计><A 
+      href="http://bbs.matwav.com/stat/analysis">发帖统计</A></SPAN> 
+  <BR></TD></TR></TBODY></TABLE><BR clear=all>
+<SCRIPT language=javascript>
+function copyText(obj) {
+var rng = document.body.createTextRange();
+rng.moveToElementText(obj);
+rng.scrollIntoView();
+rng.select();
+rng.execCommand("Copy");
+rng.collapse(false);
+}
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><B><FONT face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/index.html"><B>研学论坛</B></A>&nbsp; <FONT 
+      face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/post/page?bid=7&amp;sty=1&amp;age=0&amp;tpg=2"><B>遗传算法</B></A> 
+      &nbsp;<BR><BR><IMG alt=按打印兼容模式打印这个话题 src="view.files/icon_print.gif" 
+      align=absMiddle border=0>&nbsp;<A class=mod title=按打印兼容模式打印这个话题 
+      href="http://bbs.matwav.com/post/print?bid=7&amp;id=47285"><B>打印话题</B></A> 
+      &nbsp;&nbsp; <IMG alt=把这个话题寄给朋友 src="view.files/icon_friend.gif" 
+      align=absMiddle border=0> <A class=mod title=把这个话题寄给朋友 
+      href="http://bbs.matwav.com/post/forward?bid=7&amp;id=47285&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1"><B>寄给朋友</B></A> 
+      &nbsp;&nbsp; <IMG alt=该主题的所有更新都将Email到你的邮箱 src="view.files/icon_watch.gif" 
+      align=absMiddle border=0> <B><FONT color=#c0c0c0>订阅主题</FONT></B> 
+  </B></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=47285&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=3&amp;age=0#47285"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE><A name=47285></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>[推荐]GAlib: MIT的GA库！ </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>xman</B> <BR><IMG src="view.files/none.gif" 
+      border=0> <BR><BR><BR>论坛游民<IMG src="view.files/advu.gif" border=0> 
+      <BR><BR><B>发贴:</B> 17 <BR><B>技术分:</B> 2 <BR><B>积分:</B>75 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-03-18 14:24 <A 
+      href="http://bbs.matwav.com/user/info?uid=10603"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=xman&amp;subject=Re%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=47285&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=xman&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text47285);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=47285" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text47285>rt<BR><IMG 
+      src="view.files/attachment.gif" align=absMiddle border=0><A class=ilink 
+      href="http://bbs.matwav.com/getfile.jsp?id=988" 
+      target=_blank>下载附件</A><BR><IMG src="view.files/attachment.gif" 
+      align=absMiddle border=0><A class=ilink 
+      href="http://bbs.matwav.com/getfile.jsp?id=989" 
+      target=_blank>下载附件</A><BR><IMG src="view.files/attachment.gif" 
+      align=absMiddle border=0><A class=ilink 
+      href="http://bbs.matwav.com/getfile.jsp?id=990" target=_blank>下载附件</A> 
+      <BR><BR><BR></SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=47287></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:[推荐]GAlib: MIT的GA库！ [Re:xman] 
+  </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>see_moonlight</B> <BR><IMG 
+      src="view.files/face_p15.gif" border=0> <BR><BR><BR>版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 190 
+      <BR><B>技术分:</B> 16 <BR><B>积分:</B>522 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-03-18 15:16 <A 
+      href="http://bbs.matwav.com/user/info?uid=1152"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=see_moonlight&amp;subject=Re%3ARe%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="mailto:see_moonlight@126.com"><IMG alt="send email to see_moonlight" 
+      src="view.files/icon_email.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=47287&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=see_moonlight&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text47287);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=47287" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text47287>GAlib Documentation <BR>version 2.4 
+      <BR><BR>GAlib is a set of C++ genetic algorithm objects. The library 
+      includes tools for using genetic algorithms to do optimization in any C++ 
+      program. This documentation includes: <BR><BR>installation instructions 
+      <BR>overview of the GAlib implementation and programming techniques 
+      <BR>class hierarchy of GAlib objects <BR>programming interface for using 
+      GAlib classes <BR>instructions for deriving new classes and genetic 
+      operators <BR>descriptions of the examples <BR>list of features <BR>other 
+      genetic algorithm sites <BR><BR>For the most recent GAlib developments, 
+      please refer to <A class=ilink href="http://lancet.mit.edu/ga/" 
+      target=_blank>http://lancet.mit.edu/ga/</A> <BR><BR>change history <BR>bug 
+      list <BR>frequently asked questions <BR>mailing list archive 
+      (galib@mit.edu) <BR><BR><BR>There are two mailing lists to which you may 
+      subscribe, and an address to which you should report bugs. 
+      <BR><BR>galib@mit.edu <BR>This is an unmoderated mailing list for GAlib 
+      users. If you have found use for GAlib and would like to let other users 
+      know about it, or if you're having problems with GAlib, post it to this 
+      mailing list and one of the other subscribers just might be able to help 
+      you out. I read all messages that are posted to this list, but I cannot 
+      respond to every one. <BR><BR><BR>galib-announce@mit.edu <BR>This mailing 
+      list is for announcements about updates to GAlib. The only messages sent 
+      to recipients of this list are announcements from me about revisions to 
+      GAlib. This typically amounts to about one or two emails per year. 
+      <BR><BR><BR>galib-bugs@mit.edu <BR>This is where you should send bug 
+      reports. Please check the list of known bugs before you submit a bug 
+      report. You cannot subscribe to this list. <BR>To subscribe, send email to 
+      galib-request@mit.edu with the word subscribe as the subject. To 
+      unsubscribe, send email with the word unsubscribe as the subject. 
+      <BR><BR>Copyright (c) Massachusetts Institute of Technology and Matthew 
+      Wall. All rights reserved. <BR></SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      临江仙<BR><BR>陈夕往事益归去,<BR>古道西风依旧.<BR>人生长河水长东,<BR>春去遇秋来,<BR>天际寻鹄鸿.<BR><BR>日月星移话沧桑,<BR>是非功过何在?<BR>一路风雨兼程行,<BR>唯清风明月,<BR>独在情怀中. 
+      <BR></TD></TR></TBODY></TABLE><A name=47286></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:[推荐]GAlib: MIT的GA库！ [Re:xman] 
+  </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>see_moonlight</B> <BR><IMG 
+      src="view.files/face_p15.gif" border=0> <BR><BR><BR>版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 190 
+      <BR><B>技术分:</B> 16 <BR><B>积分:</B>522 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-03-18 15:25 <A 
+      href="http://bbs.matwav.com/user/info?uid=1152"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=see_moonlight&amp;subject=Re%3ARe%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="mailto:see_moonlight@126.com"><IMG alt="send email to see_moonlight" 
+      src="view.files/icon_email.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=47286&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=see_moonlight&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text47286);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=47286" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text47286>Bugs in GAlib <BR>Last modified 24 
+      December 1999 <BR><BR>This page contains a list of bugs and suggested 
+      workarounds. Please submit to galib-bugs@mit.edu a bug report if the 
+      problem you're having is not on this list. <BR><BR>configuration issues 
+      <BR>version 2.4.x <BR>version 2.3.2 <BR>version 2.3.1 
+      <BR><BR><BR><BR>Compiler/Configuration Issues 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>Random number woes <BR><BR>If you find that the examples don't 
+      evolve properly, check the performance of the random number generator 
+      using the randtest example. You can specify which random number generator 
+      to use by modifying the gaconfig.h file. Note that that modifications to 
+      gaconfig.h will require a rebuild of the entire GA library. 
+      <BR><BR><BR><BR><BR><BR>bugs in version 2.4.4 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>On some platforms, the seed functions for the RAN1 and RAN2 random 
+      number generator only works half of the time, on average. The other half 
+      of the time it generates the same random seed. Thanks to Peter Ross and 
+      George LeCompte for finding this one. In the file garandom.C, change the 
+      sran1 and sran2 functions so that: <BR>206 void <BR>207 sran1(unsigned int 
+      seed) { <BR>208 int j; <BR>209 long k; <BR>210 <BR>211 idum = seed; 
+      <BR>212 if (idum &lt; 1) idum=1; <BR>213 for (j=NTAB+7;j&gt;=0;j--) { 
+      <BR>214 k=(idum)/IQ; <BR>215 idum=IA*(idum-k*IQ)-IR*k; <BR>216 if (idum 
+      &lt; 0) idum += IM; <BR>217 if (j &lt; NTA<IMG alt="Black Eye" 
+      src="view.files/smile_blackeye.gif" width=15> iv[j] = idum; <BR>218 } 
+      <BR>219 iy=iv[0]; <BR>220 } <BR><BR>... <BR><BR>280 void <BR>281 
+      sran2(unsigned int seed) { <BR>282 int j; <BR>283 long k; <BR>284 <BR>285 
+      idum = STA_CAST(long,seed); <BR>286 if (idum &lt; 1) idum=1; <BR>287 
+      idum2=(idum); <BR>288 for (j=NTAB+7;j&gt;=0;j--) { <BR>289 k=(idum)/IQ1; 
+      <BR>290 idum=IA1*(idum-k*IQ1)-k*IR1; <BR>291 if (idum &lt; 0) idum += IM1; 
+      <BR>292 if (j &lt; NTA<IMG alt="Black Eye" 
+      src="view.files/smile_blackeye.gif" width=15> iv[j] = idum; <BR>293 } 
+      <BR>294 iy=iv[0]; <BR>295 } <BR><BR>becomes this: <BR>206 void <BR>207 
+      sran1(unsigned int seed) { <BR>208 int j; <BR>209 long k; <BR>210 <BR>211 
+      idum = seed; <BR>212 if (idum == 0) idum=1; <BR>if (idum &lt; 0) idum = 
+      -idum; <BR>213 for (j=NTAB+7;j&gt;=0;j--) { <BR>214 k=(idum)/IQ; <BR>215 
+      idum=IA*(idum-k*IQ)-IR*k; <BR>216 if (idum &lt; 0) idum += IM; <BR>217 if 
+      (j &lt; NTA<IMG alt="Black Eye" src="view.files/smile_blackeye.gif" 
+      width=15> iv[j] = idum; <BR>218 } <BR>219 iy=iv[0]; <BR>220 } <BR><BR>... 
+      <BR><BR>280 void <BR>281 sran2(unsigned int seed) { <BR>282 int j; <BR>283 
+      long k; <BR>284 <BR>285 idum = STA_CAST(long,seed); <BR>286 if (idum == 0) 
+      idum=1; <BR>if (idum &lt; 0) idum = -idum; <BR>287 idum2=(idum); <BR>288 
+      for (j=NTAB+7;j&gt;=0;j--) { <BR>289 k=(idum)/IQ1; <BR>290 
+      idum=IA1*(idum-k*IQ1)-k*IR1; <BR>291 if (idum &lt; 0) idum += IM1; <BR>292 
+      if (j &lt; NTA<IMG alt="Black Eye" src="view.files/smile_blackeye.gif" 
+      width=15> iv[j] = idum; <BR>293 } <BR>294 iy=iv[0]; <BR>295 } <BR><BR>The 
+      RAN3 random number generator has a bug in it that was included in the 
+      Numberical Recipes code but has since been fixed. Thanks to Peter Ross for 
+      pointing this out. The fix is as follows in garandom.C: <BR>353 
+      mj=MSEED-idum; <BR><BR>becomes this: <BR>353 mj=labs(MSEED-labs(idum)); 
+      <BR><BR>The population's pointer to the genetic algorithm that contains it 
+      is not initialized to zero. Thanks to Harald H Soleng of the Norwegian 
+      Computing Center for finding this one. The fix is to change GAPopulation.C 
+      so that two of the three GAPopulation constructors initialize the ga 
+      member to nil (the copy constructor does a deep copy and thus gets the 
+      genetic algorithm from the population it is cloning): <BR>76 evaldata = 
+      (GAEvalData*)0; <BR>77 } <BR><BR>... <BR><BR>104 evaldata = 
+      (GAEvalData*)0; <BR>105 } <BR><BR>becomes this: <BR>76 evaldata = 
+      (GAEvalData*)0; <BR>ga = (GAGeneticAlgorithm*)0; <BR>77 } <BR><BR>... 
+      <BR><BR>104 evaldata = (GAEvalData*)0; <BR>ga = (GAGeneticAlgorithm*)0; 
+      <BR>105 } <BR><BR>Boolean parameters are not read correctly from file. 
+      Thanks to Klaus Kirchberg for finding this one.. The fix is to modify 
+      GAParameter.C as follows: <BR>313 if(ival) os &lt;&lt; "true\n"; <BR>314 
+      else os &lt;&lt; "false\n"; <BR><BR>becomes this: <BR>313 if(ival) os 
+      &lt;&lt; "1\n"; <BR>314 else os &lt;&lt; "0\n"; 
+      <BR><BR><BR><BR><BR><BR><BR>bugs in version 2.4.3 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>The early release of the Mac project file has a bogus struct 
+      alignment configuration for each of the examples. Be sure that the linker 
+      is configured to PowerPC struct alignment, not 68K struct alignment. If 
+      you use the wrong alignment, everything will compile and link just fine, 
+      but it will crash when you run it. <BR><BR><BR><BR><BR><BR>bugs in version 
+      2.4.2 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>Example 13 does not do what it purports to do. There are a number 
+      of places where _numbers should be replaced with _picture, and there are 
+      some flaws in the logic. Please use the example 13 from the 2.4.3 release. 
+      <BR><BR><BR>GAParameter::setvalue can corrupt memory when it frees memory 
+      that it just allocated. The result is a bogus file name and/or application 
+      crashing. The fix is to change GAParameter.C so that this: <BR>95 case 
+      STRING: <BR>96 { <BR>97 char* ptr=0; <BR><BR>becomes this: <BR>95 case 
+      STRING: <BR>96 if(v != val.sval) { <BR>97 char* ptr=0; 
+      <BR><BR>GAGeneticAlgorithm::TerminateUponConvergence will stop after the 
+      first generation when doing a minimization with convergence as the 
+      stopping criterion. <BR><BR><BR>When using a GARealGenome and an allele 
+      set with INCLUDE/EXCLUDE limits, you may find that the limits you set are 
+      ignored. This is probably due to a bug in the 
+      GAAlleleSet&lt;&gt;::allele() function. It may also be due to genetic 
+      operators (mutate, crossover) that ignore the allele boundary/type 
+      details. <BR><BR><BR>GAAlleleSet&lt;&gt;::allele does not respect allele 
+      bounds. Neither does the specialization, GAAlleleSet<FLOAT>::allele() 
+      Please get a new copy of GARealGenome.C and GAAllele.C from the 2.4.3 
+      release to fix the problems. Note that you will have to define your own 
+      GAAlleleSet&lt;&gt;::allele() member function if you use a type other than 
+      float (use the GARealGenome.C code to as an example of how to do this) 
+      <BR><BR><BR>There are quite a few problems with the GADemeGA object. The 
+      problems only show themselves when you attempt to change the number of 
+      populations and/or the replacement numbers or migration numbers. Please 
+      get a new copy of GADemeGA.C from the 2.4.3 release to fix all the 
+      problems. <BR><BR><BR>The resizeBehaviour method for both 
+      GA3DBinaryStringGenome and GA3DArrayGenome has two errors in it. If you 
+      use this member function to query the resize behavior of a genome, you 
+      will always get 0 for HEIGHT and DEPTH rather than the actual HEIGHT and 
+      DEPTH values. The fix is to modify the if statements. In the 'if' test 
+      statements, the variable should be which not val. <BR><BR><BR>The read 
+      member function of 1D, 2D, and 3D binary string genomes will cause a 
+      segmentation fault in cases where the genome has length (width, height) of 
+      zero. The fix is to change the do...while loop into a while loop. This 
+      should be done in GA1DBinStringGenome.C, GA2DBinStringGenome.C, and 
+      GA3DBinStringGenome.C. <BR><BR><BR>Examples 5 and 14 do not work correctly 
+      because the _evaluated flag is not properly reset in the initialize, 
+      mutate, and crossover methods. In any custom-defined genome, you must set 
+      _evaluated to gaFalse whenever you change the state of a genome, otherwise 
+      the genome's evaluator will not be invoked (the cached score will be used 
+      instead). <BR><BR><BR>On some platforms, using a GARealGenome with the 
+      GARealGaussianMutator will occasionally result in a crash when 
+      GAUnitGaussian takes the square root of a negative number. To be sure this 
+      never happens, change the following code in garandom.C so that this: 
+      <BR>101 } while(rsquare &gt;= 1.0 || rsquare == 0.0); <BR>102 <BR>103 
+      factor = sqrt( -2.0 * log(rsquare) / rsquare ); <BR>104 <BR>105 cachevalue 
+      = var1 * factor; <BR><BR>becomes this: <BR>101 } while(rsquare &gt;= 1.0 
+      || rsquare == 0.0); <BR>102 <BR>double val = -2.0 * log(rsquare) / 
+      rsquare; <BR>if(val &gt; 0.0) factor = sqrt(val); <BR>else factor = 0.0; 
+      <BR>104 <BR>105 cachevalue = var1 * factor; <BR><BR>In the DemeGA, 
+      changing the number of populations to a larger number after the GA has 
+      been created will result in a segmentation fault. The nPopulations member 
+      function should be modified as follows. Insert a line of code that 
+      modifies the population in GADemeGA::nPopulations(unsigned int n) so that 
+      this: <BR>264 } <BR>265 return npop; <BR>266 } <BR><BR><BR>becomes this: 
+      <BR>264 } <BR>pop-&gt;size(npop); <BR>265 return npop; <BR>266 } 
+      <BR><BR>The PC and Mac GAlib packages have a typo in example 5. My PERL 
+      script for converting UNIX to PC got a little carried away. Change: <BR>69 
+      CompositeGenome(int element, int bond, GABin2DecPhenotype&amp; p, <BR>70 
+      GAGenome::Evaluator f, void* u) : <BR>71 GAGenome.cppompositeInitializer, 
+      <BR>72 CompositeMutator, <BR>73 CompositeComparator) { <BR><BR>to: <BR>69 
+      CompositeGenome(int element, int bond, GABin2DecPhenotype&amp; p, <BR>70 
+      GAGenome::Evaluator f, void* u) : <BR>71 GAGenome(CompositeInitializer, 
+      <BR>72 CompositeMutator, <BR>73 CompositeComparator) { 
+      <BR><BR><BR><BR><BR><BR><BR>bugs in version 2.4.1 <BR>fixed in release 
+      2.4.2 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>The random number seed may occasionally be set to 0, resulting in 
+      all 0s from the GARandomBit function. This bug was introduced in the 2.4.1 
+      release as I tried to make the seed generator more robust with respect to 
+      various implementations of 'time()' on different OSes. To fix the problem, 
+      make the following change to random.C in the function GARandomSeed. Change 
+      line 56 from: <BR>56 for(unsigned int i=0; i<SIZEOF(UNSIGNED <BR { i++) 
+      int);> <BR>to: <BR>56 for(unsigned int i=0; i<BITS_IN_WORD <BR { i++) 
+      int); sizeof(unsigned *> <BR>If you are compiling with NO_STREAMS defined, 
+      you will have to fix error.C so that it includes stdio.h. Just move 
+      '#include <STDIO.H>' so that it is outside of the '#ifndef NO_STREAMS ... 
+      #endif' directive. <BR>The filenames used in this distribution may 
+      conflict with system files. For example, 'list.h' conflicts with 
+      Metrowerks' 'list.h' in Codewarrior 9 and later, and 'tree.h' conflicts 
+      with borland's 'tree.h' in version 5.x of their compiler. 
+      <BR><BR><BR><BR><BR><BR>bugs in version 2.4 <BR>fixed in release 2.4.1 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>The default population evaluator forces unnecessary genome 
+      evaluations. In population.C, remove 'gaTrue' from the call to the genome 
+      'evaluate' member function in GAPopulation:<IMG alt="Big Smile" 
+      src="view.files/smile_big.gif" width=15>efaultEvaluator. <BR>The GANode 
+      and GANodeBASE classes do not have virtual destructors, so any classes 
+      derived from them do not destruct properly. <BR>The statistics object does 
+      not work properly with genetic algorithms that are configured to minimize. 
+      'best' and 'worst' are reversed when minimizing and the lowest score is 
+      not always maintained. <BR>The simple genetic algorithm does not properly 
+      maintain the best individual when minimizing. <BR><BR><BR><BR><BR><BR>bugs 
+      in version 2.3.2 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>The remove method was never defined for the GABin2DecPhenotype 
+      class in bin2dec.ph.C (it was declared in the header file). Ooops, sorry 
+      about that. Upgrade to version 2.4. <BR><BR><BR>A population size of 1 
+      will cause a crash when the statistics are updated. This has been fixed in 
+      the 2.4 release. <BR><BR><BR>The remove member of the GATree class does 
+      not properly re-set the node pointers on the subtree that is removed. To 
+      fix this problem, make the following modifications to treetmpl.C: <BR>69 
+      if(node-&gt;prev != node) iter.eldest(); <BR>70 else if(node-&gt;parent) 
+      iter.parent(); <BR>71 else iter.node = (GANodeBASE *)0; <BR>72 
+      t-&gt;insert((GANode<T> *)GATreeBASE::remove(node), (GANode<T> *)0, <BR>73 
+      GATreeBASE::ROOT); <BR>74 <BR>75 return t; <BR>76 } <BR><BR>should be 
+      modified to <BR>69 if(node-&gt;prev != node) iter.eldest(); <BR>70 else 
+      if(node-&gt;parent) iter.parent(); <BR>71 else iter.node = (GANodeBASE 
+      *)0; <BR>GANode<T> *tmpnode = (GANode<T>*)GATreeBASE::remove(node); 
+      <BR>tmpnode-&gt;prev = tmpnode; <BR>tmpnode-&gt;next = tmpnode; 
+      <BR>tmpnode-&gt;parent = (GANodeBASE *)0; <BR>t-&gt;insert(tmpnode, 
+      (GANode<T> *)0, GATreeBASE::ROOT); <BR>74 <BR>75 return t; <BR>76 } 
+      <BR><BR>The array swap and flip mutators have a bug in them that will 
+      prevent mutation in some cases. To fix it, do the following. <BR>Change 
+      lines 83 and 114 in array1.op.C. The first change is in 
+      GA1DArrayFlipMutator: <BR><BR>83 for(n=1; n<NMUT; <BR n++){> <BR>should be 
+      <BR>83 for(n=0; n<NMUT; <BR n++){> <BR>The second change is in 
+      GA1DArraySwapMutator: <BR>114 for(n=1; n<NMUT; <BR n++)> <BR>should be 
+      <BR>114 for(n=0; n<NMUT; <BR n++)> <BR>Be careful with the random number 
+      generator. If you use GAlib right out of the box, the GARandomBit function 
+      caches bits rather than calling the random function multiple times. This 
+      may or may not be a problem, depending on the underlying random function 
+      you use. The default configuration for GAlib is to use your system's 
+      rand() or random() function to generate random numbers. Typically, the 
+      system random number generators are not very robust. The actual 
+      implementation varies from system to system, but most use some sort of 
+      linear congruential generator, and you should not expect the bits of the 
+      numbers these RNGs generate to be uniformly random. For many applications, 
+      the default GAlib configuration will suffice, but if you are doing 
+      extensive statistical evaluation of results obtained using GAlib you 
+      should consider writing your own random number generator and plugging it 
+      in to replace rand() or random(). You can do this by modifying random.h to 
+      use your random function. <BR>See Numerical Recipes in C for details about 
+      the issues of using various random number generators. These issues have 
+      been resolved in the 2.4 release of GAlib. <BR><BR>The scaling member 
+      function of the GAPopulation object does not properly update the scaling 
+      object when it is changed. If you try to change the scaling during the 
+      course of an evolution, your program will crash (the selector returns nil 
+      pointers after you change the selector). The 'evaluate' member of the 
+      scaling object must be called before the selector accesses the scaling 
+      data. <BR>In the scaling member function in population.C, add one line of 
+      code so that <BR><BR>275 sm-&gt;resize(n); <BR>276 return *sm; 
+      <BR><BR>becomes <BR>275 sm-&gt;resize(n); <BR>if(evaluated) 
+      sm-&gt;evaluate(*this); <BR>276 return *sm; <BR><BR>The copy member 
+      function of the GAPopulation object has a typo in it. Whenever you try to 
+      copy a population, the copy member clones the worst individual in the 
+      population rather than copying each individual in the population. To fix 
+      the problem, change [0] to [i] as shown here. <BR>In population.C, change 
+      0 to an i in line 153 so that <BR><BR>151 ind = new GAGenome * [N]; 
+      <BR>152 for(i=0; i<N; <BR i++)>153 ind[i] = arg.ind[0]-&gt;clone(); 
+      <BR>154 <BR>155 if(arg.sm) sm = arg.sm-&gt;clone(); <BR><BR>becomes 
+      <BR>151 ind = new GAGenome * [N]; <BR>152 for(i=0; i<N; <BR i++)>153 
+      ind[i] = arg.ind[i]-&gt;clone(); <BR>154 <BR>155 if(arg.sm) sm = 
+      arg.sm-&gt;clone(); <BR><BR>The initialize member function of any GA class 
+      must be called after any calls to the populationSize member function, 
+      otherwise the scaling object does not get updated and your GA will crash 
+      on its first selection. This means that you cannot change the population 
+      size during the course of an evolution. To fix the problem make the 
+      following changes: <BR>In population.C, insert a line and modify a line to 
+      change <BR><BR>209 sm-&gt;resize(pops); <BR>210 statted = sorted = 
+      evaluated = gaFalse; <BR>211 n = pops; <BR><BR>to <BR>209 
+      sm-&gt;resize(pops); <BR>210 statted = sorted = gaFalse; <BR>211 n = pops; 
+      <BR>if(evaluated == gaTrue) evaluate(gaTrue); <BR><BR>and in the file 
+      scaling.C, insert a single line to change <BR>102 fitSum = fitAve = fitMax 
+      = fitMin = fitVar = fitDev = 0.0; <BR>103 return(n = popsize); <BR><BR>to 
+      <BR>102 fitSum = fitAve = fitMax = fitMin = fitVar = fitDev = 0.0; 
+      <BR>evaluated = gaFalse; <BR>103 return(n = popsize); 
+      <BR><BR><BR><BR><BR><BR><BR>bugs in version 2.3.1 
+      <BR><BR>-------------------------------------------------------------------------------- 
+      <BR><BR>There was a typo in population.C. In the function GAGenome * 
+      GAPopulation::replace(GAGenome * repl, const int which), 
+      <BR><BR>if(sorted) <BR>rawMax = ind[n-1]-&gt;score(); <BR>else 
+      if(orig-&gt;score() == rawMax){ <BR>rawMax = ind[0]-&gt;score(); 
+      <BR>for(i=1; i<N; <BR i++)> rawMax = Min(rawMax, ind[i]-&gt;score()); 
+      <BR>} <BR>else <BR>rawMax = Max(rawMax, repl-&gt;score()); <BR><BR>The 
+      'Min' should be 'Max': <BR>rawMax = Max(rawMax, ind[i]-&gt;score()); 
+      <BR><BR>Functions that return NULL would not compile with some compilers. 
+      Functions that have this problem include member functions of the ListBASE 
+      and List objects in listbase.h and listtmpl.h, and the TreeBASE and Tree 
+      objects in treebase.h and treetmpl.h. ANSI C++ requires an explicit cast 
+      of NULL. <BR>Many of the 'for' loops will not compile with some compilers. 
+      In some cases, the loop variable is used outside the 'for' loop. Files 
+      with this problem include allele.h, array1.op.C, binstr3.ch.C, ga.C, 
+      list.op.C, population.C, scaling.C, selector.C, and many of the examples. 
+      ANSI C++ specifies that a variable declared in a for loop loses scope 
+      after the loop ends. <BR>The population object does not initialize genomes 
+      when it is resized. <BR>SimpleGA has a bug in it that delays convergence. 
+      A workaround is to use a SteadyStateGA with 100% replacement. This will be 
+      only marginally slower than using a bug-free SimpleGA. <BR>Roundoff errors 
+      in the population object could lead to negative numbers passed to the sqrt 
+      function. The fix is to check for a sign change before the call to sqrt. 
+      The only way a sign change can occur is if there is a roundoff error. 
+      (There are only two calls to sqrt in population.C. The error can only 
+      occur in the sqrt call in the function GAGenome * 
+      GAPopulation::replace(GAGenome * repl, const int which)) <BR>The copy 
+      constructor for the GAObjectiveVector object did not initialize the 'a' 
+      member to NULL <BR></SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      临江仙<BR><BR>陈夕往事益归去,<BR>古道西风依旧.<BR>人生长河水长东,<BR>春去遇秋来,<BR>天际寻鹄鸿.<BR><BR>日月星移话沧桑,<BR>是非功过何在?<BR>一路风雨兼程行,<BR>唯清风明月,<BR>独在情怀中. 
+      <BR></TD></TR></TBODY></TABLE><A name=73038></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:[推荐]GAlib: MIT的GA库！ [Re:see_moonlight] 
+      </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>pzm529</B> <BR><IMG 
+      src="view.files/face_byhtsai_amuro.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 12 <BR><B>技术分:</B> 
+      0 <BR><B>积分:</B>16 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-07-19 17:03 <A 
+      href="http://bbs.matwav.com/user/info?uid=13318"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=pzm529&amp;subject=Re%3ARe%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=73038&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=pzm529&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text73038);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=73038" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text73038>老大,这个在VC工程中怎么用啊? </SPAN><BR><BR>
+      <DIV align=right></DIV><BR></TD></TR></TBODY></TABLE><A name=76056></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:[推荐]GAlib: MIT的GA库！ [Re:xman] 
+  </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>xiechaomin</B> <BR><IMG 
+      src="view.files/face_byhtsai_amuro.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 19 <BR><B>技术分:</B> 
+      4 <BR><B>积分:</B>26 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-08-01 15:27 <A 
+      href="http://bbs.matwav.com/user/info?uid=18575"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=xiechaomin&amp;subject=Re%3ARe%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=76056&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=xiechaomin&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text76056);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=76056" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text76056>这个东东好用吗？ </SPAN><BR><BR>
+      <DIV align=right></DIV><BR></TD></TR></TBODY></TABLE><A name=76705></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:[推荐]GAlib: MIT的GA库！ [Re:xman] 
+  </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>zhufang88</B> <BR><IMG 
+      src="view.files/face_byhtsai_amuro.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 6 <BR><B>技术分:</B> 0 
+      <BR><B>积分:</B>6 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-08-04 10:21 <A 
+      href="http://bbs.matwav.com/user/info?uid=20373"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=zhufang88&amp;subject=Re%3ARe%3A%5B%CD%C6%BC%F6%5DGAlib%3A+MIT%B5%C4GA%BF%E2%A3%A1" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=76705&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=zhufang88&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text76705);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=76705" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text76705>but i have a question:<BR>How to solve 
+      restriction conditon using Galab? </SPAN><BR><BR>
+      <DIV align=right></DIV><BR></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=47285&amp;done=%2Fpost%2Fview%3Fid%3D47285%26sty%3D1%26bid%3D7%26tpg%3D2%26age%3D0%26ppg%3D1"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=3&amp;age=0#47285"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=47285&amp;tpg=2&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE>
+<TABLE width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD><IMG src="view.files/post.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 已读帖子</FONT><BR><IMG src="view.files/post_n.gif" 
+      align=absMiddle border=0><FONT class=text>&nbsp; 新的帖子</FONT><BR><IMG 
+      src="view.files/post_d.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 被删除的帖子</FONT></TD></TR></TBODY></TABLE>
+<TABLE width="95%">
+  <TBODY>
+  <TR>
+    <TD align=right><A name=bottom></A><A href="javascript:jumpTo('top')"><IMG 
+      alt="Jump to the top of page" src="view.files/up.gif" border=0></A> 
+  </TD></TR></TBODY></TABLE><BR>
+<CENTER><A 
+href="http://bbs.matwav.com/index.html">返回研学论坛首页</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://www.matwav.com/">返回网站首页</A><BR><BR><A 
+href="http://bbs.matwav.com/ad.html" target=_blank>广告服务</A> | <A 
+href="http://bbs.matwav.com/private.html" target=_blank>隐私政策</A> | <A 
+href="mailto:%20xiaohnglv@163.com" target=_blank>联系我们</A> | <A 
+onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.192.122.151:8080/bbs/');" 
+href="http://bbs.matwav.com/#">设为首页</A><BR><BR><FONT class=text><FONT 
+color=#808080>Powered by <A href="http://www.cjsdn.com/" target=_blank>Powerful 
+JuteForum</A>&reg; Version Jute 1.5.1 Ent <BR>Copyright&copy; 2002-2003 研学论坛 All Rights 
+Reserved.</FONT></FONT> </CENTER></CENTER></CENTER></BODY></HTML>

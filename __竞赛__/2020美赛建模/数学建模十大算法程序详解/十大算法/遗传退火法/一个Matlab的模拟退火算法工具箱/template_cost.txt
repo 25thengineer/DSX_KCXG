@@ -1,0 +1,10 @@
+function Ew = PROBLEMNAME_cost(X,W)
+% Ew = PROBLEMNAME_cost(X,W)
+%
+%   X = behaviorally constant application data
+%
+%   W = specific data about current state
+%
+%   Ew = energy corresponding to W
+%
+Ew = rand ;     % a typical application will use information from W and X to compute Ew.

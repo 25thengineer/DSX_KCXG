@@ -1,0 +1,13 @@
+function W = PROBLEMNAME_new(X)
+% W = PROBLEMNAME_new(X)
+% See http://www.frostconcepts.com/software for information on SA Tools.
+%
+%   W = PROBLEMNAME_new(X) ;
+%
+%   X = behaviorally constant application data
+%
+%   W = specific data about current state
+%
+%   Instantiates a new state.
+%
+W = [] ;    % a typical application will put state specific data here

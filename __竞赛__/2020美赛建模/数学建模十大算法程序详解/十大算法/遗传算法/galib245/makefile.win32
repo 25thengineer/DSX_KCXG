@@ -1,0 +1,28 @@
+# Makefile for GAlib
+# Copyright (c) 1996-1999 Matthew Wall, all rights reserved
+
+all: lib ex
+
+lib:
+	cd ga
+	nmake /nologo /f makefile.win32
+	cd ..
+
+ex:
+	cd examples
+	nmake /nologo /f makefile.win32
+	cd ..
+
+clean:
+	cd ga
+	nmake /nologo /f makefile.win32 clean
+	cd ..
+	cd examples
+	nmake /nologo /f makefile.win32 clean
+	cd ..
+	
+
+install:
+	cd ga
+	nmake /nologo /f makefile.win32 install
+	cd ..
