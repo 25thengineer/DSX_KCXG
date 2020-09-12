@@ -1,0 +1,22 @@
+[1]崔莉,鞠海玲,苗勇,李天璞,刘巍,赵泽. 无线传感器网络研究进展[J]. 计算机研究与发展, 2005(1).
+[2]任丰原,黄海宁,林闯. 无线传感器网络[J]. 软件学报, 2003(7).
+[3]王万里,郑扣根,姚翔,吴朝晖. 无线网络传感器及其微型操作系统的研究[J]. 计算机应用研究, 2005(9).
+[4]黄海平,王汝传,孙力娟,陈志. 基于密钥联系表的无线传感器网络密钥管理方案[J]. 通信学报, 2006(10).
+[5]沈玉龙,裴庆祺,马建峰. MMμ TESLA:多基站传感器网络广播认证协议[J]. 计算机学报, 2007(4).
+[6]马祖长,孙怡宁,梅涛. 无线传感器网络综述[J]. 通信学报, 2004(4).
+[7]刘志宏,马建峰,黄启萍. 基于区域的无线传感器网络密钥管理[J].计算机学报, 2006(9).
+[8]王良民,马建峰,王超. 无线传感器网络拓扑的容错度与容侵度[J]. 电子学报, 2006(8).
+[9]王骐,王殊,孟中楼. 无线传感器网络中一种基于接收功率异常的入侵检测算法[J]. 计算机科学, 2009(3).
+[10]尚兴宏. 线传感器网络若干关键技术的研究[D]. 南京: 南京理工大学,2013.
+[11]胡曦明, 董淑福, 王晓东等. 无线传感器网络的军事应用模式研究进展[J]. 传感器与微系统, 2011, 30(3): 1 - 3.
+[12]龚燕飞. 无线传感器网络在环境监测系统中的应用[J]. 自动化与仪器仪表, 2014(12): 113 - 114.
+[13]杨树森, 周小佳, 阎 斌. 无线传感器网络在环境监测中的应用[J]. 计算机技术与发展, 2008, 18(9): 170 - 172.
+[14]Gope P, Hwang T. BSN-care: A secure IoT-based modern healthcare system using body sensor network[J]. IEEE Sensors Journal, 2015, 16(5):1.
+[15]马碧春. 无线传感器网络在医疗行业的应用展望[J]. 中国医院管理, 2006, 26(10): 73 - 74.
+[16]Vo M T, Vo T T, Nghi T T, et al. Ｒeal time wireless sensor networks for building automation applications: A simulation study and practical implementation[C] //International Conference on Control, Automation and Information Sciences, 2013: 2718 - 2725.
+[17]彭孝东, 张铁民, 陈瑜等. 无线传感网络在农业领域中的应用[J]. 农机化研究, 2011, 33(8): 245 - 248.
+[18]Iovanovici A, Topirceanu A, Udrescu M, et al. Design space exploration for optimizing wireless sensor networks using social network analysis[C] //Control and Computing, 2014: 815 - 820.
+[19]张强, 孙雨耕, 杨挺等. 无线传感器网络在智能电网中的应用[J]. 中国电力, 2010, 43(6): 31 - 36.
+[20]孙晓雅, 李永倩, 李 天. 无线传感器网络在电力系统中的应用[J]. 传感器与微系统, 2012, 31(6): 5 － 7.
+[21]张涛, 王成林. 无线传感器网络技术在物流仓储系统中的应用[J]. 制造业自动化, 2016(1): 148 - 152.
+[22]Serna M A, Sreenan C J, Fedor S. A visual programming framework for wireless sensor networks in smart home applications［C］ ∥IEEE Tenth International Conference on Intelligent Sensors, Sensor Networks and Information Processing, IEEE,2015: 1 - 6.
