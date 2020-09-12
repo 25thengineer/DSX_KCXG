@@ -1,0 +1,184 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int fenxi_list[10][7]=
+{{33,11,11,32,12,11,1},
+{13,34,35,13,12,100,0},
+{33,11,11,32,12,11,6},
+{24,24,24,24,24,24,0},
+{33,11,11,32,12,11,7},
+{33,11,11,32,12,11,8},
+{13,34,35,13,39,14,0},
+{21,21,35,21,21,21,0},
+{22,22,22,22,22,22,0},
+{23,23,23,23,23,23,0}};
+int input_str[10];         //输入串转换成LR分析表相应的列标号
+int len=0;                 //输入串长度
+string str="  ";           //输入串
+int state_len=1;           //状态数组长度
+int sign_len=1;            //符号数组长度
+int input_len=0;           //以处理的输入串长度
+int length=1;              //分析次数
+//输入字符串，将输入串转换为相应的数字
+void  input()
+{
+	int i=0,j=0;
+	cout <<"请输入分析字符串："<<endl;
+	cin >>str;
+	string strl="#";
+	str=str+strl;
+	len=str.length();
+	char action[6]={'i','+','*','(',')','#'};
+	for(i=0;i<int(str.length());i++)
+	{
+        j=0;
+		while (j<6)
+		{
+			if(action[j]==str[i])
+			{
+				input_str[i]=j;
+				break;
+			}
+			j++;
+		}
+		if(j==6)
+		{
+			cout<<"你的输入有误，请重新输入!"<<endl;
+	        input();
+		}
+	}
+}
+//输出分析过程中的状态、符号、输入串
+void output(int state[],char sign[],string str)                    
+{
+	cout<<"("<<length<<")"<<"  ";
+	for(int i=0;i<state_len;i++)
+		cout<<state[i];
+	cout<<"           ";
+	for(int j=0;j<sign_len;j++)
+		cout<<sign[j];
+	cout<<"            ";
+	for(int m=input_len;m<len;m++)
+		cout<<str[m];
+	    cout<<endl;
+}
+//第一个错误子程序：将一假i置于栈内，上盖以状态
+void childsolve1(int state[],int &state_len,char sign[],int &sign_len)
+{
+    state_len++;
+	state[state_len-1]=3;
+	sign_len++;
+	sign[sign_len-1]='i';
+}
+//第二个错误子程序：将下一输入符号（右括号）删除
+void childsolve2(int state[],int &state_len,char sign[],int &sign_len,int &input_len)
+{
+	input_len++;
+}
+//第三个错误子程序：将‘+’置于栈顶，上盖以状态
+void childsolve3(int state[],int &state_len,char sign[],int &sign_len)
+{
+    state_len++;
+	state[state_len-1]=4;
+	sign_len++;
+	sign[sign_len-1]='+';
+}
+//第四个错误子程序：将'（'纳入栈内，上盖以状态
+void childsolve4(int state[],int &state_len,char sign[],int &sign_len)
+{
+	state_len++;
+	state[state_len-1]=9;
+	sign_len++;
+	sign[sign_len-1]=')';
+}
+void main()
+{
+	cout<<"***********LR分析器总控程序的实现************"<<endl<<endl;
+	int state[10];//状态数组
+	char sign[10];//符号数组
+	input();
+	state[0]=0;
+	sign[0]='#';
+	int fenxi=0;
+	cout <<"上输入串的分析过程为："<<endl;
+	cout<<" "<<"状态"<<"         "<<"符号"<<"           "<<"输入串"<<endl;
+    while(input_len<len)
+	{  
+       output(state,sign,str);
+	   int m=state[state_len-1];
+	   int n=input_str[input_len];
+	   fenxi=fenxi_list[m][n];
+	   if(fenxi==0)
+	   {
+		   cout <<"分析出错（暂时不可挽回的错误）"<<endl;
+           exit(0);
+	   }else if(fenxi==100)
+	   {
+		   cout<<"分析成功！"<<endl;
+		   exit(0);
+	   }else if((fenxi<20)&&(fenxi>10))
+	   {
+				length++;
+			if(fenxi==11)
+			{   
+				cout<<"缺少运算量"<<endl;
+				childsolve1(state,state_len,sign,sign_len);
+			}
+			else if(fenxi==12)
+			{   
+				cout<<"右括号不匹配"<<endl;
+				childsolve2(state,state_len,sign,sign_len,input_len);
+			}
+			else if(fenxi==13)
+			{
+				cout <<"缺少运算符"<<endl;
+				childsolve3(state,state_len,sign,sign_len);
+			}
+			else if(fenxi==14)
+			{
+				cout <<"缺少右括号"<<endl;
+				childsolve4(state,state_len,sign,sign_len);
+			}
+	   }
+	   else if((fenxi>30)&&(fenxi<40))//移进：只要移入
+			{
+				int k=fenxi-10*3;
+				state[state_len]=k;
+				sign[sign_len]=str[input_len];
+				state_len++;
+				sign_len++;
+				input_len++;  
+				length++;
+			}
+	   else if((fenxi<30)&&(fenxi>20))
+	   {
+		   if(fenxi==21)
+		   {
+				state_len=state_len-2;
+				sign_len=sign_len-2;
+				sign[sign_len-1]='E';
+		   }
+		   if(fenxi==22)
+		   {
+				state_len=state_len-2;
+				sign_len=sign_len-2;
+				sign[sign_len-1]='E';					
+		   }
+		   if(fenxi==23)
+		   {
+				state_len=state_len-2;//状态
+				sign_len=sign_len-2;//符号
+				sign[sign_len-1]='E';	
+		   }
+		   if(fenxi==24)
+		   {
+				sign[sign_len-1]='E';
+			}
+			m=state[state_len-2];				
+			n=6;
+			fenxi=fenxi_list[m][n];
+			state[state_len-1]=fenxi;
+			length++;
+	   }
+	}
+}

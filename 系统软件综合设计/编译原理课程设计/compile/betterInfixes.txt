@@ -1,0 +1,19 @@
+int main()
+int T0
+int T1
+int T2
+int T3
+int T4
+int T5
+int T6
+int A
+int B
+int R
+int r
+#t1 = R + r
+T0 = 314
+#t0 = 2 * T0
+#t2 = #t0 * #t1
+#t6 = a[#t2]
+#t7 = R - #t6
+#t8 = #t2 * #t7
