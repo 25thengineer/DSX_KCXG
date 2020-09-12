@@ -1,0 +1,10 @@
+function W = PROBLEMNAME_perturb(X,W,Ea,T)
+% W = PROBLEMNAME_perturb(X,W,Ea,T)
+%
+%   X = behaviorally constant application data
+%
+%   W = (on input) current state, (on output) next state.
+%
+%   Ea = current average energy
+%   T = current temperature
+%

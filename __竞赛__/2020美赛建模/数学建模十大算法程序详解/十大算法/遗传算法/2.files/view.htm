@@ -1,0 +1,746 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://bbs.matwav.com/post/view?bid=7&id=22932&sty=1&tpg=1&age=0 -->
+<HTML><HEAD><TITLE>研学论坛 - 基本遗传算法源程序</TITLE>
+<META http-equiv=Expires content=0>
+<META http-equiv=Content-Type content=text/html;charset=GBK>
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+P {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+TD {
+	TABLE-LAYOUT: fixed; FONT-SIZE: 12px; COLOR: #000000; WORD-BREAK: break-all; FONT-FAMILY: Tahoma,Georgia
+}
+TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+A {
+	TEXT-DECORATION: underline
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #000080; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.head {
+	BACKGROUND-COLOR: #5d7790
+}
+.neck {
+	BACKGROUND-COLOR: #d1d9e2
+}
+.odd {
+	BACKGROUND-COLOR: #e3e3e3
+}
+.even {
+	BACKGROUND-COLOR: #f7f7f7
+}
+.nav {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:link {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:visited {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.nav:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.nav:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic {
+	TEXT-DECORATION: none
+}
+.topic:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.topic:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.topic:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.topic:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:link {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+.ilink:visited {
+	COLOR: #004080; TEXT-DECORATION: underline
+}
+.ilink:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.ilink:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.mod {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.mod:visited {
+	COLOR: #000080; TEXT-DECORATION: none
+}
+.mod:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.mod:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd {
+	COLOR: #808080; TEXT-DECORATION: none
+}
+.thd:link {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:visited {
+	COLOR: #808080; TEXT-DECORATION: underline
+}
+.thd:active {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.thd:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.curpage {
+	FONT-SIZE: 9px; COLOR: #ffffff; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:link {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:visited {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:active {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.page:hover {
+	FONT-SIZE: 9px; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+.subject {
+	FONT-SIZE: 12px; FONT-FAMILY: Tahoma,Georgia
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.codeStyle {
+	PADDING-RIGHT: 0.5em; MARGIN-TOP: 1em; PADDING-LEFT: 0.5em; FONT-SIZE: 9pt; MARGIN-BOTTOM: 1em; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 0pt; COLOR: #ffffff; PADDING-TOP: 0.5em; FONT-FAMILY: Courier New; BACKGROUND-COLOR: #000000
+}
+.smalltext {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.verysmalltext {
+	FONT-SIZE: 4px; COLOR: #000000; FONT-FAMILY: Tahoma,Georgia
+}
+.member {
+	FONT-SIZE: 9px; COLOR: #003063; FONT-FAMILY: Tahoma,Georgia
+}
+.btnStyle {
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #e9e9e9; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #e9e9e9; CURSOR: hand; COLOR: #ffffff; BORDER-TOP-COLOR: #e9e9e9; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #5d7790; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #e9e9e9
+}
+.selStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+.inpStyle {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 12px; BORDER-LEFT: black 1px solid; COLOR: #000000; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Tahoma,Georgia; BACKGROUND-COLOR: #ffffff
+}
+</STYLE>
+
+<SCRIPT>
+if(parent==this) {
+	url = 'http://bbs.matwav.com/index.jsp?url='+escape(window.location.href);
+	window.location=url;
+}
+function jumpTo(b)
+{
+	javascript:window.location.hash=b;
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#000080 aLink=#ff0000 link=#000000 bgColor=#ffffff><A 
+name=top></A>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><A href="http://bbs.matwav.com/" target=_top><IMG alt=研学论坛 hspace=0 
+      src="view.files/title.gif" align=left border=0></A> </TD>
+    <CENTER>
+    <TD vAlign=top align=middle width=102 height=48 rowSpan=5>
+      <OBJECT 
+      codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 
+      height=70 width=480 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="http://www.matwav.com/gifswf/logo.swf"><PARAM NAME="quality" VALUE="high">
+      <embed src="http://www.matwav.com/gifswf/logo.swf" quality=high 
+      pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" 
+      type="application/x-shockwave-flash" width="102" height="70"></embed> 
+      </OBJECT></TD></TR>
+  <TR>
+    <TD colSpan=2 height=3></TD></TR></TBODY></TABLE>
+<TABLE 
+style="BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; WIDTH: 95%; BORDER-BOTTOM: #666666 1px solid" 
+height=21 cellSpacing=0 cellPadding=0 width="95%" bgColor=#e3e3e3 border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><SPAN title=帮助及常见问题><A 
+      href="http://bbs.matwav.com/html/help.html" target=_blank>帮助</A></SPAN> | 
+      <SPAN title=全文检索><A href="http://bbs.matwav.com/post/search">搜索</A></SPAN> 
+      | <SPAN title=注册新账号><A 
+      href="http://bbs.matwav.com/user/register">注册</A></SPAN> | <SPAN 
+      title=会员登录论坛><A href="http://bbs.matwav.com/user/login">登录</A></SPAN> | 
+      <SPAN title=发帖最多的用户，回复最多的话题，人气最旺的话题><A 
+      href="http://bbs.matwav.com/stat/top">排行榜</A></SPAN> | <SPAN 
+      title=按每月、日、周以及小时的帖子数统计><A 
+      href="http://bbs.matwav.com/stat/analysis">发帖统计</A></SPAN> 
+  <BR></TD></TR></TBODY></TABLE><BR clear=all>
+<SCRIPT language=javascript>
+function copyText(obj) {
+var rng = document.body.createTextRange();
+rng.moveToElementText(obj);
+rng.scrollIntoView();
+rng.select();
+rng.execCommand("Copy");
+rng.collapse(false);
+}
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD><B><FONT face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/index.html"><B>研学论坛</B></A>&nbsp; <FONT 
+      face=arial size=3><B>&raquo;</B></FONT>&nbsp;<A class=nav 
+      href="http://bbs.matwav.com/post/page?bid=7&amp;sty=1&amp;age=0&amp;tpg=1"><B>遗传算法</B></A> 
+      &nbsp;<BR><BR><IMG alt=按打印兼容模式打印这个话题 src="view.files/icon_print.gif" 
+      align=absMiddle border=0>&nbsp;<A class=mod title=按打印兼容模式打印这个话题 
+      href="http://bbs.matwav.com/post/print?bid=7&amp;id=22932"><B>打印话题</B></A> 
+      &nbsp;&nbsp; <IMG alt=把这个话题寄给朋友 src="view.files/icon_friend.gif" 
+      align=absMiddle border=0> <A class=mod title=把这个话题寄给朋友 
+      href="http://bbs.matwav.com/post/forward?bid=7&amp;id=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><B>寄给朋友</B></A> 
+      &nbsp;&nbsp; <IMG alt=该主题的所有更新都将Email到你的邮箱 src="view.files/icon_watch.gif" 
+      align=absMiddle border=0> <B><FONT color=#c0c0c0>订阅主题</FONT></B> 
+  </B></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=right><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=3&amp;age=0#22932"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE><A name=22932></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>基本遗传算法源程序 </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>iamqsar</B> <BR><IMG 
+      src="view.files/user3114.gif" border=0> <BR><BR><BR>超级版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 599 
+      <BR><B>技术分:</B> 122 <BR><B>积分:</B>926 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-13 22:26 <A 
+      href="http://bbs.matwav.com/user/info?uid=3114"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=iamqsar&amp;subject=Re%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=iamqsar&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22932);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22932" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript 
+      id=text22932>/******************************************************************/ 
+      <BR>/* 基于基本遗传算法的函数最优化 SGA.C */ <BR>/* A Function Optimizer using Simple 
+      Genetic Algorithm */ <BR>/* developed from the Pascal SGA code presented 
+      by David E.Goldberg */ 
+      <BR>//******************************************************************/ 
+      <BR>#include <STDIO.H><BR>#include<GRAPHICS.H> <BR>#include 
+      <MATH.H><BR>#include "graph.c" <BR>/* 全局变量 */ <BR>struct individual /* 
+      个体*/ <BR>{ <BR>unsigned *chrom; /* 染色体 */ <BR>double fitness; /* 个体适应度*/ 
+      <BR>double varible; /* 个体对应的变量值*/ <BR>int xsite; /* 交叉位置 */ <BR>int 
+      parent[2]; /* 父个体 */ <BR>int *utility; /* 特定数据指针变量 */ <BR>}; <BR>struct 
+      bestever /* 最佳个体*/ <BR>{ <BR>unsigned *chrom; /* 最佳个体染色体*/ <BR>double 
+      fitness; /* 最佳个体适应度 */ <BR>double varible; /* 最佳个体对应的变量值 */ <BR>int 
+      generation; /* 最佳个体生成代 */ <BR>}; <BR>struct individual *oldpop; /* 当前代种群 
+      */ <BR>struct individual *newpop; /* 新一代种群 */ <BR>struct bestever bestfit; 
+      /* 最佳个体 */ <BR>double sumfitness; /* 种群中个体适应度累计 */ <BR>double max; /* 
+      种群中个体最大适应度 */ <BR>double avg; /* 种群中个体平均适应度 */ <BR>double min; /* 
+      种群中个体最小适应度 */ <BR>float pcross; /* 交叉概率 */ <BR>float pmutation; /* 变异概率 */ 
+      <BR>int popsize; /* 种群大小 */ <BR>int lchrom; /* 染色体长度*/ <BR>int chromsize; 
+      /* 存储一染色体所需字节数 */ <BR>int gen; /* 当前世代数 */ <BR>int maxgen; /* 最大世代数 */ 
+      <BR>int run; /* 当前运行次数 */ <BR>int maxruns; /* 总运行次数 */ <BR>int 
+      printstrings; /* 输出染色体编码的判断，0 -- 不输出, 1 -- 输出 */ <BR>int nmutation; /* 
+      当前代变异发生次数 */ <BR>int ncross; /* 当前代交叉发生次数 */ <BR><BR>/* 随机数发生器使用的静态变量 */ 
+      <BR>static double oldrand[55]; <BR>static int jrand; <BR>static double 
+      rndx2; <BR>static int rndcalcflag; <BR>/* 输出文件指针 */ <BR>FILE *outfp ; 
+      <BR>/* 函数定义 */ <BR>void advance_random(); <BR>int flip(float);rnd(int, 
+      int); <BR>void randomize(); <BR>double randomnormaldeviate(); <BR>float 
+      randomperc(),rndreal(float,float); <BR>void warmup_random(float); <BR>void 
+      initialize(),initdata(),initpop(); <BR>void 
+      initreport(),generation(),initmalloc(); <BR>void freeall(),nomemory(char 
+      *),report(); <BR>void writepop(),writechrom(unsigned *); <BR>void 
+      preselect(); <BR>void statistics(struct individual *); <BR>void 
+      title(),repchar (FILE *,char *,int); <BR>void skip(FILE *,int); <BR>int 
+      select(); <BR>void objfunc(struct individual *); <BR>int crossover 
+      (unsigned *, unsigned *, unsigned *, unsigned *); <BR>void 
+      mutation(unsigned *); <BR><BR><BR>void initialize() /* 遗传算法初始化 */ <BR>{ 
+      <BR>/* 键盘输入遗传算法参数 */ <BR>initdata(); <BR>/* 确定染色体的字节长度 */ <BR>chromsize = 
+      (lchrom/(8*sizeof(unsigned))); <BR>if(lchrom%(8*sizeof(unsigned))) 
+      chromsize++; <BR>/*分配给全局数据结构空间 */ <BR>initmalloc(); <BR>/* 初始化随机数发生器 */ 
+      <BR>randomize(); <BR>/* 初始化全局计数变量和一些数值*/ <BR>nmutation = 0; <BR>ncross = 
+      0; <BR>bestfit.fitness = 0.0; <BR>bestfit.generation = 0; <BR>/* 
+      初始化种群，并统计计算结果 */ <BR>initpop(); <BR>statistics(oldpop); <BR>initreport(); 
+      <BR>} <BR><BR>void initdata() /* 遗传算法参数输入 */ <BR>{ <BR>char answer[2]; 
+      <BR>setcolor(9); <BR>disp_hz16("种群大小(20-100)：",100,150,20); 
+      <BR>gscanf(320,150,9,15,4,"%d", &amp;popsize); <BR>if((popsize%2) != 0) 
+      <BR>{ <BR>fprintf(outfp, "种群大小已设置为偶数\n"); <BR>popsize++; <BR>}; 
+      <BR>setcolor(9); <BR>disp_hz16("染色体长度(8-40)：",100,180,20); 
+      <BR>gscanf(320,180,9,15,4,"%d", &amp;lchrom); <BR>setcolor(9); 
+      <BR>disp_hz16("是否输出染色体编码(y/n)：",100,210,20); <BR>printstrings=1; 
+      <BR>gscanf(320,210,9,15,4,"%s", answer); <BR>if(strncmp(answer,"n",1) == 
+      0) printstrings = 0; <BR>setcolor(9); 
+      <BR>disp_hz16("最大世代数(100-300)：",100,240,20); 
+      <BR>gscanf(320,240,9,15,4,"%d", &amp;maxgen); <BR>setcolor(9); 
+      <BR>disp_hz16("交叉率(0.2-0.9)：",100,270,20); <BR>gscanf(320,270,9,15,5,"%f", 
+      &amp;pcross); <BR>setcolor(9); <BR>disp_hz16("变异率(0.01-0.1)：",100,300,20); 
+      <BR>gscanf(320,300,9,15,5,"%f", &amp;pmutation); <BR>} <BR><BR>void 
+      initpop() /* 随机初始化种群 */ <BR>{ <BR>int j, j1, k, stop; <BR>unsigned mask = 
+      1; <BR>for(j = 0; j &lt; popsize; j++) <BR>{ <BR>for(k = 0; k &lt; 
+      chromsize; k++) <BR>{ <BR>oldpop[j].chrom[k] = 0; <BR>if(k == 
+      (chromsize-1)) <BR>stop = lchrom - (k*(8*sizeof(unsigned))); <BR>else 
+      <BR>stop =8*sizeof(unsigned); <BR>for(j1 = 1; j1 &lt;= stop; j1++) <BR>{ 
+      <BR>oldpop[j].chrom[k] = oldpop[j].chrom[k]&lt;&lt;1; <BR>if(flip(0.5)) 
+      <BR>oldpop[j].chrom[k] = oldpop[j].chrom[k]|mask; <BR>} <BR>} 
+      <BR>oldpop[j].parent[0] = 0; /* 初始父个体信息 */ <BR>oldpop[j].parent[1] = 0; 
+      <BR>oldpop[j].xsite = 0; <BR>objfunc(&amp;(oldpop[j])); /* 计算初始适应度*/ <BR>} 
+      <BR>} <BR><BR>void initreport() /* 初始参数输出 */ <BR>{ <BR>void skip(); 
+      <BR>skip(outfp,1); <BR>fprintf(outfp," 基本遗传算法参数\n"); <BR>fprintf(outfp," 
+      -------------------------------------------------\n"); <BR>fprintf(outfp," 
+      种群大小(popsize) = %d\n",popsize); <BR>fprintf(outfp," 染色体长度(lchrom) = 
+      %d\n",lchrom); <BR>fprintf(outfp," 最大进化代数(maxgen) = %d\n",maxgen); 
+      <BR>fprintf(outfp," 交叉概率(pcross) = %f\n", pcross); <BR>fprintf(outfp," 
+      变异概率(pmutation) = %f\n", pmutation); <BR>fprintf(outfp," 
+      -------------------------------------------------\n"); <BR>skip(outfp,1); 
+      <BR>fflush(outfp); <BR>} <BR><BR>void generation() <BR>{ <BR>int mate1, 
+      mate2, jcross, j = 0; <BR>/* 每代运算前进行预选 */ <BR>preselect(); <BR>/* 选择, 交叉, 
+      变异 */ <BR>do <BR>{ <BR>/* 挑选交叉配对 */ <BR>mate1 = select(); <BR>mate2 = 
+      select(); <BR>/* 交叉和变异 */ <BR>jcross = crossover(oldpop[mate1].chrom, 
+      oldpop[mate2].chrom, newpop[j].chrom, newpop[j+1].chrom); 
+      <BR>mutation(newpop[j].chrom); <BR>mutation(newpop[j+1].chrom); <BR>/* 解码, 
+      计算适应度 */ <BR>objfunc(&amp;(newpop[j])); <BR>/*记录亲子关系和交叉位置 */ 
+      <BR>newpop[j].parent[0] = mate1+1; <BR>newpop[j].xsite = jcross; 
+      <BR>newpop[j].parent[1] = mate2+1; <BR>objfunc(&amp;(newpop[j+1])); 
+      <BR>newpop[j+1].parent[0] = mate1+1; <BR>newpop[j+1].xsite = jcross; 
+      <BR>newpop[j+1].parent[1] = mate2+1; <BR>j = j + 2; <BR>} <BR>while(j &lt; 
+      (popsize-1)); <BR><BR>} <BR><BR>void initmalloc() /*为全局数据变量分配空间 */ <BR>{ 
+      <BR>unsigned nbytes; <BR>char *malloc(); <BR>int j; <BR>/* 
+      分配给当前代和新一代种群内存空间 */ <BR>nbytes = popsize*sizeof(struct individual); 
+      <BR>if((oldpop = (struct individual *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("oldpop"); <BR>if((newpop = (struct individual *) 
+      malloc(nbytes)) == NULL) <BR>nomemory("newpop"); <BR>/* 分配给染色体内存空间 */ 
+      <BR>nbytes = chromsize*sizeof(unsigned); <BR>for(j = 0; j &lt; popsize; 
+      j++) <BR>{ <BR>if((oldpop[j].chrom = (unsigned *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("oldpop chromosomes"); <BR>if((newpop[j].chrom = (unsigned *) 
+      malloc(nbytes)) == NULL) <BR>nomemory("newpop chromosomes"); <BR>} 
+      <BR>if((bestfit.chrom = (unsigned *) malloc(nbytes)) == NULL) 
+      <BR>nomemory("bestfit chromosome"); <BR><BR>} <BR><BR>void freeall() /* 
+      释放内存空间 */ <BR>{ <BR>int i; <BR>for(i = 0; i &lt; popsize; i++) <BR>{ 
+      <BR>free(oldpop[i].chrom); <BR>free(newpop[i].chrom); <BR>} 
+      <BR>free(oldpop); <BR>free(newpop); <BR>free(bestfit.chrom); <BR>} 
+      <BR><BR>void nomemory(string) /* 内存不足，退出*/ <BR>char *string; <BR>{ 
+      <BR>fprintf(outfp,"malloc: out of memory making %s!!\n",string); 
+      <BR>exit(-1); <BR>} <BR><BR>void report() /* 输出种群统计结果 */ <BR>{ <BR>void 
+      repchar(), skip(); <BR>void writepop(), writestats(); 
+      <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); <BR>if(printstrings == 1) 
+      <BR>{ <BR>repchar(outfp," ",((80-17)/2)); <BR>fprintf(outfp,"模拟计算统计报告 
+      \n"); <BR>fprintf(outfp, "世代数 %3d", gen); <BR>repchar(outfp," ",(80-28)); 
+      <BR>fprintf(outfp, "世代数 %3d\n", (gen+1)); <BR>fprintf(outfp,"个体 染色体编码"); 
+      <BR>repchar(outfp," ",lchrom-5); <BR>fprintf(outfp,"适应度 父个体 交叉位置 "); 
+      <BR>fprintf(outfp,"染色体编码 "); <BR>repchar(outfp," ",lchrom-5); 
+      <BR>fprintf(outfp,"适应度\n"); <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); 
+      <BR>writepop(outfp); <BR>repchar(outfp,"-",80); <BR>skip(outfp,1); <BR>} 
+      <BR>fprintf(outfp,"第 %d 代统计: \n",gen); <BR>fprintf(outfp,"总交叉操作次数 = %d, 
+      总变异操作数 = %d\n",ncross,nmutation); <BR>fprintf(outfp," 最小适应度：%f 最大适应度：%f 
+      平均适应度 %f\n", min,max,avg); <BR>fprintf(outfp," 迄今发现最佳个体 =&gt; 所在代数： %d ", 
+      bestfit.generation); <BR>fprintf(outfp," 适应度：%f 染色体：", bestfit.fitness); 
+      <BR>writechrom((&amp;bestfit)-&gt;chrom); <BR>fprintf(outfp," 对应的变量值: %f", 
+      bestfit.varible); <BR>skip(outfp,1); <BR>repchar(outfp,"-",80); 
+      <BR>skip(outfp,1); <BR>} <BR><BR>void writepop() <BR>{ <BR>struct 
+      individual *pind; <BR>int j; <BR>for(j=0; j<POPSIZE; <BR j++)> { 
+      <BR>fprintf(outfp,"%3d) ",j+1); <BR>/* 当前代个体 */ <BR>pind = 
+      &amp;(oldpop[j]); <BR>writechrom(pind-&gt;chrom); <BR>fprintf(outfp," %8f 
+      | ", pind-&gt;fitness); <BR>/* 新一代个体 */ <BR>pind = &amp;(newpop[j]); 
+      <BR>fprintf(outfp,"(%2d,%2d) %2d ", <BR>pind-&gt;parent[0], 
+      pind-&gt;parent[1], pind-&gt;xsite); <BR>writechrom(pind-&gt;chrom); 
+      <BR>fprintf(outfp," %8f\n", pind-&gt;fitness); <BR>} <BR>} <BR><BR>void 
+      writechrom(chrom) /* 输出染色体编码 */ <BR>unsigned *chrom; <BR>{ <BR>int j, k, 
+      stop; <BR>unsigned mask = 1, tmp; <BR>for(k = 0; k &lt; chromsize; k++) 
+      <BR>{ <BR>tmp = chrom[k]; <BR>if(k == (chromsize-1)) <BR>stop = lchrom - 
+      (k*(8*sizeof(unsigned))); <BR>else <BR>stop =8*sizeof(unsigned); <BR>for(j 
+      = 0; j &lt; stop; j++) <BR>{ <BR>if(tmp&amp;mask) <BR>fprintf(outfp,"1"); 
+      <BR>else <BR>fprintf(outfp,"0"); <BR>tmp = tmp&gt;&gt;1; <BR>} <BR>} <BR>} 
+      <BR><BR>void preselect() <BR>{ <BR>int j; <BR>sumfitness = 0; <BR>for(j = 
+      0; j &lt; popsize; j++) sumfitness += oldpop[j].fitness; <BR>} <BR><BR>int 
+      select() /* 轮盘赌选择*/ <BR>{ <BR>extern float randomperc(); <BR>float sum, 
+      pick; <BR>int i; <BR>pick = randomperc(); <BR>sum = 0; <BR>if(sumfitness 
+      != 0) <BR>{ <BR>for(i = 0; (sum &lt; pick) &amp;&amp; (i &lt; popsize); 
+      i++) <BR>sum += oldpop[i].fitness/sumfitness; <BR>} <BR>else <BR>i = 
+      rnd(1,popsize); <BR>return(i-1); <BR>} <BR><BR>void statistics(pop) /* 
+      计算种群统计数据 */ <BR>struct individual *pop; <BR>{ <BR>int i, j; <BR>sumfitness 
+      = 0.0; <BR>min = pop[0].fitness; <BR>max = pop[0].fitness; <BR>/* 
+      计算最大、最小和累计适应度 */ <BR>for(j = 0; j &lt; popsize; j++) <BR>{ <BR>sumfitness 
+      = sumfitness + pop[j].fitness; <BR>if(pop[j].fitness &gt; max) max = 
+      pop[j].fitness; <BR>if(pop[j].fitness &lt; min) min = pop[j].fitness; 
+      <BR>/* new global best-fit individual */ <BR>if(pop[j].fitness &gt; 
+      bestfit.fitness) <BR>{ <BR>for(i = 0; i &lt; chromsize; i++) 
+      <BR>bestfit.chrom[i] = pop[j].chrom[i]; <BR>bestfit.fitness = 
+      pop[j].fitness; <BR>bestfit.varible = pop[j].varible; 
+      <BR>bestfit.generation = gen; <BR>} <BR>} <BR>/* 计算平均适应度 */ <BR>avg = 
+      sumfitness/popsize; <BR>} <BR><BR>void title() <BR>{ 
+      <BR>settextstyle(0,0,4); <BR>gprintf(110,15,4,0,"SGA Optimizer"); 
+      <BR>setcolor(9); <BR>disp_hz24("基本遗传算法",220,60,25); <BR>} <BR><BR>void 
+      repchar (outfp,ch,repcount) <BR>FILE *outfp; <BR>char *ch; <BR>int 
+      repcount; <BR>{ <BR>int j; <BR>for (j = 1; j &lt;= repcount; j++) 
+      fprintf(outfp,"%s", ch); <BR>} <BR><BR>void skip(outfp,skipcount) <BR>FILE 
+      *outfp; <BR>int skipcount; <BR>{ <BR>int j; <BR>for (j = 1; j &lt;= 
+      skipcount; j++) fprintf(outfp,"\n"); <BR>} <BR><BR>void objfunc(critter) 
+      /* 计算适应度函数值 */ <BR>struct individual *critter; <BR>{ <BR>unsigned mask=1; 
+      <BR>unsigned bitpos; <BR>unsigned tp; <BR>double pow(), bitpow ; <BR>int 
+      j, k, stop; <BR>critter-&gt;varible = 0.0; <BR>for(k = 0; k &lt; 
+      chromsize; k++) <BR>{ <BR>if(k == (chromsize-1)) <BR>stop = 
+      lchrom-(k*(8*sizeof(unsigned))); <BR>else <BR>stop =8*sizeof(unsigned); 
+      <BR>tp = critter-&gt;chrom[k]; <BR>for(j = 0; j &lt; stop; j++) <BR>{ 
+      <BR>bitpos = j + (8*sizeof(unsigned))*k; <BR>if((tp&amp;mask) == 1) <BR>{ 
+      <BR>bitpow = pow(2.0,(double) bitpos); <BR>critter-&gt;varible = 
+      critter-&gt;varible + bitpow; <BR>} <BR>tp = tp&gt;&gt;1; <BR>} <BR>} 
+      <BR>critter-&gt;varible 
+      =-1+critter-&gt;varible*3/(pow(2.0,(double)lchrom)-1); 
+      <BR>critter-&gt;fitness 
+      =critter-&gt;varible*sin(critter-&gt;varible*10*atan(1)*4)+2.0; <BR>} 
+      <BR><BR>void mutation(unsigned *child) /*变异操作*/ <BR>{ <BR>int j, k, stop; 
+      <BR>unsigned mask, temp = 1; <BR>for(k = 0; k &lt; chromsize; k++) <BR>{ 
+      <BR>mask = 0; <BR>if(k == (chromsize-1)) <BR>stop = lchrom - 
+      (k*(8*sizeof(unsigned))); <BR>else <BR>stop = 8*sizeof(unsigned); 
+      <BR>for(j = 0; j &lt; stop; j++) <BR>{ <BR>if(flip(pmutation)) <BR>{ 
+      <BR>mask = mask|(temp&lt;<J); <BR> nmutation++; <BR>} <BR>} <BR>child[k] = 
+      child[k]^mask; <BR>} <BR>} <BR><BR>int crossover (unsigned *parent1, 
+      unsigned *parent2, unsigned *child1, unsigned *child2) <BR>/* 
+      由两个父个体交叉产生两个子个体 */ <BR>{ <BR>int j, jcross, k; <BR>unsigned mask, temp; 
+      <BR>if(flip(pcross)) <BR>{ <BR>jcross = rnd(1 ,(lchrom - 1));/* Cross 
+      between 1 and l-1 */ <BR>ncross++; <BR>for(k = 1; k &lt;= chromsize; k++) 
+      <BR>{ <BR>if(jcross &gt;= (k*(8*sizeof(unsigned)))) <BR>{ <BR>child1[k-1] 
+      = parent1[k-1]; <BR>child2[k-1] = parent2[k-1]; <BR>} <BR>else if((jcross 
+      &lt; (k*(8*sizeof(unsigned)))) &amp;&amp; (jcross &gt; 
+      ((k-1)*(8*sizeof(unsigned))))) <BR>{ <BR>mask = 1; <BR>for(j = 1; j &lt;= 
+      (jcross-1-((k-1)*(8*sizeof(unsigned)))); j++) <BR>{ <BR>temp = 1; <BR>mask 
+      = mask&lt;&lt;1; <BR>mask = mask|temp; <BR>} <BR>child1[k-1] = 
+      (parent1[k-1]&amp;mask)|(parent2[k-1]&amp;(~mask)); <BR>child2[k-1] = 
+      (parent1[k-1]&amp;(~mask))|(parent2[k-1]&amp;mask); <BR>} <BR>else <BR>{ 
+      <BR>child1[k-1] = parent2[k-1]; <BR>child2[k-1] = parent1[k-1]; <BR>} 
+      <BR>} <BR>} <BR>else <BR>{ <BR>for(k = 0; k &lt; chromsize; k++) <BR>{ 
+      <BR>child1[k] = parent1[k]; <BR>child2[k] = parent2[k]; <BR>} <BR>jcross = 
+      0; <BR>} <BR>return(jcross); <BR>} <BR><BR>void advance_random() /* 
+      产生55个随机数 */ <BR>{ <BR>int j1; <BR>double new_random; <BR>for(j1 = 0; j1 
+      &lt; 24; j1++) <BR>{ <BR>new_random = oldrand[j1] - oldrand[j1+31]; 
+      <BR>if(new_random &lt; 0.0) new_random = new_random + 1.0; <BR>oldrand[j1] 
+      = new_random; <BR>} <BR>for(j1 = 24; j1 &lt; 55; j1++) <BR>{ 
+      <BR>new_random = oldrand [j1] - oldrand [j1-24]; <BR>if(new_random &lt; 
+      0.0) new_random = new_random + 1.0; <BR>oldrand[j1] = new_random; <BR>} 
+      <BR>} <BR><BR>int flip(float prob) /* 以一定概率产生0或1 */ <BR>{ <BR>float 
+      randomperc(); <BR>if(randomperc() &lt;= prob) <BR>return(1); <BR>else 
+      <BR>return(0); <BR>} <BR><BR>void randomize() /* 设定随机数种子并初始化随机数发生器 */ 
+      <BR>{ <BR>float randomseed; <BR>int j1; <BR>for(j1=0; j1&lt;=54; j1++) 
+      <BR>oldrand[j1] = 0.0; <BR>jrand=0; <BR>do <BR>{ <BR>setcolor(9); 
+      <BR>disp_hz16("随机数种子[0-1]:",100,330,20); <BR>gscanf(320,330,9,15,4,"%f", 
+      &amp;randomseed); <BR>} <BR>while((randomseed &lt; 0.0) || (randomseed 
+      &gt; 1.0)); <BR>warmup_random(randomseed); <BR>} <BR><BR>double 
+      randomnormaldeviate() /* 产生随机标准差 */ <BR>{ <BR>double sqrt(), log(), sin(), 
+      cos(); <BR>float randomperc(); <BR>double t, rndx1; <BR>if(rndcalcflag) 
+      <BR>{ rndx1 = sqrt(- 2.0*log((double) randomperc())); <BR>t = 6.2831853072 
+      * (double) randomperc(); <BR>rndx2 = rndx1 * sin(t); <BR>rndcalcflag = 0; 
+      <BR>return(rndx1 * cos(t)); <BR>} <BR>else <BR>{ <BR>rndcalcflag = 1; 
+      <BR>return(rndx2); <BR>} <BR>} <BR><BR>float randomperc() 
+      /*与库函数random()作用相同, 产生[0,1]之间一个随机数 */ <BR>{ <BR>jrand++; <BR>if(jrand 
+      &gt;= 55) <BR>{ <BR>jrand = 1; <BR>advance_random(); <BR>} 
+      <BR>return((float) oldrand[jrand]); <BR>} <BR><BR>int rnd(low, high) 
+      /*在整数low和high之间产生一个随机整数*/ <BR>int low,high; <BR>{ <BR>int i; <BR>float 
+      randomperc(); <BR>if(low &gt;= high) <BR>i = low; <BR>else <BR>{ <BR>i = 
+      (randomperc() * (high - low + 1)) + low; <BR>if(i &gt; high) i = high; 
+      <BR>} <BR>return(i); <BR>} <BR><BR><BR>void warmup_random(float 
+      random_seed) /* 初始化随机数发生器*/ <BR>{ <BR>int j1, ii; <BR>double new_random, 
+      prev_random; <BR><BR>oldrand[54] = random_seed; <BR>new_random = 
+      0.000000001; <BR>prev_random = random_seed; <BR>for(j1 = 1 ; j1 &lt;= 54; 
+      j1++) <BR>{ <BR>ii = (21*j1)%54; <BR>oldrand[ii] = new_random; 
+      <BR>new_random = prev_random-new_random; <BR>if(new_random&lt;0.0) 
+      new_random = new_random + 1.0; <BR>prev_random = oldrand[ii]; <BR>} 
+      <BR>advance_random(); <BR>advance_random(); <BR>advance_random(); 
+      <BR>jrand = 0; <BR>} <BR><BR><BR>main(argc,argv) /* 主程序 */ <BR>int argc; 
+      <BR>char *argv[]; <BR>{ <BR>struct individual *temp; <BR>FILE *fopen(); 
+      <BR>void title(); <BR>char *malloc(); <BR>if((outfp = fopen(argv[1],"w")) 
+      == NULL) <BR>{ <BR>fprintf(stderr,"Cannot open output file %s\n",argv[1]); 
+      <BR>exit(-1); <BR>} <BR>g_init(); <BR>setcolor(9); <BR>title(); 
+      <BR>disp_hz16("输入遗传算法执行次数(1-5):",100,120,20); 
+      <BR>gscanf(320,120,9,15,4,"%d",&amp;maxruns); <BR>for(run=1; 
+      run&lt;=maxruns; run++) <BR>{ <BR>initialize(); <BR>for(gen=0; gen<MAXGEN; 
+      <BR gen++)> { <BR>fprintf(outfp,"\n第 %d / %d 次运行: 当前代为 %d, 共 %d 代\n", 
+      run,maxruns,gen,maxgen); <BR>/* 产生新一代 */ <BR>generation(); <BR>/* 
+      计算新一代种群的适应度统计数据 */ <BR>statistics(newpop); <BR>/* 输出新一代统计数据 */ 
+      <BR>report(); <BR>temp = oldpop; <BR>oldpop = newpop; <BR>newpop = temp; 
+      <BR>} <BR>freeall(); <BR>} <BR>} 
+      <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR> 
+      <BR><BR><BR>[align=right]<FONT color=#000066>[此贴子已经被作者于2003-9-13 
+      22:29:13编辑过]</FONT>[/align] </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22936></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>see_moonlight</B> <BR><IMG 
+      src="view.files/face_p15.gif" border=0> <BR><BR><BR>版主<IMG 
+      src="view.files/37270895.gif" border=0> <BR><BR><B>发贴:</B> 190 
+      <BR><B>技术分:</B> 16 <BR><B>积分:</B>522 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-15 12:03 <A 
+      href="http://bbs.matwav.com/user/info?uid=1152"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=see_moonlight&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="mailto:see_moonlight@126.com"><IMG alt="send email to see_moonlight" 
+      src="view.files/icon_email.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22936&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=see_moonlight&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22936);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22936" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22936>go on ! <BR><BR>you'd better give us a 
+      example </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      临江仙<BR><BR>陈夕往事益归去,<BR>古道西风依旧.<BR>人生长河水长东,<BR>春去遇秋来,<BR>天际寻鹄鸿.<BR><BR>日月星移话沧桑,<BR>是非功过何在?<BR>一路风雨兼程行,<BR>唯清风明月,<BR>独在情怀中. 
+      <BR></TD></TR></TBODY></TABLE><A name=22935></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>wgao</B> <BR><IMG src="view.files/none.gif" 
+      border=0> <BR><BR><BR>超级版主<IMG src="view.files/37270895.gif" border=0> 
+      <BR><BR><B>发贴:</B> 505 <BR><B>技术分:</B> 33 <BR><B>积分:</B>789 <BR><IMG 
+      height=1 src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-16 11:47 <A 
+      href="http://bbs.matwav.com/user/info?uid=3340"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=wgao&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22935&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=wgao&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22935);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22935" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22935>此种程序网上有很多, 有必要自己来吗 </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22934></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>nudtwpf</B> <BR><IMG src="view.files/none.gif" 
+      border=0> <BR><BR><BR>论坛游民<IMG src="view.files/advu.gif" border=0> 
+      <BR><BR><B>发贴:</B> 7 <BR><B>技术分:</B> 0 <BR><B>积分:</B>53 <BR><IMG height=1 
+      src="view.files/pixel.gif" width=150 border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-17 17:53 <A 
+      href="http://bbs.matwav.com/user/info?uid=4822"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=nudtwpf&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22934&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=nudtwpf&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22934);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22934" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22934>thanks </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=22933></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>Oraclegirl</B> <BR><IMG 
+      src="view.files/none.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 15 <BR><B>技术分:</B> 
+      0 <BR><B>积分:</B>88 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2003-09-19 13:09 <A 
+      href="http://bbs.matwav.com/user/info?uid=3932"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=Oraclegirl&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22933&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=Oraclegirl&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text22933);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=22933" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text22933>这是一个求f(x)=xsin(10pix)+2的ga程序源代码 
+      <BR>其中x＝[-1,2] <BR>如果求其它函数，只需要改适应度函数和编码位数 </SPAN><BR><BR>
+      <DIV align=right></DIV>
+      <HR color=#000000 noShade SIZE=1>
+      <BR></TD></TR></TBODY></TABLE><A name=82368></A>
+<TABLE cellSpacing=1 cellPadding=4 width="95%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR class=head>
+    <TD align=middle width=150><FONT color=#ffffff><B>作者</B></FONT></TD>
+    <TD><FONT color=#ffffff><B>Re:基本遗传算法源程序 [Re:iamqsar] </B></FONT></TD></TR>
+  <TR class=even>
+    <TD vAlign=top width=150><B>joyseaman</B> <BR><IMG 
+      src="view.files/face_byhtsai_amuro.gif" border=0> <BR><BR><BR>论坛游民<IMG 
+      src="view.files/advu.gif" border=0> <BR><BR><B>发贴:</B> 4 <BR><B>技术分:</B> 0 
+      <BR><B>积分:</B>4 <BR><IMG height=1 src="view.files/pixel.gif" width=150 
+      border=0> </TD>
+    <TD vAlign=top width="100%"><IMG src="view.files/post.gif" align=absMiddle 
+      border=0>于 2004-08-27 10:35 <A 
+      href="http://bbs.matwav.com/user/info?uid=21984"><IMG alt="user profile" 
+      src="view.files/icon_profile.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/message?action=WriteMessage&amp;to=joyseaman&amp;subject=Re%3ARe%3A%BB%F9%B1%BE%D2%C5%B4%AB%CB%E3%B7%A8%D4%B4%B3%CC%D0%F2" 
+      target=_blank><IMG alt="send a private message to user" 
+      src="view.files/icon_pm.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=82368&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0&amp;quote=1"><IMG 
+      alt="reply to post" src="view.files/icon_quote.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/search?username=joyseaman&amp;action=Search"><IMG 
+      alt="search all posts by" src="view.files/icon_find.gif" align=absMiddle 
+      border=0></A><A href="javascript:copyText(document.all.text82368);"><IMG 
+      alt="select and copy to clipboard. &#13;&#10;ie only, sorry for netscape users:-)" 
+      src="view.files/icon_copy.gif" align=absMiddle border=0></A><A 
+      href="http://bbs.matwav.com/user/favorite?action=Add&amp;bid=7&amp;id=82368" 
+      target=_blank><IMG alt="add this post to my favorite list" 
+      src="view.files/icon_favorite.gif" align=absMiddle border=0></A> 
+      <HR color=#000000 noShade SIZE=1>
+      <SPAN class=javascript id=text82368>请问楼上的这位大侠：编码位数 在哪个地方改啊？ 
+</SPAN><BR><BR>
+      <DIV align=right></DIV><BR></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://bbs.matwav.com/post/reply?bid=7&amp;parent=22932&amp;done=%2Fpost%2Fview%3Fbid%3D7%26id%3D22932%26sty%3D1%26tpg%3D1%26age%3D0"><IMG 
+      alt="reply to topic" src="view.files/newreply.gif" align=absMiddle 
+      border=0></A><IMG alt="flat mode" src="view.files/flat_d.gif" 
+      align=absMiddle border=0><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=3&amp;age=0#22932"><IMG 
+      alt="threaded mode" src="view.files/threaded.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;prev=1"><IMG 
+      alt="go to previous topic" src="view.files/prev.gif" align=absMiddle 
+      border=0></A><A 
+      href="http://bbs.matwav.com/post/view?bid=7&amp;id=22932&amp;tpg=1&amp;ppg=1&amp;sty=1&amp;age=0&amp;next=1"><IMG 
+      alt="go to next topic" src="view.files/next.gif" align=absMiddle 
+      border=0></A> </TD></TR></TBODY></TABLE>
+<TABLE width="95%" border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD><IMG src="view.files/post.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 已读帖子</FONT><BR><IMG src="view.files/post_n.gif" 
+      align=absMiddle border=0><FONT class=text>&nbsp; 新的帖子</FONT><BR><IMG 
+      src="view.files/post_d.gif" align=absMiddle border=0><FONT 
+      class=text>&nbsp; 被删除的帖子</FONT></TD></TR></TBODY></TABLE>
+<TABLE width="95%">
+  <TBODY>
+  <TR>
+    <TD align=right><A name=bottom></A><A href="javascript:jumpTo('top')"><IMG 
+      alt="Jump to the top of page" src="view.files/up.gif" border=0></A> 
+  </TD></TR></TBODY></TABLE><BR>
+<CENTER><A 
+href="http://bbs.matwav.com/index.html">返回研学论坛首页</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+href="http://www.matwav.com/">返回网站首页</A><BR><BR><A 
+href="http://bbs.matwav.com/ad.html" target=_blank>广告服务</A> | <A 
+href="http://bbs.matwav.com/private.html" target=_blank>隐私政策</A> | <A 
+href="mailto:%20xiaohnglv@163.com" target=_blank>联系我们</A> | <A 
+onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://210.192.122.151:8080/bbs/');" 
+href="http://bbs.matwav.com/#">设为首页</A><BR><BR><FONT class=text><FONT 
+color=#808080>Powered by <A href="http://www.cjsdn.com/" target=_blank>Powerful 
+JuteForum</A>&reg; Version Jute 1.5.1 Ent <BR>Copyright&copy; 2002-2003 研学论坛 All Rights 
+Reserved.</FONT></FONT> </CENTER></CENTER></CENTER></BODY></HTML>

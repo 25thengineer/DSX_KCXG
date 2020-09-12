@@ -1,0 +1,655 @@
+Dijkstra算法 
+开放分类： 算法、单源最短路径
+
+关于 Dijkstra算法解决voronoi图的问题
+macrolian 发表于: 2008-5-03 19:36 来源: Matlab中文学习站 
+
+我想用 Dijkstra算法解决voronoi图中求解最短路径的时候,有一个"dijkstra.m"的文件
+代码如下:function [dist,path] = dijkstra(nodes,segments,start_id,finish_id)
+%DIJKSTRA Calculates the shortest distance and path between points on a map
+%   using Dijkstra's Shortest Path Algorithm
+% 
+% [DIST, PATH] = DIJKSTRA(NODES, SEGMENTS, SID, FID)
+%   Calculates the shortest distance and path between start and finish nodes SID and FID
+% 
+% [DIST, PATH] = DIJKSTRA(NODES, SEGMENTS, SID)
+%   Calculates the shortest distances and paths from the starting node SID to all
+%     other nodes in the map
+% 
+% Note:
+%     DIJKSTRA is set up so that an example is created if no inputs are provided,
+%       but ignores the example and just processes the inputs if they are given.
+% 
+% Inputs:
+%     NODES should be an Nx3 or Nx4 matrix with the format [ID X Y] or [ID X Y Z]
+%       where ID is an integer, and X, Y, Z are cartesian position coordinates)
+%     SEGMENTS should be an Mx3 matrix with the format [ID N1 N2]
+%       where ID is an integer, and N1, N2 correspond to node IDs from NODES list
+%       such that there is an [undirected] edge/segment between node N1 and node N2
+%     SID should be an integer in the node ID list corresponding with the starting node
+%     FID (optional) should be an integer in the node ID list corresponding with the finish
+% 
+% Outputs:
+%     DIST is the shortest Euclidean distance
+%       If FID was specified, DIST will be a 1x1 double representing the shortest
+%         Euclidean distance between SID and FID along the map segments. DIST will have
+%         a value of INF if there are no segments connecting SID and FID.
+%       If FID was not specified, DIST will be a 1xN vector representing the shortest
+%         Euclidean distance between SID and all other nodes on the map. DIST will have
+%         a value of INF for any nodes that cannot be reached along segments of the map.
+%     PATH is a list of nodes containing the shortest route
+%       If FID was specified, PATH will be a 1xP vector of node IDs from SID to FID.
+%         NAN will be returned if there are no segments connecting SID to FID.
+%       If FID was not specified, PATH will be a 1xN cell of vectors representing the
+%         shortest route from SID to all other nodes on the map. PATH will have a value
+%         of NAN for any nodes that cannot be reached along the segments of the map.
+% 
+% Example:
+%     dijkstra; % calculates shortest path and distance between two nodes
+%               % on a map of randomly generated nodes and segments
+% 
+% Example:
+%     nodes = [(1:10); 100*rand(2,10)]';
+%     segments = [(1:17); floor(1:0.5:9); ceil(2:0.5:10)]';
+%     figure; plot(nodes(:,2), nodes(:,3),'k.');
+%     hold on;
+%     for s = 1:17
+%         if (s &lt;= 10) text(nodes(s,2),nodes(s,3),[' ' num2str(s)]); end
+%         plot(nodes(segments(s,2:3)',2),nodes(segments(s,2:3)',3),'k');
+%     end
+%     [d, p] = dijkstra(nodes, segments, 1, 10)
+%     for n = 2:length(p)
+%         plot(nodes(p(n-1:n),2),nodes(p(n-1:n),3),'r-.','linewidth',2);
+%     end
+%     hold off;
+% 
+% Author: Joseph Kirk
+% Email: jdkirk630 at gmail dot com
+% Release: 1.3
+% Release Date: 5/18/07
+if (nargin &lt; 3) % SETUP
+    % (GENERATE RANDOM EXAMPLE OF NODES AND SEGMENTS IF NOT GIVEN AS INPUTS)
+    % Create a random set of nodes/vertices,and connect some of them with
+    % edges/segments. Then graph the resulting map.
+    num_nodes = 40; L = 100; max_seg_length = 30; ids = (1:num_nodes)';
+    nodes = [ids L*rand(num_nodes,2)]; % create random nodes
+    h = figure; plot(nodes(:,2),nodes(:,3),'k.') % plot the nodes
+    text(nodes(num_nodes,2),nodes(num_nodes,3),...
+        [' ' num2str(ids(num_nodes))],'Color','b','FontWeight','b')
+    hold on
+    num_segs = 0; segments = zeros(num_nodes*(num_nodes-1)/2,3);
+    for i = 1:num_nodes-1 % create edges between some of the nodes
+        text(nodes(i,2),nodes(i,3),[' ' num2str(ids(i))],'Color','b','FontWeight','b')
+        for j = i+1:num_nodes
+            d = sqrt(sum((nodes(i,2:3) - nodes(j,2:3)).^2));
+            if and(d &lt; max_seg_length,rand &lt; 0.6)
+                plot([nodes(i,2) nodes(j,2)],[nodes(i,3) nodes(j,3)],'k.-')
+                % add this link to the segments list
+                num_segs = num_segs + 1;
+                segments(num_segs, = [num_segs nodes(i,1) nodes(j,1)];
+            end
+        end
+    end
+    segments(num_segs+1:num_nodes*(num_nodes-1)/2, = [];
+    axis([0 L 0 L])
+    % Calculate Shortest Path Using Dijkstra's Algorithm
+    % Get random starting/ending nodes,compute the shortest distance and path.
+    start_id = ceil(num_nodes*rand); disp(['start id = ' num2str(start_id)]);
+    finish_id = ceil(num_nodes*rand); disp(['finish id = ' num2str(finish_id)]);
+    [distance,path] = dijkstra(nodes,segments,start_id,finish_id);
+    disp(['distance = ' num2str(distance)]); disp(['path = [' num2str(path) ']']);
+    % If a Shortest Path exists,Plot it on the Map.
+    figure(h)
+    for k = 2:length(path)
+        m = find(nodes(:,1) == path(k-1));
+        n = find(nodes(:,1) == path(k));
+        plot([nodes(m,2) nodes(n,2)],[nodes(m,3) nodes(n,3)],'ro-','LineWidth',2);
+    end
+    title(['Shortest Distance from ' num2str(start_id) ' to ' ...
+        num2str(finish_id) ' = ' num2str(distance)])
+    hold off
+    
+else %--------------------------------------------------------------------------
+    % MAIN FUNCTION - DIJKSTRA'S ALGORITHM
+    
+    % initializations
+    node_ids = nodes(:,1);
+    [num_map_pts,cols] = size(nodes);
+    table = sparse(num_map_pts,2);
+    shortest_distance = Inf(num_map_pts,1);
+    settled = zeros(num_map_pts,1);
+    path = num2cell(NaN(num_map_pts,1));
+    col = 2;
+    pidx = find(start_id == node_ids);
+    shortest_distance(pidx) = 0;
+    table(pidx,col) = 0;
+    settled(pidx) = 1;
+    path(pidx) = {start_id};
+    if (nargin &lt; 4) % compute shortest path for all nodes
+        while_cmd = 'sum(~settled) &gt; 0';
+    else % terminate algorithm early
+        while_cmd = 'settled(zz) == 0';
+        zz = find(finish_id == node_ids);
+    end
+    while eval(while_cmd)
+        % update the table
+        table(:,col-1) = table(:,col);
+        table(pidx,col) = 0;
+        % find neighboring nodes in the segments list
+        neighbor_ids = [segments(node_ids(pidx) == segments(:,2),3);
+            segments(node_ids(pidx) == segments(:,3),2)];
+        % calculate the distances to the neighboring nodes and keep track of the paths
+        for k = 1:length(neighbor_ids)
+            cidx = find(neighbor_ids(k) == node_ids);
+            if ~settled(cidx)
+                d = sqrt(sum((nodes(pidx,2:cols) - nodes(cidx,2:cols)).^2));
+                if (table(cidx,col-1) == 0) || ...
+                        (table(cidx,col-1) &gt; (table(pidx,col-1) + d))
+                    table(cidx,col) = table(pidx,col-1) + d;
+                    tmp_path = path(pidx);
+                    path(cidx) = {[tmp_path{1} neighbor_ids(k)]};
+                else
+                    table(cidx,col) = table(cidx,col-1);
+                end
+            end
+        end
+        % find the minimum non-zero value in the table and save it
+        nidx = find(table(:,col));
+        ndx = find(table(nidx,col) == min(table(nidx,col)));
+        if isempty(ndx)
+            break
+        else
+            pidx = nidx(ndx(1));
+            shortest_distance(pidx) = table(pidx,col);
+            settled(pidx) = 1;
+        end
+    end
+    if (nargin &lt; 4) % return the distance and path arrays for all of the nodes
+        dist = shortest_distance';
+        path = path';
+    else % return the distance and path for the ending node
+        dist = shortest_distance(zz);
+        path = path(zz);
+        path = path{1};
+    end
+end
+在command windows 输入这些代码出现Strings passed to EVAL cannot contain function declarations.这是怎么回事,各路高手帮帮菜鸟,相当感谢!
+
+
+
+
+
+
+
+
+
+
+
+
+Dijkstra算法是典型最短路算法，用于计算一个节点到其他所有节点的最短路径。主要特点是以起始点为中心向外层层扩展，直到扩展到终点为止。Dijkstra算法能得出最短路径的最优解，但由于它遍历计算的节点很多，所以效率低。
+
+Dijkstra算法是很有代表性的最短路算法，在很多专业课程中都作为基本内容有详细的介绍，如数据结构，图论，运筹学等等。
+
+Dijkstra一般的表述通常有两种方式，一种用永久和临时标号方式，一种是用OPEN, CLOSE表方式，Drew为了和下面要介绍的 A* 算法和 D* 算法表述一致，这里均采用OPEN,CLOSE表的方式。
+
+其采用的是贪心法的算法策略
+
+大概过程：
+
+创建两个表，OPEN, CLOSE。
+
+OPEN表保存所有已生成而未考察的节点，CLOSED表中记录已访问过的节点。
+
+1． 访问路网中距离起始点最近且没有被检查过的点，把这个点放入OPEN组中等待检查。
+
+2． 从OPEN表中找出距起始点最近的点，找出这个点的所有子节点，把这个点放到CLOSE表中。
+
+3． 遍历考察这个点的子节点。求出这些子节点距起始点的距离值，放子节点到OPEN表中。
+
+4． 重复第2和第3步,直到OPEN表为空，或找到目标点。
+
+
+算法实现
+[编辑本段]
+#include<fstream>
+#define MaxNum 765432100
+using namespace std;
+
+ifstream fin("Dijkstra.in");
+ofstream fout("Dijkstra.out");
+
+int Map[501][501];
+bool is_arrived[501];
+int Dist[501],From[501],Stack[501];
+int p,q,k,Path,Source,Vertex,Temp,SetCard;
+
+int FindMin()
+{
+int p,Temp=0,Minm=MaxNum;
+for(p=1;p<=Vertex;p++)
+if ((Dist[p]<Minm)&&(!is_arrived[p]))
+{
+Minm=Dist[p];
+Temp=p;
+}
+return Temp;
+}
+int main()
+{
+memset(is_arrived,0,sizeof(is_arrived));
+
+fin >> Source >> Vertex;
+for(p=1;p<=Vertex;p++)
+for(q=1;q<=Vertex;q++)
+{
+fin >> Map[p][q];
+if (Map[p][q]==0) Map[p][q]=MaxNum;
+}
+for(p=1;p<=Vertex;p++)
+{
+Dist[p]=Map[Source][p];
+if (Dist[p]!=MaxNum) 
+From[p]=Source;
+else 
+From[p]=p;
+}
+
+is_arrived[Source]=true;
+SetCard=1;
+do
+{
+Temp=FindMin();
+if (Temp!=0)
+{
+SetCard=SetCard+1;
+is_arrived[Temp]=true;
+for(p=1;p<=Vertex;p++)
+if ((Dist[p]>Dist[Temp]+Map[Temp][p])&&(!is_arrived[p]))
+{
+Dist[p]=Dist[Temp]+Map[Temp][p];
+From[p]=Temp;
+}
+}
+else
+break;
+}
+while (SetCard!=Vertex);
+
+for(p=1;p<=Vertex;p++)
+if(p!=Source)
+{
+fout << "========================\n";
+fout << "Source:" << Source << "\nTarget:" << p << '\n';
+if (Dist[p]==MaxNum)
+{
+fout << "Distance:" << "Infinity\n";
+fout << "Path:No Way!";
+}
+else
+{ 
+fout << "Distance:" << Dist[p] << '\n';
+k=1;
+Path=p;
+while (From[Path]!=Path)
+{
+Stack[k]=Path;
+Path=From[Path];
+k=k+1;
+}
+fout << "Path:" << Source;
+for(q=k-1;q>=1;q--)
+fout << "-->" << Stack[q];
+}
+fout << "\n========================\n\n";
+}
+
+fin.close();
+fout.close();
+return 0;
+}
+
+Sample Input
+2
+7
+00 20 50 30 00 00 00
+20 00 25 00 00 70 00
+50 25 00 40 25 50 00
+30 00 40 00 55 00 00
+00 00 25 55 00 10 00
+00 70 50 00 10 00 00
+00 00 00 00 00 00 00
+
+Sample Output
+========================
+Source:2
+Target:1
+Distance:20
+Path:2-->1
+========================
+========================
+Source:2
+Target:3
+Distance:25
+Path:2-->3
+========================
+========================
+Source:2
+Target:4
+Distance:50
+Path:2-->1-->4
+========================
+========================
+Source:2
+Target:5
+Distance:50
+Path:2-->3-->5
+========================
+========================
+Source:2
+Target:6
+Distance:60
+Path:2-->3-->5-->6
+========================
+========================
+Source:2
+Target:7
+Distance:Infinity
+Path:No Way!
+========================
+示例程序及相关子程序：
+
+void Dijkstra(int n,int[] Distance,int[] iPath)
+{
+int MinDis,u;
+int i,j;
+//从邻接矩阵复制第n个顶点可以走出的路线，就是复制第n行到Distance[]
+for(i=0;i<VerNum;i++)
+{
+Distance=Arc[n,i];
+Visited=0;
+}//第n个顶点被访问，因为第n个顶点是开始点
+Visited[n]=1;
+//找到该顶点能到其他顶点的路线、并且不是开始的顶点n、以前也没走过。
+//相当于寻找u点，这个点不是开始点n
+for(i=0;i<VerNum;i++)
+{
+u=0;
+MinDis=No;
+for(j=0;j<VerNum;j++)
+if(Visited[j] == 0&&(Distance[j]<MinDis))
+{
+MinDis=Distance[j];
+u=j;
+}
+//如范例P1871图G6，Distance=[No,No,10,No,30,100]，第一次找就是V2，所以u=2
+//找完了，MinDis等于不连接，则返回。这种情况类似V5。
+if(MinDis==No) return ;
+//确立第u个顶点将被使用，相当于Arc[v,u]+Arc[u,w]中的第u顶点。
+Visited[u]=1;
+//寻找第u个顶点到其他所有顶点的最小路，实际就是找Arc[u,j]、j取值在[0，VerNum]。
+//如果有Arc[i,u]+Arc[u,j]<Arc[i,j]，则Arc[i,j]=Arc[i,u]+Arc[u,j]<Arc[i,j]
+//实际中，因为Distance[]是要的结果，对于起始点确定的情况下，就是：
+//如果(Distance[u] + Arc[u,j]) <= Distance[j] 则：
+//Distance[j] = Distance[u] + Arc[u, j]；
+//而iPath[]保存了u点的编号；
+//同理：对新找出的路线，要设置Visited[j]=0，以后再找其他路，这个路可能别利用到。例如V3
+for(j=0;j<VerNum;j++)
+if(Visited[j]==0&&Arc[u,j]<No&&u!= j) 
+{
+if ((Distance[u] + Arc[u,j]) <= Distance[j])
+{
+Distance[j] = Distance[u] + Arc[u, j];
+Visited[j]=0;
+iPath[j] = u;
+}
+}
+}
+}
+//辅助函数
+void Prim()
+{
+int i,m,n=0;
+for(i=0;i<VerNum;i++) 
+{
+Visited=0;
+T=new TreeNode();
+T.Text =V;
+}
+Visited[n]++;
+listBox1.Items.Add (V[n]); 
+while(Visit()>0)
+{
+if((m=MinAdjNode(n))!=-1)
+{
+T[n].Nodes.Add(T[m]); 
+n=m;
+Visited[n]++;
+}
+else
+{
+n=MinNode(0);
+if(n>0) T[Min2].Nodes.Add(T[Min1]); 
+Visited[n]++;
+}
+listBox1.Items.Add (V[n]); 
+}
+treeView1.Nodes.Add(T[0]); 
+}
+void TopoSort()
+{
+int i,n;
+listBox1.Items.Clear(); 
+Stack S=new Stack();
+for(i=0;i<VerNum;i++)
+Visited=0;
+for(i=VerNum-1;i>=0;i--)
+if(InDegree(i)==0)
+{
+S.Push(i);
+Visited++;
+}
+while(S.Count!=0)
+{
+n=(int )S.Pop();
+listBox1.Items.Add (V[n]); 
+ClearLink(n);
+for(i=VerNum-1;i>=0;i--)
+if(Visited==0&&InDegree(i)==0)
+{
+S.Push(i);
+Visited++;
+}
+}
+}
+void AOETrave(int n,TreeNode TR,int w)
+{
+int i,w0;
+if(OutDegree(n)==0) return;
+for(i=0;i<VerNum;i++)
+if((w0=Arc[n,i])!=0)
+{
+listBox1.Items.Add (V+"\t"+(w+w0).ToString()+"\t"+i.ToString()+"\t"+n.ToString());
+TreeNode T1=new TreeNode();
+T1.Text =V+" [W="+(w+w0).ToString()+"]"; 
+TR.Nodes.Add(T1); 
+AOETrave(i,T1,w+w0);
+}
+}
+void AOE()
+{
+int i,w=0,m=1;
+TreeNode T1=new TreeNode();
+for(i=0;i<VerNum;i++)
+{
+Visited=0;
+}
+T1.Text =V[0];
+listBox1.Items.Add ("双亲表示法显示这个生成树："); 
+listBox1.Items.Add ("V\tW\tID\tPID");
+for(i=0;i<VerNum;i++)
+{
+if((w=Arc[0,i])!=0)
+{
+listBox1.Items.Add (V+"\t"+w.ToString()+"\t"+i.ToString()+"\t0");
+TreeNode T2=new TreeNode();
+T2.Text=V+" [W="+w.ToString()+"]";
+AOETrave(i,T2,w);
+T1.Nodes.Add (T2); 
+listBox1.Items.Add("\t\t树"+m.ToString());
+m++;
+}
+}
+treeView1.Nodes.Clear(); 
+treeView1.Nodes.Add (T1);
+}
+int IsZero()
+{
+int i;
+for(i=0;i<VerNum;i++)
+if(LineIsZero(i)>=0) return i;
+return -1;
+}
+int LineIsZero(int n)
+{
+int i;
+for(i=0;i<VerNum;i++)
+if (Arc[n,i]!=0) return i;
+return -1;
+}
+void DepthTraverse()
+{
+int i,m;
+for(i=0;i<VerNum;i++)
+{
+Visited=0;
+T=new TreeNode();
+T.Text =V;
+R=0;
+}
+while((m=IsZero())>=0)
+{
+if(Visited[m]==0) 
+{
+listBox1.Items.Add (V[m]);
+R[m]=1;
+}
+Visited[m]++;
+DTrave(m);
+}
+for(i=0;i<VerNum;i++)
+{
+if(R==1)
+treeView1.Nodes.Add (T); 
+}
+}
+void DTrave(int n)
+{
+int i;
+if (LineIsZero(n)<0) return;
+for(i=VerNum-1;i>=0;i--)
+if(Arc[n,i]!=0)
+{
+Arc[n,i]=0;
+Arc[i,n]=0;
+if(Visited==0)
+{
+listBox1.Items.Add (V);
+T[n].Nodes.Add (T); 
+R=0;
+}
+Visited++;
+DTrave(i);
+}
+}
+void BreadthTraverse()
+{
+int i,m;
+for(i=0;i<VerNum;i++)
+{
+Visited=0;
+T=new TreeNode();
+T.Text =V;
+R=0;
+}
+while((m=IsZero())>=0)
+{
+if(Visited[m]==0) 
+{
+listBox1.Items.Add (V[m]);
+R[m]=1;
+}
+Visited[m]++;
+BTrave(m);
+}
+for(i=0;i<VerNum;i++)
+{
+if(R==1)
+treeView1.Nodes.Add (T); 
+}
+}
+void BTrave(int n)
+{
+int i;
+Queue Q=new Queue();
+Q.Enqueue(n);
+while(Q.Count!=0)
+{
+for(i=0;i<VerNum;i++)
+{
+if(Arc[n,i]!=0)
+{
+Arc[n,i]=0;
+Arc[i,n]=0;
+if(Visited==0)
+{
+listBox1.Items.Add(V); 
+T[n].Nodes.Add (T); 
+R=0;
+}
+Visited++;
+Q.Enqueue(i);
+}
+}
+n=(int )Q.Dequeue(); 
+}
+}
+int MinNode(int vn)
+{
+int i,j,n,m,Min=No;
+n=-1;m=-1;
+for (i=vn;i<VerNum;i++)
+for(j=0;j<VerNum;j++)
+if(Arc[i,j]!=No&&Arc[i,j]<Min&&Visited==0&&Visited[j]==1)
+{
+Min=Arc[i,j];n=i;m=j;
+}
+Min1=n;Min2=m;
+return n;
+}
+int MinAdjNode(int n)
+{
+int i,Min,m;
+Min=No;m=-1;
+for(i=0;i<VerNum;i++)
+if(Arc[n,i]!=No&&Visited==0&&Min>Arc[n,i]&&Visited[n]==1)
+{
+Min=Arc[n,i];m=i;
+}
+return m;
+}
+int Visit()
+{
+int i,s=0;
+for(i=0;i<VerNum;i++)
+if(Visited==0) s++;
+return s;
+}
+
+
+
+如果您认为本词条还有待完善，需要补充新内容或修改错误内容，请 编辑词条 
+参考资料：
+ 1.http://blog.csdn.net/ctu_85/archive/2006/11/17/1393130.aspx 
+ 2.算法设计 
+ 3.http://hi.baidu.com/zhyf%5F2008/blog/item/e566680fcd6110e9aa64570d.html 
+ 

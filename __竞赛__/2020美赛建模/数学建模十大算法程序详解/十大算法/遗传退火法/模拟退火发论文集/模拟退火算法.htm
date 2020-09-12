@@ -1,0 +1,557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://bbs.orsc.edu.cn/bbs/viewthread.php?tid=258 -->
+<HTML><HEAD><TITLE>中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content=index,follow name=robots>
+<META content="Discuz!,Board,Crossday Studio,PHP,MySQL,FORUM" name=keywords>
+<META content="MSHTML 6.00.2800.1400" name=GENERATOR>
+<META 
+content="中国运筹学会 - Powered by Discuz! Board 2.0 <b style='color: #FF9900'>COML</b>" 
+name=description>
+<META content=TRUE name=MSSmartTagsPreventParsing>
+<META http-equiv=MSThemeCompatible content=Yes>
+<STYLE type=text/css>A:link {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+BODY {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/default/bg.gif); SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-BASE-COLOR: #f8f8f8
+}
+TABLE {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana
+}
+TEXTAREA {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana; BACKGROUND-COLOR: #f8f8f8
+}
+INPUT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana; BACKGROUND-COLOR: #f8f8f8
+}
+OBJECT {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana; BACKGROUND-COLOR: #f8f8f8
+}
+SELECT {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial; BACKGROUND-COLOR: #f8f8f8
+}
+.nav {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: Tahoma, Verdana
+}
+.navtd {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana; TEXT-DECORATION: none
+}
+.header {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; BACKGROUND-IMAGE: url(images/default/headerbg.gif); COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana
+}
+.category {
+	FONT-SIZE: 11px; BACKGROUND-IMAGE: url(images/default/catbg.gif); COLOR: #000000; FONT-FAMILY: Arial
+}
+.multi {
+	FONT-SIZE: 11px; COLOR: #003366; FONT-FAMILY: Arial
+}
+.smalltxt {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial
+}
+.mediumtxt {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+</STYLE>
+
+<SCRIPT language=JavaScript 
+src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/common.js"></SCRIPT>
+</HEAD>
+<BODY leftMargin=0 topMargin=0 rightMargin=0>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center 
+background="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/topbg.gif" 
+border=0>
+  <TBODY>
+  <TR>
+    <TD><A href="http://bbs.orsc.edu.cn/bbs/index.php"><IMG alt=中国运筹学会 
+      src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/logo.gif" 
+      border=0></A></TD>
+    <TD align=right width=517 
+    background="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/topbg_right.gif">&nbsp;</TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE cellSpacing=4 cellPadding=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD class=navtd><SPAN class=bold>&raquo;</SPAN> <SPAN class=bold>游客: 
+            &nbsp;</SPAN><A href="http://bbs.orsc.edu.cn/bbs/register.php"><FONT 
+            class=navtd>注册</FONT></A> | <A 
+            href="http://bbs.orsc.edu.cn/bbs/logging.php?action=login"><FONT 
+            class=navtd>登录</FONT></A> | <A 
+            href="http://bbs.orsc.edu.cn/bbs/member.php?action=list"><FONT 
+            class=navtd>会员</FONT></A> | <A 
+            href="http://bbs.orsc.edu.cn/bbs/faq.php"><FONT 
+            class=navtd>帮助</FONT></A> </TD>
+          <TD align=right><A href="http://orsc.edu.cn/"><FONT class=navtd>返回 
+            中国运筹学会</FONT></A> </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD><BR>
+      <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 width="97%" 
+      align=center border=0>
+        <TBODY>
+        <TR>
+          <TD class=nav noWrap width="90%">&nbsp;<A 
+            href="http://bbs.orsc.edu.cn/bbs/index.php">中国运筹学会</A> &raquo; <A 
+            href="http://bbs.orsc.edu.cn/bbs/forumdisplay.php?fid=7">运筹算法与软件</A> 
+            &raquo; 模拟退火算法</TD>
+          <TD align=right width="10%"><A 
+            href="http://bbs.orsc.edu.cn/bbs/viewthread.php?tid=258#bottom"><IMG 
+            src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/arrow_dw.gif" 
+            align=absMiddle border=0></A></TD></TR></TBODY></TABLE><BR>
+      <FORM name=delpost 
+      action=topicadmin.php?action=delpost&amp;fid=7&amp;tid=258&amp;page=1 
+      method=post>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center>
+        <TBODY>
+        <TR>
+          <TD class=multi></TD>
+          <TD align=right><A 
+            href="http://bbs.orsc.edu.cn/bbs/post.php?action=newthread&amp;fid=7"><IMG 
+            src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/newtopic.gif" 
+            border=0></A> &nbsp;<A 
+            href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258"><IMG 
+            src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/reply.gif" 
+            border=0></A> </TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR class=header>
+                <TD width="21%">作者:</TD>
+                <TD>
+                  <TABLE class=smalltxt 
+                  style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR style="COLOR: #ffffff">
+                      <TD class=bold>标题: 模拟退火算法</TD>
+                      <TD noWrap align=right width=150><A 
+                        style="FONT-WEIGHT: normal; COLOR: #ffffff" 
+                        href="http://bbs.orsc.edu.cn/bbs/redirect.php?fid=7&amp;tid=258&amp;goto=nextoldset">上一主题</A> 
+                        | <A style="FONT-WEIGHT: normal; COLOR: #ffffff" 
+                        href="http://bbs.orsc.edu.cn/bbs/redirect.php?fid=7&amp;tid=258&amp;goto=nextnewset">下一主题</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+      name=pid523>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+            cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#f8f8f8>
+                <TD vAlign=top width="21%"><SPAN class=bold 
+                  ?>Aciclovir</SPAN><BR><SPAN 
+                  class=smalltxt>Administrator<BR><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><BR><BR><BR><BR>积分 
+                  3695<BR>发贴 498<BR>注册 2004-1-9<BR>状态 <B>在线</B> </SPAN></TD>
+                <TD height="100%">
+                  <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><SPAN class=bold><SPAN 
+                        class=smalltxt>模拟退火算法<BR><BR></SPAN></SPAN>模拟退火算法<BR>　　模拟退火算法来源于固体退火原理，将固体加温至充分高，再让其徐徐冷却，加温时，固体内部粒子随温升变为无序状，内能增大，而徐徐冷却时粒子渐趋有序，在每个温度都达到平衡态，最后在常温时达到基态，内能减为最小。根据Metropolis准则，粒子在温度T时趋于平衡的概率为e-ΔE/(kT)，其中E为温度T时的内能，ΔE为其改变量，k为Boltzmann常数。用固体退火模拟组合优化问题，将内能E模拟为目标函数值f，温度T演化成控制参数t，即得到解组合优化问题的模拟退火算法：由初始解i和控制参数初值t开始，对当前解重复“产生新解→计算目标函数差→接受或舍弃”的迭代，并逐步衰减t值，算法终止时的当前解即为所得近似最优解，这是基于蒙特卡罗迭代求解法的一种启发式随机搜索过程。退火过程由冷却进度表(Cooling 
+                        Schedule)控制，包括控制参数的初值t及其衰减因子Δt、每个t值时的迭代次数L和停止条件S。 
+                        <BR>3.5.1 
+                        模拟退火算法的模型<BR>　　模拟退火算法可以分解为解空间、目标函数和初始解三部分。<BR>　模拟退火的基本思想:<BR>　　(1) 
+                        初始化：初始温度T(充分大)，初始解状态S(是算法迭代的起点)， 每个T值的迭代次数L<BR>　　(2) 
+                        对k=1，……，L做第(3)至第6步：<BR>　　(3) 产生新解S′<BR>　　(4) 
+                        计算增量Δt′=C(S′)-C(S)，其中C(S)为评价函数<BR>　　(5) 
+                        若Δt′&lt;0则接受S′作为新的当前解，否则以概率exp(-Δt′/T)接受S′作为新的当前解.<BR>　　(6) 
+                        如果满足终止条件则输出当前解作为最优解，结束程序。<BR>终止条件通常取为连续若干个新解都没有被接受时终止算法。<BR>　　(7) 
+                        T逐渐减少，且T-&gt;0，然后转第2步。<BR>算法对应动态演示图：<BR>模拟退火算法新解的产生和接受可分为如下四个步骤：<BR>　　第一步是由一个产生函数从当前解产生一个位于解空间的新解；为便于后续的计算和接受，减少算法耗时，通常选择由当前新解经过简单地变换即可产生新解的方法，如对构成新解的全部或部分元素进行置换、互换等，注意到产生新解的变换方法决定了当前新解的邻域结构，因而对冷却进度表的选取有一定的影响。<BR>　　第二步是计算与新解所对应的目标函数差。因为目标函数差仅由变换部分产生，所以目标函数差的计算最好按增量计算。事实表明，对大多数应用而言，这是计算目标函数差的最快方法。<BR>　　第三步是判断新解是否被接受,判断的依据是一个接受准则，最常用的接受准则是Metropo1is准则: 
+                        若Δt′&lt;0则接受S′作为新的当前解S，否则以概率exp(-Δt′/T)接受S′作为新的当前解S。<BR>　　第四步是当新解被确定接受时，用新解代替当前解，这只需将当前解中对应于产生新解时的变换部分予以实现，同时修正目标函数值即可。此时，当前解实现了一次迭代。可在此基础上开始下一轮试验。而当新解被判定为舍弃时，则在原当前解的基础上继续下一轮试验。<BR>　　模拟退火算法与初始值无关，算法求得的解与初始解状态S(是算法迭代的起点)无关；模拟退火算法具有渐近收敛性，已在理论上被证明是一种以概率l 
+                        收敛于全局最优解的全局优化算法；模拟退火算法具有并行性。</TD></TR></TBODY></TABLE></TD></TR>
+              <TR bgColor=#f8f8f8>
+                <TD class=smalltxt vAlign=center><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/lastpost.gif" 
+                  align=absMiddle> 2004-2-27 01:34</TD>
+                <TD vAlign=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR class=smalltxt>
+                      <TD align=left><A 
+                        href="http://bbs.orsc.edu.cn/bbs/viewpro.php?username=Aciclovir"><IMG 
+                        alt=查看资料 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/profile.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="mailto:pkli@orsc.edu.cn"><IMG alt=发送邮件 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/email.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/search.php?srchuname=Aciclovir&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes"><IMG 
+                        alt=搜索该用户的全部帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/find.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/pm.php?action=send&amp;username=Aciclovir" 
+                        target=_blank><IMG alt=发短消息 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/pm.gif" 
+                        border=0></A>&nbsp; </TD>
+                      <TD align=right>&nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=edit&amp;fid=7&amp;tid=258&amp;pid=523&amp;page=1"><IMG 
+                        alt=编辑帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/edit.gif" 
+                        border=0></A> &nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258&amp;repquote=523"><IMG 
+                        alt=引用回复 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/quote.gif" 
+                        border=0></A> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></A><A 
+      name=pid524>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+            cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#ffffff>
+                <TD vAlign=top width="21%"><SPAN class=bold 
+                  ?>Aciclovir</SPAN><BR><SPAN 
+                  class=smalltxt>Administrator<BR><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><BR><BR><BR><BR>积分 
+                  3695<BR>发贴 498<BR>注册 2004-1-9<BR>状态 <B>在线</B> </SPAN></TD>
+                <TD height="100%">
+                  <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><SPAN class=bold><SPAN 
+                        class=smalltxt></SPAN></SPAN>3.5.2 
+                        模拟退火算法的简单应用<BR>　　作为模拟退火算法应用，讨论货郎担问题(Travelling Salesman 
+                        Problem，简记为TSP)：设有n个城市，用数码1,…,n代表。城市i和城市j之间的距离为d(i，j) i, 
+                        j=1,…,n．TSP问题是要找遍访每个域市恰好一次的一条回路，且其路径总长度为最短.。<BR>　　求解TSP的模拟退火算法模型可描述如下：<BR>　　解空间 
+                        解空间S是遍访每个城市恰好一次的所有回路，是{1，……，n}的所有循环排列的集合，S中的成员记为(w1,w2 
+                        ,……，wn)，并记wn+1= w1。初始解可选为(1，……，n)<BR>　　目标函数 
+                        此时的目标函数即为访问所有城市的路径总长度或称为代价函数： 
+                        <BR><BR>　　我们要求此代价函数的最小值。<BR>　　新解的产生 
+                        随机产生1和n之间的两相异数k和m，若k&lt;m，则将<BR>　　(w1, w2 ,…，wk , wk+1 
+                        ,…，wm ,…，wn)<BR>　　变为：<BR>　　(w1, w2 ,…，wm , wm-1 ,…，wk+1 
+                        , wk ,…，wn).<BR>　　如果是k&gt;m，则将<BR>　　(w1, w2 ,…，wk , wk+1 
+                        ,…，wm ,…，wn)<BR>　　变为：<BR>　　(wm, wm-1 ,…，w1 , wm+1 
+                        ,…，wk-1 ,wn , wn-1 
+                        ,…，wk).<BR>　　上述变换方法可简单说成是“逆转中间或者逆转两端”。<BR>　　也可以采用其他的变换方法，有些变换有独特的优越性，有时也将它们交替使用，得到一种更好方法。 
+                        <BR>　　代价函数差 设将(w1, w2 ,……，wn)变换为(u1, u2 ,……，un), 
+                        则代价函数差为： 
+                        <BR><BR>根据上述分析，可写出用模拟退火算法求解TSP问题的伪程序：<BR>Procedure 
+                        TSPSA:<BR>　begin <BR>　　init-of-T; { 
+                        T为初始温度}<BR>　　S={1，……，n}; 
+                        {S为初始值}<BR>　　termination=false;<BR>　　while 
+                        termination=false<BR>　　　begin <BR>　　　　for i=1 to L 
+                        do<BR>　　　　　　begin<BR>　　　　　　　　generate(S′form S); { 
+                        从当前回路S产生新回路S′}<BR>　　　　　　　　Δt:=f(S′))-f(S);{f(S)为路径总长}<BR>　　　　　　　　IF(Δt&lt;0) 
+                        OR 
+                        (EXP(-Δt/T)&gt;Random-of-[0,1])<BR>　　　　　　　　S=S′;<BR>　　　　　　　　IF 
+                        the-halt-condition-is-TRUE THEN 
+                        <BR>　　　　　　　　termination=true;<BR>　　　　　　End;<BR>　　　　T_lower;<BR>　　　End;<BR>　End<BR>　　模拟退火算法的应用很广泛，可以较高的效率求解最大截问题(Max 
+                        Cut Problem)、0-1背包问题(Zero One Knapsack 
+                        Problem)、图着色问题(Graph Colouring Problem)、调度问题(Scheduling 
+                        Problem)等等。</TD></TR></TBODY></TABLE></TD></TR>
+              <TR bgColor=#ffffff>
+                <TD class=smalltxt vAlign=center><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/lastpost.gif" 
+                  align=absMiddle> 2004-2-27 01:34</TD>
+                <TD vAlign=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR class=smalltxt>
+                      <TD align=left><A 
+                        href="http://bbs.orsc.edu.cn/bbs/viewpro.php?username=Aciclovir"><IMG 
+                        alt=查看资料 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/profile.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="mailto:pkli@orsc.edu.cn"><IMG alt=发送邮件 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/email.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/search.php?srchuname=Aciclovir&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes"><IMG 
+                        alt=搜索该用户的全部帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/find.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/pm.php?action=send&amp;username=Aciclovir" 
+                        target=_blank><IMG alt=发短消息 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/pm.gif" 
+                        border=0></A>&nbsp; </TD>
+                      <TD align=right>&nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=edit&amp;fid=7&amp;tid=258&amp;pid=524&amp;page=1"><IMG 
+                        alt=编辑帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/edit.gif" 
+                        border=0></A> &nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258&amp;repquote=524"><IMG 
+                        alt=引用回复 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/quote.gif" 
+                        border=0></A> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></A><A 
+      name=pid525>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+            cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#f8f8f8>
+                <TD vAlign=top width="21%"><SPAN class=bold 
+                  ?>Aciclovir</SPAN><BR><SPAN 
+                  class=smalltxt>Administrator<BR><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><BR><BR><BR><BR>积分 
+                  3695<BR>发贴 498<BR>注册 2004-1-9<BR>状态 <B>在线</B> </SPAN></TD>
+                <TD height="100%">
+                  <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><SPAN class=bold><SPAN 
+                        class=smalltxt></SPAN></SPAN>3.5.3 
+                        模拟退火算法的参数控制问题<BR>　　模拟退火算法的应用很广泛，可以求解NP完全问题，但其参数难以控制，其主要问题有以下三点：<BR>　　(1) 
+                        温度T的初始值设置问题。<BR>　　温度T的初始值设置是影响模拟退火算法全局搜索性能的重要因素之一、初始温度高，则搜索到全局最优解的可能性大，但因此要花费大量的计算时间；反之，则可节约计算时间，但全局搜索性能可能受到影响。实际应用过程中，初始温度一般需要依据实验结果进行若干次调整。<BR>　　(2) 
+                        退火速度问题。<BR>　　模拟退火算法的全局搜索性能也与退火速度密切相关。一般来说，同一温度下的“充分”搜索(退火)是相当必要的，但这需要计算时间。实际应用中，要针对具体问题的性质和特征设置合理的退火平衡条件。<BR>　　(3) 
+                        温度管理问题。<BR>　　温度管理问题也是模拟退火算法难以处理的问题之一。实际应用中，由于必须考虑计算复杂度的切实可行性等问题，常采用如下所示的降温方式：<BR><BR>T(t+1)＝k×T(t)<BR>式中k为正的略小于1.00的常数，t为降温的次数。</TD></TR></TBODY></TABLE></TD></TR>
+              <TR bgColor=#f8f8f8>
+                <TD class=smalltxt vAlign=center><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/lastpost.gif" 
+                  align=absMiddle> 2004-2-27 01:34</TD>
+                <TD vAlign=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR class=smalltxt>
+                      <TD align=left><A 
+                        href="http://bbs.orsc.edu.cn/bbs/viewpro.php?username=Aciclovir"><IMG 
+                        alt=查看资料 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/profile.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="mailto:pkli@orsc.edu.cn"><IMG alt=发送邮件 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/email.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/search.php?srchuname=Aciclovir&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes"><IMG 
+                        alt=搜索该用户的全部帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/find.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/pm.php?action=send&amp;username=Aciclovir" 
+                        target=_blank><IMG alt=发短消息 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/pm.gif" 
+                        border=0></A>&nbsp; </TD>
+                      <TD align=right>&nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=edit&amp;fid=7&amp;tid=258&amp;pid=525&amp;page=1"><IMG 
+                        alt=编辑帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/edit.gif" 
+                        border=0></A> &nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258&amp;repquote=525"><IMG 
+                        alt=引用回复 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/quote.gif" 
+                        border=0></A> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></A><A 
+      name=pid2184>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+            cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#ffffff>
+                <TD vAlign=top width="21%"><SPAN class=bold 
+                  ?>kakaxi</SPAN><BR><SPAN class=smalltxt>Newbie<BR><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><BR><BR><BR><BR>积分 
+                  5<BR>发贴 2<BR>注册 2004-7-17<BR>状态 离线 </SPAN></TD>
+                <TD height="100%">
+                  <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><SPAN class=bold><SPAN 
+                        class=smalltxt></SPAN></SPAN>有没有这方面的电子书啊？最好是中文的！谢谢了！<BR>如果可以的话，能否发到小弟的邮箱啊？谢谢：<A 
+                        href="mailto:csyujiande@hotmail.com">csyujiande@hotmail.com</A></TD></TR></TBODY></TABLE></TD></TR>
+              <TR bgColor=#ffffff>
+                <TD class=smalltxt vAlign=center><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/lastpost.gif" 
+                  align=absMiddle> 2004-7-17 19:29</TD>
+                <TD vAlign=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR class=smalltxt>
+                      <TD align=left><A 
+                        href="http://bbs.orsc.edu.cn/bbs/viewpro.php?username=kakaxi"><IMG 
+                        alt=查看资料 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/profile.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="mailto:csyujiande@hotmail.%20com"><IMG alt=发送邮件 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/email.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/search.php?srchuname=kakaxi&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes"><IMG 
+                        alt=搜索该用户的全部帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/find.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/pm.php?action=send&amp;username=kakaxi" 
+                        target=_blank><IMG alt=发短消息 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/pm.gif" 
+                        border=0></A>&nbsp; </TD>
+                      <TD align=right>&nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=edit&amp;fid=7&amp;tid=258&amp;pid=2184&amp;page=1"><IMG 
+                        alt=编辑帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/edit.gif" 
+                        border=0></A> &nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258&amp;repquote=2184"><IMG 
+                        alt=引用回复 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/quote.gif" 
+                        border=0></A> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></A><A 
+      name=pid2317>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#000000>
+            <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+            cellSpacing=1 cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#f8f8f8>
+                <TD vAlign=top width="21%"><SPAN class=bold 
+                  ?>publicClass</SPAN><BR><SPAN class=smalltxt>Newbie<BR><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/star.gif"><BR><BR>
+                  <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+                  width="95%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD align=middle><IMG 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/16.gif" 
+                        border=0></TD></TR></TBODY></TABLE><BR>积分 43<BR>发贴 10<BR>注册 
+                  2004-6-8<BR>状态 离线 </SPAN></TD>
+                <TD height="100%">
+                  <TABLE style="TABLE-LAYOUT: fixed; WORD-WRAP: break-word" 
+                  height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><SPAN class=bold><SPAN 
+                        class=smalltxt></SPAN></SPAN>谢谢Aciclovir大哥在论坛里介绍了那么多资料！<BR><BR>初看起来，模拟退火算法的计算流程比遗传算法的还要简单，看来主要问题就在于参数控制方面了。</TD></TR></TBODY></TABLE></TD></TR>
+              <TR bgColor=#f8f8f8>
+                <TD class=smalltxt vAlign=center><IMG 
+                  src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/lastpost.gif" 
+                  align=absMiddle> 2004-8-9 23:00</TD>
+                <TD vAlign=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR class=smalltxt>
+                      <TD align=left><A 
+                        href="http://bbs.orsc.edu.cn/bbs/viewpro.php?username=publicClass"><IMG 
+                        alt=查看资料 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/profile.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/search.php?srchuname=publicClass&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes"><IMG 
+                        alt=搜索该用户的全部帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/find.gif" 
+                        border=0></A>&nbsp; <A 
+                        href="http://bbs.orsc.edu.cn/bbs/pm.php?action=send&amp;username=publicClass" 
+                        target=_blank><IMG alt=发短消息 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/pm.gif" 
+                        border=0></A>&nbsp; </TD>
+                      <TD align=right>&nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=edit&amp;fid=7&amp;tid=258&amp;pid=2317&amp;page=1"><IMG 
+                        alt=编辑帖子 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/edit.gif" 
+                        border=0></A> &nbsp;<A 
+                        href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258&amp;repquote=2317"><IMG 
+                        alt=引用回复 
+                        src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/quote.gif" 
+                        border=0></A> 
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></A>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center>
+        <TBODY>
+        <TR>
+          <TD class=multi vAlign=top></TD>
+          <TD align=right><BR><A 
+            href="http://bbs.orsc.edu.cn/bbs/post.php?action=newthread&amp;fid=7"><IMG 
+            src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/newtopic.gif" 
+            border=0></A> &nbsp;<A 
+            href="http://bbs.orsc.edu.cn/bbs/post.php?action=reply&amp;fid=7&amp;tid=258"><IMG 
+            src="中国运筹学会 - 运筹算法与软件 - 模拟退火算法 - powered by Discuz!.files/reply.gif" 
+            border=0></A> </TD></TR></TBODY></TABLE></FORM><BR>
+      <TABLE cellSpacing=0 cellPadding=0 width=310 align=center>
+        <TBODY>
+        <TR>
+          <TD align=middle width="30%" bgColor=#000000>
+            <TABLE cellSpacing=1 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltxt noWrap align=middle bgColor=#ffffff><A 
+                  href="http://bbs.orsc.edu.cn/bbs/viewthread.php?fid=7&amp;tid=258&amp;action=printable" 
+                  target=_blank>可打印版本</A> | <A 
+                  href="http://bbs.orsc.edu.cn/bbs/misc.php?action=emailfriend&amp;tid=258">推荐给朋友</A> 
+                  | <A 
+                  href="http://bbs.orsc.edu.cn/bbs/memcp.php?action=subscriptions&amp;subadd=258">订阅主题</A> 
+                  | <A 
+                  href="http://bbs.orsc.edu.cn/bbs/memcp.php?action=favorites&amp;favadd=258">收藏主题</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%" align=center>
+        <TBODY>
+        <TR class=mediumtxt>
+          <TD class=smalltxt align=left><SPAN class=bold>论坛跳转:</SPAN> <SELECT 
+            onchange="if(this.options[this.selectedIndex].value != '') {&#10;window.location=('forumdisplay.php?fid='+this.options[this.selectedIndex].value+'&amp;sid=5nKzvNKm') }"> 
+              <OPTION value="" selected>日常事务</OPTION><OPTION value=3>&nbsp; &gt; 
+              中国运筹学会公告板</OPTION><OPTION value="">&nbsp;</OPTION><OPTION 
+              value="">学术天地</OPTION><OPTION value=7>&nbsp; &gt; 
+              运筹算法与软件</OPTION><OPTION value=8>&nbsp; &gt; 学术会议发布</OPTION><OPTION 
+              value=9>&nbsp; &gt; 新书推荐</OPTION><OPTION value=21>&nbsp; &nbsp; 
+              &nbsp; &gt; 书评天地</OPTION><OPTION value=10>&nbsp; &gt; 
+              不确定理论&amp;不确定规划</OPTION><OPTION value="">&nbsp;</OPTION><OPTION 
+              value="">不确定系统分会</OPTION><OPTION value=12>&nbsp; &gt; 
+              加盟不确定系统分会</OPTION><OPTION value=13>&nbsp; &gt; 
+              不确定系统分会会员录</OPTION><OPTION value=17>&nbsp; &gt; 
+              学术讲座</OPTION><OPTION value=14>&nbsp; &gt; 学术沙龙</OPTION><OPTION 
+              value=22>&nbsp; &gt; 讲习班</OPTION><OPTION 
+              value="">&nbsp;</OPTION><OPTION value="">友情链接</OPTION><OPTION 
+              value=16>&nbsp; &gt; UTLab (清华大学不确定理论实验室)</OPTION><OPTION 
+              value=19>&nbsp; &gt; UTLab Seminar</OPTION><OPTION 
+              value="">&nbsp;</OPTION></SELECT> </TD>
+          <TD class=smalltxt 
+  align=right></TD></TR></TBODY></TABLE><BR><BR><BR></TD></TR></TBODY></TABLE><BR><BR><BR>
+<CENTER><SPAN class=mediumtxt>&lt; <A class=mediumtxt 
+href="mailto:admin@domain.com">联系我们</A> - <A class=mediumtxt 
+href="http://orsc.edu.cn/" target=_blank>中国运筹学会</A> &gt;</SPAN> 
+<BR><BR><BR><SPAN 
+style="FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma, Arial">Powered by 
+<A style="COLOR: #000000" href="http://www.discuz.net/" 
+target=_blank><B>Discuz!</B> 2.0 <B style="COLOR: #ff9900">COML</B></A> &copy; 2002, 
+<B><A style="COLOR: #000000" href="http://www.bokavan.com/" 
+target=_blank>Crossday, Bokavan Corp.</A></A></B> <BR>Processed in 0.093221 
+second(s), 6 queries</SPAN></CENTER><A name=#bottom></A></BODY></HTML>

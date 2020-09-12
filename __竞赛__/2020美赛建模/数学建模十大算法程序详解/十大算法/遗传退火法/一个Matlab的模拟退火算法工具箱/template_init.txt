@@ -1,0 +1,6 @@
+function X = PROBLEMNAME_init()
+% X = PROBLEMNAME_init()
+%
+%   X = behaviorally constant application data
+%
+X = [] ;        % a typical application will put problem domain data here

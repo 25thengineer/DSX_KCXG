@@ -1,0 +1,259 @@
+遗传算法解决 TSP 问题（附matlab源程序）
+作者：KINGTT  来源：转载  发布时间：2008-7-17 9:11:53
+减小字体 增大字体 
+
+已知n个城市之间的相互距离，现有一个推销员必须遍访这n个城市，并且每个城市
+只能访问一次，最后又必须返回出发城市。如何安排他对这些城市的访问次序，可使其
+旅行路线的总长度最短？
+    用图论的术语来说，假设有一个图g=(v,e)，其中v是顶点集，e是边集，设d=(dij)
+是由顶点i和顶点j之间的距离所组成的距离矩阵，旅行商问题就是求出一条通过所有顶
+点且每个顶点只通过一次的具有最短距离的回路。
+    这个问题可分为对称旅行商问题(dij=dji,,任意i,j=1,2,3，…,n)和非对称旅行商
+问题(dij≠dji,,任意i,j=1,2,3，…,n)。
+    若对于城市v={v1,v2,v3,…,vn}的一个访问顺序为t=(t1,t2,t3,…,ti,…,tn),其中
+ti∈v(i=1,2,3,…,n)，且记tn+1= t1，则旅行商问题的数学模型为：
+     min     l=σd(t(i),t(i+1)) （i=1,…,n）
+    旅行商问题是一个典型的组合优化问题，并且是一个np难问题，其可能的路径数目
+与城市数目n是成指数型增长的，所以一般很难精确地求出其最优解，本文采用遗传算法
+求其近似解。
+    遗传算法：
+初始化过程：用v1,v2,v3,…,vn代表所选n个城市。定义整数pop-size作为染色体的个数
+，并且随机产生pop-size个初始染色体，每个染色体为1到18的整数组成的随机序列。
+适应度f的计算：对种群中的每个染色体vi，计算其适应度，f=σd(t(i),t(i+1)).
+评价函数eval(vi)：用来对种群中的每个染色体vi设定一个概率，以使该染色体被选中
+的可能性与其种群中其它染色体的适应性成比例，既通过轮盘赌，适应性强的染色体被
+选择产生后台的机会要大，设alpha∈(0,1)，本文定义基于序的评价函数为eval(vi)=al
+pha*(1-alpha).^(i-1) 。[随机规划与模糊规划]
+选择过程：选择过程是以旋转赌轮pop-size次为基础，每次旋转都为新的种群选择一个
+染色体。赌轮是按每个染色体的适应度进行选择染色体的。
+   step1 、对每个染色体vi,计算累计概率qi，q0=0;qi=σeval(vj)   j=1,…,i;i=1,
+…pop-size.
+   step2、从区间(0,pop-size)中产生一个随机数r；
+   step3、若qi-1   step4、重复step2和step3共pop-size次，这样可以得到pop-size个复制的染色体。
+grefenstette编码：由于常规的交叉运算和变异运算会使种群中产生一些无实际意义的
+染色体，本文采用grefenstette编码《遗传算法原理及应用》可以避免这种情况的出现
+。所谓的grefenstette编码就是用所选队员在未选（不含淘汰）队员中的位置，如：
+          8 15 2 16 10 7 4 3 11 14 6 12 9 5 18 13 17 1
+          对应：
+          8 14 2 13 8 6 3 2 5 7 3 4 3 2 4 2 2 1。
+交叉过程：本文采用常规单点交叉。为确定交叉操作的父代，从到pop-size重复以下过
+程：从[0，1]中产生一个随机数r，如果r            将所选的父代两两组队，随机产生一个位置进行交叉，如：
+          8 14 2 13 8 6 3 2 5 7 3 4 3 2 4 2 2 1
+          6 12 3 5 6 8 5 6 3 1 8 5 6 3 3 2 1 1
+交叉后为：
+         8 14 2 13 8 6 3 2 5 1 8 5 6 3 3 2 1 1
+         6 12 3 5 6 8 5 6 3 7 3 4 3 2 4 2 2 1
+变异过程：本文采用均匀多点变异。类似交叉操作中选择父代的过程，在r 选择多个染色体vi作为父代。对每一个选择的父代，随机选择多个位置，使其在每位置
+按均匀变异（该变异点xk的取值范围为[ukmin,ukmax],产生一个[0，1]中随机数r，该点
+变异为x'k=ukmin+r(ukmax-ukmin)）操作。如：
+         8 14 2 13 8 6 3 2 5 7 3 4 3 2 4 2 2 1
+      变异后：
+        8 14 2 13 10 6 3 2 2 7 3 4 5 2 4 1 2 1
+反grefenstette编码：交叉和变异都是在grefenstette编码之后进行的，为了循环操作
+和返回最终结果，必须逆grefenstette编码过程，将编码恢复到自然编码。
+循环操作：判断是否满足设定的带数xzome，否，则跳入适应度f的计算；是，结束遗传
+操作，跳出。 
+matlab 代码
+
+
+distTSP.txt
+0 6 18 4 8
+7 0 17 3 7
+4 4 0 4 5
+20 19 24 0 22
+8 8 16 6 0
+%GATSP.m
+function gatsp1()
+clear;
+load distTSP.txt;
+distance=distTSP;
+N=5;
+ngen=100;
+ngpool=10;
+%ngen=input('# of generations to evolve = ');
+%ngpool=input('# of chromosoms in the gene pool = '); % size of genepool
+gpool=zeros(ngpool,N+1); % gene pool
+for i=1:ngpool, % intialize gene pool
+gpool(i,:)=[1 randomize([2:N]')' 1];
+for j=1:i-1
+while gpool(i,:)==gpool(j,:)
+       gpool(i,:)=[1 randomize([2:N]')' 1];
+                end
+             end
+          end
+
+costmin=100000;
+    tourmin=zeros(1,N);
+      cost=zeros(1,ngpool);
+increase=1;resultincrease=1;
+      for i=1:ngpool,
+          cost(i)=sum(diag(distance(gpool(i,:)',rshift(gpool(i,:))')));
+     end
+% record current best solution
+[costmin,idx]=min(cost);
+tourmin=gpool(idx,:);
+disp([num2str(increase) 'minmum trip length = ' num2str(costmin)])
+
+costminold2=200000;costminold1=150000;resultcost=100000;
+tourminold2=zeros(1,N);
+tourminold1=zeros(1,N);
+resulttour=zeros(1,N);
+while (abs(costminold2-costminold1) ;100)&(abs(costminold1-costmin) ;100)&(increase ;500)
+
+costminold2=costminold1; tourminold2=tourminold1;
+costminold1=costmin;tourminold1=tourmin;
+increase=increase+1;
+if resultcost>costmin
+   resultcost=costmin;
+   resulttour=tourmin;
+   resultincrease=increase-1;
+         end
+for i=1:ngpool,
+           cost(i)=sum(diag(distance(gpool(i,:)',rshift(gpool(i,:))')));
+end
+% record current best solution
+[costmin,idx]=min(cost);
+tourmin=gpool(idx,:);
+%==============
+% copy gens in th gpool according to the probility ratio
+% >1.1 copy twice
+% >=0.9 copy once
+% ;0.9 remove
+[csort,ridx]=sort(cost);
+% sort from small to big.
+csum=sum(csort);
+caverage=csum/ngpool;
+cprobilities=caverage./csort;
+copynumbers=0;removenumbers=0;
+for i=1:ngpool,
+    if cprobilities(i) >1.1
+             copynumbers=copynumbers+1;
+                    end
+           if cprobilities(i) <0.9
+                   removenumbers=removenumbers+1;
+                           end
+                end
+   copygpool=min(copynumbers,removenumbers);
+               for i=1:copygpool
+                  for j=ngpool:-1:2*i+2 gpool(j,:)=gpool(j-1,:);
+            end
+                   gpool(2*i+1,:)=gpool(i,:);
+          end
+                 if copygpool==0
+                       gpool(ngpool,:)=gpool(1,:);
+                  end
+%=========
+%when genaration is more than 50,or the patterns in a couple are too close,do mutation
+for i=1:ngpool/2
+        %
+sameidx=[gpool(2*i-1,:)==gpool(2*i,:)];
+diffidx=find(sameidx==0);
+           if length(diffidx)<=2
+                gpool(2*i,:)=[1 randomize([2:12]')' 1];
+                           end
+                               end
+%===========
+%cross gens in couples
+           for i=1:ngpool/2
+                  [gpool(2*i-1,:),gpool(2*i,:)]=crossgens(gpool(2*i-1,:),gpool(2*i,:));
+       end
+
+        for i=1:ngpool,
+              cost(i)=sum(diag(distance(gpool(i,:)',rshift(gpool(i,:))')));
+       end
+% record current best solution
+[costmin,idx]=min(cost);
+tourmin=gpool(idx,:);
+disp([num2str(increase) 'minmum trip length = ' num2str(costmin)])
+end  
+
+disp(['cost function evaluation: ' int2str(increase) ' times!'])
+disp(['n:' int2str(resultincrease)])
+disp(['minmum trip length = ' num2str(resultcost)])
+disp('optimum tour = ')
+disp(num2str(resulttour))
+%====================================================
+function B=randomize(A,rowcol)
+% Usage: B=randomize(A,rowcol)
+% randomize row orders or column orders of A matrix
+% rowcol: if =0 or omitted, row order (default)
+% if = 1, column order
+
+rand('state',sum(100*clock))
+if nargin == 1,
+        rowcol=0;
+end
+         if rowcol==0,
+              [m,n]=size(A);
+              p=rand(m,1);
+              [p1,I]=sort(p);
+              B=A(I,:);
+elseif rowcol==1,
+          Ap=A';
+          [m,n]=size(Ap);
+          p=rand(m,1);
+          [p1,I]=sort(p);
+          B=Ap(I,:)';
+end
+%=====================================================
+function y=rshift(x,dir)
+% Usage: y=rshift(x,dir)
+% rotate x vector to right (down) by 1 if dir = 0 (default)
+% or rotate x to left (up) by 1 if dir = 1
+if nargin ;2, dir=0; end
+[m,n]=size(x);
+if m>1,
+if n == 1,
+    col=1;
+elseif n>1,
+    error('x must be a vector! break');
+end % x is a column vectorelseif m == 1,
+if n == 1, y=x;
+return
+elseif n>1,
+     col=0; % x is a row vector endend
+if dir==1, % rotate left or up
+       if col==0, % row vector, rotate left
+             y = [x(2:n) x(1)];
+       elseif col==1,
+             y = [x(2:n); x(1)]; % rotate up
+end
+   elseif dir==0, % default rotate right or down
+              if col==0,
+                    y = [x(n) x(1:n-1)];
+             elseif col==1 % column vector
+                       y = [x(n); x(1:n-1)];
+                   end
+             end
+%==================================================
+function [L1,L2]=crossgens(X1,X2)
+% Usage:[L1,L2]=crossgens(X1,X2)
+s=randomize([2:12]')';
+n1=min(s(1),s(11));n2=max(s(1),s(11));
+X3=X1;X4=X2;
+for i=n1:n2,
+                for j=1:13,
+                     if X2(i)==X3(j),
+                          X3(j)=0;
+                             end
+                  if X1(i)==X4(j),                          X4(j)=0;
+               end
+           end
+        end
+   j=13;k=13;
+    for i=12:-1:2,
+          if X3(i)~=0,
+               j=j-1;
+                 t=X3(j);X3(j)=X3(i);X3(i)=t;
+               end
+                    if X4(i)~=0,
+                           k=k-1;
+                      t=X4(k);X4(k)=X4(i);X4(i)=t;
+                   end
+               end
+           for i=n1:n2
+              X3(2+i-n1)=X2(i);
+              X4(2+i-n1)=X1(i);
+           end
+L1=X3;L2=X4;
+%=======================

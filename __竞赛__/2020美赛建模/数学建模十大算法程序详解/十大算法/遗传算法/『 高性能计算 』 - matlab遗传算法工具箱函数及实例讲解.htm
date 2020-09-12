@@ -1,0 +1,1774 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&topic=1474 -->
+<HTML><HEAD><TITLE>『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<SCRIPT language=javaScript 
+src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/board.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javaScript 
+src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pz_chromeless_2.1.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT>
+function openScript(theURL, W, H) {
+var bIsIE5 = 0;
+if (bIsIE5) {
+wname ="Leoboard5000" 
+windowCERRARa = "http://www.lasg.ac.cn/forum/images/close_a.gif"  
+windowCERRARd = "http://www.lasg.ac.cn/forum/images/close_d.gif"
+windowCERRARo = "http://www.lasg.ac.cn/forum/images/close_o.gif"
+windowNONEgrf = "http://www.lasg.ac.cn/forum/images/none.gif" 
+windowCLOCK = "http://www.lasg.ac.cn/forum/images/clock.gif" 
+windowREALtit = "------| Leoboard Windows V2.1 |" 
+windowTIT = "<font style=\"font-size:12px;font-family:Verdana\">------| 雷傲论坛　http://www.LeoBoard.com/ |</font>" 
+windowBORDERCOLOR = "#000000" 
+windowBORDERCOLORsel = "#111111" 
+windowTITBGCOLOR = "#D7DCD9" 
+windowTITBGCOLORsel = "#FFFFFF" 
+winBGCOLOR = "#D7DCD9"
+openchromeless(theURL, wname, W, H, windowCERRARa, windowCERRARd, windowCERRARo, windowNONEgrf, windowCLOCK, windowTIT, windowREALtit , windowBORDERCOLOR, windowBORDERCOLORsel, windowTITBGCOLOR, windowTITBGCOLORsel)
+}else{
+var Win=window.open(theURL,"openScript",'width='+W+',height='+H+',resizable=1,scrollbars=yes,menubar=yes,status=yes');}
+}
+</SCRIPT>
+<!--end Java--><!--css info(editable)-->
+<STYLE>A:visited {
+	TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline overline
+}
+A:link {
+	TEXT-DECORATION: none
+}
+.t {
+	LINE-HEIGHT: 1.4
+}
+BODY {
+	FONT-SIZE: 9pt; SCROLLBAR-HIGHLIGHT-COLOR: buttonface; SCROLLBAR-SHADOW-COLOR: buttonface; SCROLLBAR-3DLIGHT-COLOR: buttonhighlight; SCROLLBAR-TRACK-COLOR: #eeeeee; FONT-FAMILY: 宋体; SCROLLBAR-DARKSHADOW-COLOR: buttonshadow
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+DIV {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+FORM {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+OPTION {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+P {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+BR {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体
+}
+INPUT {
+	BORDER-TOP-WIDTH: 1px; PADDING-RIGHT: 1px; PADDING-LEFT: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #cccccc; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #cccccc; PADDING-BOTTOM: 1px; BORDER-TOP-COLOR: #cccccc; PADDING-TOP: 1px; HEIGHT: 18px; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #cccccc
+}
+TEXTAREA {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; BORDER-TOP-COLOR: #000000; FONT-FAMILY: 宋体; BACKGROUND-COLOR: #efefef; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+SELECT {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; BORDER-TOP-COLOR: #000000; FONT-FAMILY: 宋体; BACKGROUND-COLOR: #efefef; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+</STYLE>
+<!--end css info-->
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY vLink=#333333 aLink=#333333 link=#333333 bgColor=#e8f4ff leftMargin=0 
+topMargin=0>
+<TABLE cellSpacing=0 cellPadding=1 width="97%" align=center bgColor=#333333 
+border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD background="" bgColor=#90c8ff><FONT color=#000000>&gt;&gt; 
+            欢迎您，<B>客人</B>： <A title=从这里开始进入论坛 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/loginout.cgi?forum=4">登陆</A> 
+            | <A title=注册了才能发表文章哦！ 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/register.cgi">注册</A> | <A 
+            title=好惨啊，忘记密码登陆不了 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=lostpassword">忘记密码</A> 
+            | <A title=看看有谁在线…… 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/whosonline.cgi">在线</A> | 
+            <A title=按关键字、作者来搜寻 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?forum=4">搜索</A> 
+            | <A title=常见问题的解答 
+            href="javascript:openScript('help.cgi',500,400)">帮助</A> </FONT></TD>
+          <TD align=right background="" bgColor=#90c8ff><A 
+            href="http://www.lasg.ac.cn/" target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/gohome.gif" width=48 
+            border=0></A>&nbsp; </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="30%" rowSpan=2><A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/forums.cgi?forum=4"><IMG 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/logo.gif" border=0></A></TD>
+    <TD align=top><FONT color=#333333><IMG 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/closedfold.gif">　<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/leoboard.cgi">动力论坛</A><BR><IMG 
+      height=15 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar.gif" 
+      width=15><IMG height=14 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/closedfold.gif" width=14>　<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/forums.cgi?forum=4">『 高性能计算 
+      』</A><BR>　 <IMG height=15 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar.gif" width=15><IMG 
+      height=14 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/openfold.gif" 
+      width=14>　matlab遗传算法工具箱函数及实例讲解　 <A name=top></A></FONT></TD>
+  <TR>
+    <TD vAlign=bottom align=right><FONT color=#000000><A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/forums.cgi?forum=4&amp;action=resetposts">标记论坛所有内容为已读</A>　 
+      <A href="javascript:openScript('help.cgi?helpon=阅读标记',500,400)"><IMG 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/help_b.gif" 
+      border=0></A>&nbsp;<BR>&gt;&gt; 『 高性能计算 』欢迎您的到来 &lt;&lt;&nbsp;</FONT> 
+  </TD></TR></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=0 cellPadding=1 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle width=1></TD>
+    <TD vAlign=bottom width=360><A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=new&amp;forum=4"><IMG 
+      height=25 alt=发表一个新主题 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/newthread.gif" width=99 
+      border=0></A>　<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+      height=25 alt=回复贴子 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/newreply.gif" width=99 
+      border=0></A>　<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/poll.cgi?action=new&amp;forum=4"><IMG 
+      height=25 alt=开启一个新投票 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/newpoll.gif" width=99 
+      border=0></A></TD>
+    <TD vAlign=bottom align=right width=*><FONT 
+      color=#333333>您是本帖第&nbsp;<B>228</B>&nbsp;个阅读者&nbsp;&nbsp;<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=2021"><IMG 
+      height=12 alt=浏览上一篇主题 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/prethread.gif" width=52 
+      border=0></A>&nbsp;　<A href="javascript:this.location.reload()"><IMG 
+      height=12 alt=刷新本主题 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/refresh.gif" width=40 
+      border=0></A>　<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=2026"><IMG 
+      height=12 alt=浏览下一篇主题 
+      src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/nextthread.gif" width=52 
+      border=0></A></FONT></TD>
+    <TD align=middle width=2></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#90c8ff colSpan=2>
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#90c8ff><FONT color=#333333>&nbsp;<B>* 贴子主题</B>： 
+            matlab遗传算法工具箱函数及实例讲解　　</FONT><A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=13 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replytothread.gif" 
+            border=0></A></TD>
+          <TD align=right bgColor=#90c8ff><A 
+            onclick=javascript:WebBrowser.ExecWB(4,1) 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=1474#"><IMG 
+            height=14 alt=保存该页为文件 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/saveas.gif" width=14 
+            border=0></A>&nbsp;
+            <OBJECT id=WebBrowser height=0 width=0 
+            classid=CLSID:8856F961-340A-11D0-A96B-00C04FD705A2></OBJECT><A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/report.cgi?forum=4&amp;topic=1474"><IMG 
+            height=15 alt=本贴有问题，发送短消息报告给版主 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/report.gif" width=16 
+            border=0></A>&nbsp; <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/fav.cgi?action=add&amp;forum=4&amp;topic=1474"><IMG 
+            height=15 alt=加入个人收藏&amp;关注本贴 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/fav.gif" width=13 
+            border=0></A>&nbsp; <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/printpage.cgi?forum=4&amp;topic=1474"><IMG 
+            height=16 alt=显示可打印的版本 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/printpage.gif" width=16 
+            border=0></A>&nbsp; <A 
+            href="javascript:openScript('pag.cgi?forum=4&amp;topic=1474',500,400)"><IMG 
+            height=16 alt=把本贴打包邮递 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pag.gif" width=16 
+            border=0></A>&nbsp; <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=1474#"><SPAN 
+            style="CURSOR: hand" 
+            onclick="window.external.AddFavorite('http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=1474', ' 动力论坛 - matlab遗传算法工具箱函数及实例讲解')"><IMG 
+            height=15 alt=把本贴加入IE收藏夹 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/fav_add1.gif" width=15 
+            border=0></SPAN></A>&nbsp; <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lbfriend.cgi?forum=4&amp;topic=1474"><IMG 
+            height=16 alt=发送本页面给朋友 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/emailtofriend.gif" 
+            width=16 border=0></A>&nbsp;</TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#996699,direction=135)">&nbsp;<FONT 
+                    color=#ffffff><B>海阔天空</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　<IMG height=14 alt=哦，帅哥哟 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/mal.gif" width=20> 
+                  <IMG alt=此人为版主 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/teammo.gif" 
+                  width=16></TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555>头衔: 
+            论坛版主<BR></FONT>&nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <IMG 
+            height=90 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/4_1472.gif" 
+            width=74> <BR>&nbsp;<IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pips4.gif" width=100> 
+            <BR>&nbsp;<FONT color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT 
+            color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>精灵王</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 安徽合肥 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=3850 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=20></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 5352 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>369</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/02/02</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给海阔天空发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=海阔天空',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看海阔天空的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=海阔天空"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索海阔天空在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=海阔天空" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加海阔天空为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=海阔天空',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:ahzhming@163.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=1"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=1"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/00.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT color=#555555>matlab遗传算法工具箱函数及实例讲解 
+                  <BR><BR>gaotv5 <BR><BR>核心函数： <BR>(1)function 
+                  [pop]=initializega(num,bounds,eevalFN,eevalOps,options)--初始种群的生成函数 
+                  <BR>【输出参数】 <BR>&nbsp;pop--生成的初始种群 <BR>【输入参数】 
+                  <BR>&nbsp;num--种群中的个体数目 <BR>&nbsp;bounds--代表变量的上下界的矩阵 
+                  <BR>&nbsp;eevalFN--适应度函数 <BR>&nbsp;eevalOps--传递给适应度函数的参数 
+                  <BR>&nbsp;options--选择编码形式(浮点编码或是二进制编码)[precision F_or_B],如 
+                  <BR>&nbsp; &nbsp; precision--变量进行二进制编码时指定的精度 <BR>&nbsp; &nbsp; 
+                  F_or_B--为1时选择浮点编码，否则为二进制编码,由precision指定精度) <BR><BR>(2)function 
+                  [x,endPop,bPop,traceInfo] = 
+                  ga(bounds,evalFN,evalOps,startPop,opts,... <BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; 
+                  &nbsp;termFN,termOps,selectFN,selectOps,xOverFNs,xOverOps,mutFNs,mutOps)--遗传算法函数 
+                  <BR>【输出参数】 <BR>&nbsp; &nbsp; x--求得的最优解 <BR>&nbsp; &nbsp; 
+                  endPop--最终得到的种群 <BR>&nbsp; &nbsp; bPop--最优种群的一个搜索轨迹 <BR>【输入参数】 
+                  <BR>&nbsp; &nbsp; bounds--代表变量上下界的矩阵 <BR>&nbsp; &nbsp; 
+                  evalFN--适应度函数 <BR>&nbsp; &nbsp; evalOps--传递给适应度函数的参数 
+                  <BR>&nbsp; &nbsp; startPop-初始种群 <BR>&nbsp; &nbsp; opts[epsilon 
+                  prob_ops 
+                  display]--opts(1:2)等同于initializega的options参数，第三个参数控制是否输出，一般为0。如[1e-6 
+                  1 0] <BR>&nbsp; &nbsp; termFN--终止函数的名称,如['maxGenTerm'] 
+                  <BR>&nbsp; &nbsp; termOps--传递个终止函数的参数,如[100] <BR>&nbsp; &nbsp; 
+                  selectFN--选择函数的名称,如['normGeomSelect'] <BR>&nbsp; &nbsp; 
+                  selectOps--传递个选择函数的参数,如[0.08] <BR>&nbsp; &nbsp; 
+                  xOverFNs--交叉函数名称表，以空格分开，如['arithXover heuristicXover 
+                  simpleXover'] <BR>&nbsp; &nbsp; xOverOps--传递给交叉函数的参数表，如[2 0;2 
+                  3;2 0] <BR>&nbsp; &nbsp; mutFNs--变异函数表，如['boundaryMutation 
+                  multiNonUnifMutation nonUnifMutation unifMutation'] <BR>&nbsp; 
+                  &nbsp; mutOps--传递给交叉函数的参数表,如[4 0 0;6 100 3;4 100 3;4 0 0] 
+                  <BR><BR>注意】matlab工具箱函数必须放在工作目录下 
+                  <BR>【问题】求f(x)=x+10*sin(5x)+7*cos(4x)的最大值，其中0&lt;=x&lt;=9 
+                  <BR>【分析】选择二进制编码，种群中的个体数目为10，二进制编码长度为20，交叉概率为0.95,变异概率为0.08 
+                  <BR>【程序清单】 <BR>&nbsp; &nbsp;%编写目标函数 <BR>&nbsp; &nbsp; 
+                  &nbsp;function[sol,eval]=fitness(sol,options) <BR>&nbsp; 
+                  &nbsp; &nbsp; &nbsp;x=sol(1); <BR>&nbsp; &nbsp; &nbsp; 
+                  &nbsp;eval=x+10*sin(5*x)+7*cos(4*x); <BR>&nbsp; 
+                  &nbsp;%把上述函数存储为fitness.m文件并放在工作目录下 <BR>&nbsp; &nbsp; 
+                  <BR>&nbsp; &nbsp;initPop=initializega(10,[0 
+                  9],'fitness');%生成初始种群，大小为10 <BR>&nbsp; &nbsp;[x 
+                  endPop,bPop,trace]=ga([0 9],'fitness',[],initPop,[1e-6 1 
+                  1],'maxGenTerm',25,'normGeomSelect',... <BR>&nbsp; &nbsp; 
+                  &nbsp;[0.08],['arithXover'],[2],'nonUnifMutation',[2 25 3]) 
+                  %25次遗传迭代 <BR><BR>运算借过为：x = <BR>&nbsp; &nbsp;7.8562 
+                  24.8553(当x为7.8562时，f（x）取最大值24.8553) 
+                  <BR><BR>注：遗传算法一般用来取得近似最优解，而不是最优解。另外遗传算法的收敛性跟其初始值有关，大家运行上面的命令所得到的借过可能跟我的借过不同或是差别很大。但多执行几次上面的命令（随即取不同的初始群体）一定可以得到近似最优解。 
+                  <BR><BR><BR><BR>遗传算法实例2 
+                  <BR><BR>【问题】在－5&lt;=Xi&lt;=5,i=1,2区间内，求解 <BR>&nbsp; &nbsp; 
+                  &nbsp; 
+                  &nbsp;f(x1,x2)=-20*exp(-0.2*sqrt(0.5*(x1.^2+x2.^2)))-exp(0.5*(cos(2*pi*x1)+cos(2*pi*x2)))+22.71282的最小值。 
+                  <BR>【分析】种群大小10，最大代数1000，变异率0.1,交叉率0.3 <BR>【程序清单】 <BR>&nbsp; 
+                  &nbsp;％源函数的matlab代码 <BR>&nbsp; &nbsp; &nbsp; function 
+                  [eval]=f(sol) <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  numv=size(sol,2); <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  x=sol(1:numv); <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  eval=-20*exp(-0.2*sqrt(sum(x.^2)/numv)))-exp(sum(cos(2*pi*x))/numv)+22.71282; 
+                  <BR>&nbsp; %适应度函数的matlab代码 <BR>&nbsp; &nbsp; &nbsp; function 
+                  [sol,eval]=fitness(sol,options) <BR>&nbsp; &nbsp; &nbsp; 
+                  &nbsp; numv=size(sol,2)-1; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  x=sol(1:numv); <BR>&nbsp; &nbsp; &nbsp; &nbsp; eval=f(x); 
+                  <BR>&nbsp; &nbsp; &nbsp; &nbsp; eval=-eval; <BR>&nbsp; 
+                  %遗传算法的matlab代码 <BR>&nbsp; &nbsp; &nbsp; bounds=ones(2,1)*[-5 
+                  5]; <BR>&nbsp; &nbsp; &nbsp; 
+                  [p,endPop,bestSols,trace]=ga(bounds,'fitness') 
+                  <BR><BR>注：前两个文件存储为m文件并放在工作目录下，运行结果为 <BR>&nbsp; &nbsp;p = 
+                  <BR>&nbsp; &nbsp;0.0000 -0.0000 0.0055 
+                  <BR><BR><BR><BR>大家可以直接绘出f(x)的图形来大概看看f（x）的最值是多少，也可是使用优化函数来验证。matlab命令行执行命令： 
+                  <BR>&nbsp;fplot('x+10*sin(5*x)+7*cos(4*x)',[0,9]) 
+                  <BR><BR><BR>evalops是传递给适应度函数的参数，opts是二进制编码的精度，termops是选择maxGenTerm结束函数时传递个maxGenTerm的参数，即遗传代数。xoverops是传递给交叉函数的参数。mutops是传递给变异函数的参数，具体含义我也没弄懂，我觉得有点怪。 
+                  <BR>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><BR><BR>------------------------------------------------------------------------------------<BR>与人方便，与己方便。<BR>学得越多，问题越多；为别人解决的问题越多，自己学的东西也越多。<BR>寻找Genetic 
+                        Programming爱好者。</TD></TR></TBODY></TABLE><BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=1"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=1"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/04/27 09:50pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>guangleigama</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=125 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1031 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>2</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/11</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给guangleigama发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=guangleigama',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看guangleigama的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=guangleigama"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索guangleigama在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=guangleigama" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加guangleigama为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=guangleigama',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:guangleigama@163.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=2"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=2"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/01.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT 
+                  color=#333333>斑竹你好，我最近在学习遗传算法的时候遇到一些难题，想向你请教一下，能不能告诉我一下你的QQ等联系方式啊。 
+                  <BR>我的是122779267，谢谢 <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=2"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=2"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/11 01:36am　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#996699,direction=135)">&nbsp;<FONT 
+                    color=#ffffff><B>海阔天空</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　<IMG height=14 alt=哦，帅哥哟 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/mal.gif" width=20> 
+                  <IMG alt=此人为版主 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/teammo.gif" 
+                  width=16></TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555>头衔: 
+            论坛版主<BR></FONT>&nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <IMG 
+            height=90 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/4_1472.gif" 
+            width=74> <BR>&nbsp;<IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pips4.gif" width=100> 
+            <BR>&nbsp;<FONT color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT 
+            color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>精灵王</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 安徽合肥 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=3850 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=20></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 5352 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>369</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/02/02</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给海阔天空发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=海阔天空',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看海阔天空的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=海阔天空"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索海阔天空在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=海阔天空" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加海阔天空为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=海阔天空',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:ahzhming@163.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=3"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=3"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/19.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT color=#555555>我的QQ:19364301，我已经加了你的号码。 
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><BR><BR>------------------------------------------------------------------------------------<BR>与人方便，与己方便。<BR>学得越多，问题越多；为别人解决的问题越多，自己学的东西也越多。<BR>寻找Genetic 
+                        Programming爱好者。</TD></TR></TBODY></TABLE><BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=3"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=3"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/11 12:08pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>guangleigama</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=125 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1031 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>2</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/11</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给guangleigama发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=guangleigama',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看guangleigama的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=guangleigama"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索guangleigama在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=guangleigama" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加guangleigama为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=guangleigama',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:guangleigama@163.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=4"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=4"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/09.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT color=#333333>谢谢，还请多多指教 
+                <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=4"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=4"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/11 12:19pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>google888</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=135 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1061 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>2</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/12</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给google888发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=google888',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看google888的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=google888"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索google888在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=google888" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加google888为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=google888',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:szk_online@sina.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=5"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=5"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/20.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT 
+                  color=#555555>我需要设置的交叉率和变异率分别为0.95和0.08，怎么在ga函数参数中体现出来，xOverOps和 
+                  mutOps怎么会是矩阵，请教了 <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=5"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=5"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/12 10:21pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>lgasri</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=110 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1008 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>1</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/18</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给lgasri发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=lgasri',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看lgasri的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=lgasri"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索lgasri在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=lgasri" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加lgasri为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=lgasri',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:lg_asri@yahoo.com.cn"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=6"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=6"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/14.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT color=#333333>请问这个工具箱在哪里可以下载?拜托告知,谢谢! 
+                  <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=6"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=6"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/18 03:20pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>一山木</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=146 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=4></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1066 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>4</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/19</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给一山木发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=一山木',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看一山木的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=一山木"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索一山木在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=一山木" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加一山木为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=一山木',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:xiaomei@sina.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=7"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=7"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/20.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT 
+                  color=#555555>斑竹,我的毕业设计恰好是基于人工免疫系统的优化问题,用的是免疫遗传算法求解tsp问题,涉及到种群的初始化,选择策略,适应度函数,交叉和变异算子,要用matlab编程实现,我的编程语言学的不好,可否赐教,我的qq是76349773 
+                  <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=7"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=7"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/19 10:21am　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>fw2008</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=152 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=4></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1078 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>5</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/23</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给fw2008发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=fw2008',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看fw2008的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=fw2008"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索fw2008在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=fw2008" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加fw2008为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=fw2008',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:guojiangj2003@126.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=8"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=8"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/09.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT color=#333333>多谢版主了 <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=8"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=8"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/23 08:38pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>残剑</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <IMG height=100 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/9_2307_4.gif" width=100> 
+            <BR>&nbsp;<IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pips5.gif" width=100> 
+            <BR>&nbsp;<FONT color=#555555>威望: +2</FONT> <BR>&nbsp;<FONT 
+            color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>风云使者</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=4769 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=23></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 5301 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>490</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/04/29</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给残剑发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=残剑',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看残剑的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=残剑"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索残剑在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=残剑" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加残剑为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=残剑',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:fnfly@sina.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=9"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=9"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/04.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT color=#555555>matlab工具箱自带就有吧。 
+                  <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=9"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=9"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/05/23 09:49pm　<IMG height=15 alt="此 IP 为代理服务器" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>schnee</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=118 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1018 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>2</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/05/21</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给schnee发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=schnee',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看schnee的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=schnee"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索schnee在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=schnee" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加schnee为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=schnee',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:schnee@sohu.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=10"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=10"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/02.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT 
+                  color=#333333>我在网上下载了一个遗传算法的源程序，就是你例子1中的f(x)函数，可是运行中总是出错，斑竹能帮忙解决一下吗？我的QQ是75910615 
+                  <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=10"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=10"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/06/07 08:37pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#f2f8ff>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#f2f8ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#f2f8ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>pony</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp; <BR>&nbsp;<FONT 
+            color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>新手上路</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=120 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=3></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1016 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>2</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/08/27</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#f2f8ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#f2f8ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给pony发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=pony',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看pony的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=pony"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索pony在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=pony" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加pony为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=pony',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:crazy00house@163.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=11"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=11"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/04.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#555555><FONT 
+                  color=#555555>-------------------------------------------------------------------------------- 
+                  <BR>&nbsp;请问这个工具箱在哪里可以下载?拜托告知,谢谢! <BR>crazy00house@163.com 
+                  <BR><BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#f2f8ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#555555>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=11"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=11"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/08/27 05:46pm　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=1 bgColor=#000000 height=24></TD>
+    <TD bgColor=#e8f4ff><A name=end>
+      <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#e8f4ff>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=178 bgColor=#e8f4ff rowSpan=2><IMG height=4 
+            src="" width=0><BR>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD width=30>&nbsp;<IMG height=15 alt=该用户目前不在线 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/offline1.gif" 
+                  width=15></TD>
+                <TD>
+                  <TABLE 
+                    style="FILTER: glow(color=#9898BA,direction=135)">&nbsp;<FONT 
+                    color=#000066><B>kitty2003</B></FONT>&nbsp;
+                    <TBODY></TBODY></TABLE></TD>
+                <TD>　 </TD></TR></TBODY></TABLE>&nbsp;<FONT color=#555555></FONT> 
+            &nbsp;<FONT color=#333333></FONT> <BR>&nbsp;<IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/pips1.gif" width=100> 
+            <BR>&nbsp;<FONT color=#555555>威望: 0</FONT> <BR>&nbsp;<FONT 
+            color=#333333>级别: <A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/lookinfo.cgi?action=style" 
+            target=_blank>侠客</A></FONT> <BR>&nbsp;<FONT color=#555555>来自: 保密 
+            </FONT><BR>&nbsp;<FONT color=#333333>鉴定: 已设置保密</FONT> 
+            <BR>&nbsp;<FONT color=#555555>魅力: <IMG height=8 alt=518 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar4.gif" 
+            width=7></FONT> <BR>&nbsp;<FONT color=#333333>经验: <IMG height=8 
+            alt=100 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/bar5.gif" 
+            width=1></FONT> <BR>&nbsp;<FONT color=#555555>金钱: 1480 雷傲元</FONT> 
+            <BR>&nbsp;<FONT color=#333333>总发贴数: <B>41</B> 篇</FONT> 
+            <BR>&nbsp;<FONT color=#555555>注册日期: 2004/06/08</FONT><BR><IMG 
+            height=4 src="" width=0><BR></TD>
+          <TD width=1 bgColor=#e8f4ff height="100%" rowSpan=2>
+            <TABLE height="100%" cellSpacing=0 cellPadding=0 width=1 
+            bgColor=#90c8ff>
+              <TBODY>
+              <TR>
+                <TD width=1></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top width=* bgColor=#e8f4ff height="100%"><IMG height=4 
+            src="" width=0><BR>&nbsp;<A title=给kitty2003发送一个短消息 
+            href="javascript:openScript('messanger.cgi?action=new&amp;touser=kitty2003',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/message.gif" 
+            width=16 border=0>消息</A>　<A title=查看kitty2003的个人资料 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=show&amp;member=kitty2003"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/profile.gif" 
+            width=16 border=0>查看</A>　<A title=搜索kitty2003在本分论坛的全部贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/search.cgi?action=startsearch&amp;TYPE_OF_SEARCH=username_search&amp;NAME_SEARCH=topictitle_search&amp;FORUMS_TO_SEARCH=4&amp;SEARCH_STRING=kitty2003" 
+            target=_blank><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/find.gif" width=16 
+            border=0>搜索</A>　<A title=加kitty2003为我的好友 
+            href="javascript:openScript('friendlist.cgi?action=adduser&amp;adduser=kitty2003',420,320)"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/friend.gif" 
+            width=16 border=0>好友</A>　<A title=电子邮件地址 
+            href="mailto:zhaohappy2003@hotmail.com"><IMG height=16 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/email.gif" width=16 
+            border=0>邮件</A>　<A title=复制这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=copy1&amp;forum=4&amp;topic=1474&amp;postno=12"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/copy.gif" 
+            width=16 border=0>复制</A>　<A title=引用回复这个贴子 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=replyquote&amp;forum=4&amp;topic=1474&amp;postno=12"><IMG 
+            height=16 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/reply.gif" 
+            width=16 border=0>引用</A>　<A 
+            href="http://www.lasg.ac.cn/cgi-bin/forum/post.cgi?action=reply&amp;forum=4&amp;topic=1474"><IMG 
+            height=16 alt=回复贴子 
+            src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/replynow.gif" width=16 
+            border=0>回复</A>　<BR>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=32><IMG height=13 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/16.gif" 
+                width=13>&nbsp;</TD>
+                <TD 
+                style="LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 130%; LETTER-SPACING: 0pt; WORD-WRAP: break-word"><FONT 
+                  color=#333333><FONT color=#333333>ha &nbsp;我也是搞遗传的 
+                  &nbsp;哈以后多联系 &nbsp;252301370 <BR></FONT></FONT></TD>
+                <TD width=16></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=bottomline vAlign=bottom bgColor=#e8f4ff>
+            <HR width="100%" color=#000000 SIZE=1>
+
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom><FONT color=#333333>&nbsp;<A title=编辑这个贴子 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=edit&amp;forum=4&amp;topic=1474&amp;postno=12"><IMG 
+                  height=15 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/edit.gif" width=16 
+                  border=0>编辑</A>　<A title=删除这个回复 
+                  href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=directdel&amp;forum=4&amp;topic=1474&amp;postno=12"><IMG 
+                  height=16 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/a_delete.gif" 
+                  width=52 align=absMiddle border=0></A>　<IMG height=15 alt=发贴时间 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/posttime.gif" 
+                  width=16>2004/08/30 10:38am　<IMG height=15 alt="" 
+                  src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/ip.gif" 
+                  width=13>IP: 已设置保密</FONT></TD>
+                <TD vAlign=bottom align=right width=110 nowarp></TD></FORM>
+                <TD vAlign=bottom align=right width=4></TD></TR></TBODY></TABLE><IMG 
+            height=4 src="" width=0><BR></TD></TR></TBODY></TABLE></A></TD>
+    <TD width=1 bgColor=#000000 height=24></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD height=1></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=2 cellPadding=0 width="97%" align=center border=0>
+  <TBODY>
+  <TR bgColor=#90c8ff height=4></TR>
+  <TR>
+    <TD><FONT color=#000000>&nbsp;<FONT color=#000000>该主题只有一页</FONT></FONT></TD>
+    <TD noWrap align=right>
+      <SCRIPT language=JavaScript>
+<!-- 
+function menu(){
+var URL = document.jump.jumpto.options[document.jump.jumpto.selectedIndex].value;
+top.location.href = URL; target = '_self';
+}
+// -->
+</SCRIPT>
+
+      <FORM name=jump action=http://www.lasg.ac.cn/cgi-bin/forum/forums.cgi 
+      method=post><SELECT onchange=menu() name=jumpto> <OPTION 
+        value=http://www.lasg.ac.cn/cgi-bin/forum/leoboard.cgi 
+        selected>跳转论坛至...<OPTION value=forums.cgi?forum=1>╋◇ 站务管理 ◇<OPTION 
+        value=forums.cgi?forum=1>　├『 本站站务公告区 』<OPTION 
+        value=forums.cgi?forum=2>╋◇ 专业领域 ◇<OPTION value=forums.cgi?forum=2>　├『 
+        大气、海洋、流体 』<OPTION value=forums.cgi?forum=3>　├『 专业绘图软件 』<OPTION 
+        value=forums.cgi?forum=4>　├『 高性能计算 』<OPTION 
+        value=forums.cgi?forum=11>　├『 模式发展 』<OPTION 
+        value=forums.cgi?forum=12>　├『 创新群体 』<OPTION 
+        value=forums.cgi?forum=13>　├『 资料与数据处理 』<OPTION 
+        value=forums.cgi?forum=5>╋◇ 技术专区 ◇<OPTION value=forums.cgi?forum=5>　├『 
+        技术专区 』<OPTION value=forums.cgi?forum=7>　├『 疑难杂症 』<OPTION 
+        value=forums.cgi?forum=8>╋◇ 八小时以外 ◇<OPTION value=forums.cgi?forum=8>　├『 
+        开心解闷总动员 』<OPTION value=forums.cgi?forum=10>　├『 体育健身 』<OPTION 
+        value=forums.cgi?forum=9>　├『 灌水乐园 』</OPTION></SELECT> 
+</TD></FORM></TR></TBODY></TABLE>
+<FORM name=FORM action=post.cgi?action=reply&amp;forum=4&amp;topic=1474 
+method=post encType=multipart/form-data><INPUT type=hidden value=addreply 
+name=action> <INPUT type=hidden value=4 name=forum> <INPUT type=hidden 
+value=1474 name=topic> 
+<TABLE cellSpacing=1 cellPadding=5 width="97%" align=center bgColor=#000000 
+border=0>
+  <TBODY>
+  <TR>
+    <TD width=178 bgColor=#90c8ff><FONT color=#333333><B>快速回复主题:</B></FONT></TD>
+    <TD width=* bgColor=#90c8ff colSpan=2><FONT 
+      color=#333333>matlab遗传算法工具箱函数及实例讲解</FONT></TD></TR>
+  <TR>
+    <TD bgColor=#c8e4ff><FONT color=#333333><B>输入用户名和密码:</B></FONT></TD>
+    <TD bgColor=#c8e4ff><FONT color=#333333><B>用户名</B>: <INPUT value=客人 
+      name=membername> <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/register.cgi">没有注册？</A>　 
+      <B>密码:</B> <INPUT type=password name=password> <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/profile.cgi?action=lostpass">忘记密码？</A></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width=178 bgColor=#e8f4ff><FONT color=#333333><BR><INPUT 
+      type=checkbox CHECKED value=yes name=inshowsignature>显示您的签名？<BR><INPUT 
+      type=checkbox value=yes name=notify>有回复时使用邮件通知您？<BR><INPUT type=checkbox 
+      CHECKED value=yes name=inshowemoticons>使用表情字符转换？<BR>&nbsp;预览？<INPUT 
+      type=radio value=yes name=previewfirst>是&nbsp;<INPUT type=radio CHECKED 
+      value=no name=previewfirst>否</FONT></TD>
+    <TD width=* bgColor=#e8f4ff colSpan=2><TEXTAREA onkeydown=ctlent() title=可以使用Ctrl+Enter直接提交贴子 style="WIDTH: 100%" name=inpost rows=8 cols=80></TEXTAREA><BR>
+      <CENTER><INPUT onclick="return clckcntr();" type=submit value="发 表" name=Submit>　　<INPUT type=reset value="清 空" name=Clear>　[Ctrl+Enter直接提交贴子]</CENTER></TD></TR></TBODY></TABLE></FORM><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="97%" align=center>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;<A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/topic.cgi?forum=4&amp;topic=1474#top"><IMG 
+      height=15 src="『 高性能计算 』 - matlab遗传算法工具箱函数及实例讲解.files/gotop.gif" width=15 
+      align=absMiddle border=0>顶端</A></TD>
+    <TD noWrap align=right><FONT color=#000000><B>主题管理</B>： <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/jinghua.cgi?action=add&amp;forum=4&amp;topic=1474">精华</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=locktop&amp;forum=4&amp;topic=1474">固顶</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=unlocktop&amp;forum=4&amp;topic=1474">取消固顶</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=puttop&amp;forum=4&amp;topic=1474">提升</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=lock&amp;forum=4&amp;topic=1474">锁定</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=unlock&amp;forum=4&amp;topic=1474">解锁</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=delete&amp;forum=4&amp;topic=1474">删除</A> 
+      | <A 
+      href="http://www.lasg.ac.cn/cgi-bin/forum/postings.cgi?action=movetopic&amp;forum=4&amp;topic=1474">移动</A>&nbsp; 
+      </FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<CENTER>
+<HR width=385 SIZE=1>
+
+<TABLE cellSpacing=0 cellPadding=0 width="80%" align=center>
+  <TBODY>
+  <TR>
+    <TD align=middle>
+      <P style="LINE-HEIGHT: 140%"><FONT color=#333333>&copy; 中文版权所有： <A 
+      href="http://www.lasg.ac.cn/">LASG</A>　 版本： <A 
+      href="http://www.leoboard.com/download.htm">Yanni Edition 
+      V1018a</A></FONT><BR>本论坛言论纯属发表者个人意见，与 <B>动力论坛</B> 立场无关 
+</P></TD></TR></TBODY></TABLE></CENTER>
+<CENTER><FONT color=#c0c0c0>占用 CPU 时间：(0.8 usr + 0.17 sys = 0.97 
+CPU)</FONT></CENTER></BODY></HTML>
